@@ -1,51 +1,24 @@
 extends Control
 
-var SynthFunctions = preload("./util/scripts/synth_functions.gd")
-
 onready var player = $AudioStreamPlayer
 
-# Function that defines the waveform being played
-func sound_function(t):
-	# Example function: Adds amplitudes of multiple
-	# waveforms
+func _init():
+	var dir = Directory.new()
+	dir.open("res://Instruments")
+	dir.list_dir_begin(true, true)
 
-	# Sub-waveforms
-	var funcs = [
-		SynthFunctions.sine_wave(t, 941.00),
-		SynthFunctions.sine_wave(t, 1336.00),
-	]
+	var instrument_name = dir.get_next()
+	while instrument_name != "":
+		if dir.file_exists("./%s/instrument.gd" % instrument_name):
+			var instrument = load("%s/%s/instrument.gd" % [dir.get_current_dir(), instrument_name])
+			GoDAW.register_instrument(instrument_name, instrument.new())
+		else:
+			push_warning("Instrument %s does not have an instrument.gd file" % instrument_name)
 
-	# Add amplitudes
-	var amp = 0
-	for f in funcs:
-		amp += f
-
-	# Return normalized wave
-	return amp / funcs.size()
+		instrument_name = dir.get_next()
 
 func _ready():
-	# Create sample and set its sample rate
-	var sample = AudioStreamSample.new()
-	sample.mix_rate = 44100
-
-	# Loop sample if needed (disabled for now)
-	sample.loop_mode = AudioStreamSample.LOOP_DISABLED
-	sample.loop_begin = 0
-	sample.loop_end = sample.mix_rate
-
-	# Prepare samples buffer
-	var data = PoolByteArray([])
-
-	# Start sampling
-	for t in sample.mix_rate:
-		# Call waveform function at each sample interval
-		var amplitude = sound_function(float(t) / sample.mix_rate)
-		# Store into sample buffer
-		data.append(127 * amplitude)
-
-	# Set buffer
-	sample.data = data
-
+	var osc = GoDAW.get_instrument("TripleOsc")
 	# Set stream and play
-	player.stream = sample
+	player.stream = osc.create_sample()
 	player.play()

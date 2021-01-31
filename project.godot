@@ -8,8 +8,39 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "Instrument",
+"language": "GDScript",
+"path": "res://addons/godaw_toolkit/Classes/Instrument.gd"
+}, {
+"base": "Instrument",
+"class": "TripleOsc",
+"language": "GDScript",
+"path": "res://Instruments/TripleOsc/instrument.gd"
+}, {
+"base": "Reference",
+"class": "Waveforms",
+"language": "GDScript",
+"path": "res://addons/godaw_toolkit/Classes/Waveforms.gd"
+} ]
+_global_script_class_icons={
+"Instrument": "",
+"MIDI": "",
+"TripleOsc": "",
+"Waveforms": ""
+}
+
 [application]
 
 config/name="GoDAW"
 run/main_scene="res://Main.tscn"
 run/low_processor_mode=true
+
+[autoload]
+
+GoDAW="*res://addons/godaw_toolkit/API/GoDAW.gd"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "godaw_toolkit" )
