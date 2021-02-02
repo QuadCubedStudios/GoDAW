@@ -41,23 +41,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Files" type="Tree" parent="VBoxContainer/EditorView"]
-margin_right = 335.0
-margin_bottom = 566.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="ScriptEditor" type="TextEdit" parent="VBoxContainer/EditorView"]
-margin_left = 347.0
+[node name="Instruments" type="ItemList" parent="VBoxContainer/EditorView"]
 margin_right = 1024.0
 margin_bottom = 566.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
-highlight_current_line = true
-syntax_highlighting = true
-show_line_numbers = true
-draw_tabs = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+grow_horizontal = 0
+grow_vertical = 0
+icon_mode = 0
+fixed_icon_size = Vector2( 64, 64 )
