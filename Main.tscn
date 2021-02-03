@@ -1,13 +1,53 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://util/theme/GoDAWTheme.tres" type="Theme" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+onready var player = $AudioStreamPlayer
+onready var instrument_tab = $VBoxContainer/EditorView/Instruments
+
+func _init():
+	pass
+
+func load_instruments():
+	var dir = Directory.new()
+	dir.open(\"res://Instruments\")
+	dir.list_dir_begin(true, true)
+
+	var instrument_name = dir.get_next()
+	while instrument_name != \"\":
+		if dir.file_exists(\"./%s/instrument.gd\" % instrument_name):
+			var instrument = load(\"%s/%s/instrument.gd\" % [dir.get_current_dir(), instrument_name])
+			GoDAW.register_instrument(instrument_name, instrument.new())
+			if dir.file_exists(\"./%s/icon.png\" % instrument_name):
+				instrument_tab.add_item(instrument_name, load(\"%s/%s/icon.png\" % [dir.get_current_dir(), instrument_name]))
+			else:
+				push_warning(\"Instrument %s does not have an icon.png file\" % instrument_name)
+				instrument_tab.add_item(instrument_name, load(\"res://util/defaultIcon.png\"))
+		else:
+			push_warning(\"Instrument %s does not have an instrument.gd file\" % instrument_name)
+
+		instrument_name = dir.get_next()
+
+func _ready():
+	load_instruments()
+	var osc = GoDAW.get_instrument(\"TripleOsc\")
+	var wave = Wave.new(osc.create_sample())
+	wave.position += Vector2(10, 200)
+	wave.x_index=5
+	add_child(wave)
+	# Set stream and play
+	#player.stream = osc.create_sample()
+	#player.play()
+"
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 2 )
-script = ExtResource( 1 )
+script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
