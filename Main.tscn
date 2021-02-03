@@ -22,7 +22,7 @@ __meta__ = {
 }
 
 [node name="Menu" type="HBoxContainer" parent="VBoxContainer"]
-margin_right = 1024.0
+margin_right = 1028.0
 margin_bottom = 30.0
 
 [node name="MenuButton" type="MenuButton" parent="VBoxContainer/Menu"]
@@ -31,20 +31,28 @@ margin_bottom = 30.0
 text = "File"
 items = [ "New", null, 0, false, false, 0, 0, null, "", false, "", null, 0, false, false, 1, 0, null, "", true, "Item 2", null, 0, false, false, 2, 0, null, "", false ]
 
-[node name="EditorView" type="HSplitContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 34.0
-margin_right = 1024.0
+margin_right = 1028.0
 margin_bottom = 600.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Instruments" type="ItemList" parent="VBoxContainer/EditorView"]
-margin_right = 1024.0
+[node name="Instruments" type="ItemList" parent="VBoxContainer/HBoxContainer"]
+margin_right = 192.0
 margin_bottom = 566.0
 grow_horizontal = 0
 grow_vertical = 0
+rect_min_size = Vector2( 192, 566 )
 icon_mode = 0
-fixed_icon_size = Vector2( 64, 64 )
+fixed_icon_size = Vector2( 96, 96 )
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 196.0
+margin_right = 1028.0
+margin_bottom = 566.0
+rect_min_size = Vector2( 832, 566 )
+tab_align = 0
+
+[node name="Piano Roll" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/TabContainer"]
+margin_top = 32.0
+margin_right = 832.0
+margin_bottom = 566.0

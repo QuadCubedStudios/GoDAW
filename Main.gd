@@ -1,7 +1,7 @@
 extends Control
 
 onready var player = $AudioStreamPlayer
-onready var instrument_tab = $VBoxContainer/EditorView/Instruments
+onready var instrument_tab = $VBoxContainer/HBoxContainer/Instruments
 
 func _init():
 	pass
