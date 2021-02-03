@@ -25,6 +25,10 @@ func load_instruments():
 func _ready():
 	load_instruments()
 	var osc = GoDAW.get_instrument("TripleOsc")
+	var wave = Wave.new(osc.create_sample())
+	wave.position += Vector2(10, 200)
+	wave.x_index=5
+	add_child(wave)
 	# Set stream and play
 	#player.stream = osc.create_sample()
 	#player.play()
