@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Wave",
 "language": "GDScript",
-"path": "res://util/Wave.gd"
+"path": "res://util/scripts/Wave.gd"
 }, {
 "base": "Reference",
 "class": "Waveforms",

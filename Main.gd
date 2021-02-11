@@ -16,11 +16,11 @@ func load_instruments():
 		if dir.file_exists("./%s/instrument.gd" % instrument_name):
 			var instrument = load("%s/%s/instrument.gd" % [dir.get_current_dir(), instrument_name])
 			GoDAW.register_instrument(instrument_name, instrument.new())
-			instrument_tab.add_item(instrument_name, load("%s/%s/icon.png" % [dir.get_current_dir(), instrument_name]))
-			if dir.file_exists("./%s/icon.png" % instrument_name):
-				instrument_tab.add_item(instrument_name, load("%s/%s/icon.png" % [dir.get_current_dir(), instrument_name]))
-			else:
-				instrument_tab.add_item(instrument_name, load("res://util/defaultIcon.png"))
+#			instrument_tab.add_item(instrument_name, load("%s/%s/icon.png" % [dir.get_current_dir(), instrument_name]))
+#			if dir.file_exists("./%s/icon.png" % instrument_name):
+#				instrument_tab.add_item(instrument_name, load("%s/%s/icon.png" % [dir.get_current_dir(), instrument_name]))
+#			else:
+#				instrument_tab.add_item(instrument_name, load("res://util/defaultIcon.png"))
 				
 		else:
 			push_warning("Instrument %s does not have an instrument.gd file" % instrument_name)
@@ -32,8 +32,8 @@ func _ready():
 	var osc = GoDAW.get_instrument("TripleOsc")
 	var wave = Wave.new(osc.create_sample())
 	wave.position += Vector2(10, 200)
-	wave.x_index=5
 	add_child(wave)
 	# Set stream and play
-	#player.stream = osc.create_sample()
-	#player.play()
+	player.stream = osc.create_sample()
+	player.pitch_scale = 1.0
+	player.play()
