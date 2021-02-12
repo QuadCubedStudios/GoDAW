@@ -29,7 +29,7 @@ func load_instruments():
 
 func _ready():
 	load_instruments()
-	var osc = GoDAW.get_instrument("TripleOsc")
+	var osc = GoDAW.get_instrument("TEST")
 	var wave = Wave.new(osc.create_sample())
 	wave.position += Vector2(10, 200)
 	#add_child(wave)

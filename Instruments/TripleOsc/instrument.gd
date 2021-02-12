@@ -1,7 +1,5 @@
 extends Instrument
 
-class_name TripleOsc
-
 func _init().("TripleOsc"):
 	pass
 

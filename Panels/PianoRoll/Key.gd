@@ -1,7 +1,5 @@
 extends Button
 
-class_name Key
-
 signal key_pressed
 
 func _pressed():

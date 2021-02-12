@@ -1,6 +1,5 @@
 extends Instrument
 
-class_name TERT
 func _init().("TripleOsc"):
 	pass
 

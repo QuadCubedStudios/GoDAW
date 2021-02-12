@@ -20,7 +20,7 @@ func create_sample() -> AudioStreamSample:
 	sample.mix_rate = self.sample_rate
 
 	# Loop sample if needed
-	sample.loop_mode = AudioStreamSample.LOOP_DISABLED
+	sample.loop_mode = AudioStreamSample.LOOP_FORWARD
 	sample.loop_begin = 0
 	sample.loop_end = floor(self.sample_length * self.sample_rate)
 
