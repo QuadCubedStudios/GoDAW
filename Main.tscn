@@ -43,32 +43,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SideBar" type="TabContainer" parent="VBoxContainer/EditorView"]
+[node name="SideBar" type="Panel" parent="VBoxContainer/EditorView"]
 anchor_right = 0.15
 anchor_bottom = 1.0
 size_flags_horizontal = 3
-tab_align = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Instruments" parent="VBoxContainer/EditorView/SideBar" instance=ExtResource( 3 )]
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
 
-[node name="Tab Workspace" type="TabContainer" parent="VBoxContainer/EditorView"]
+[node name="Tab Workspace" type="Panel" parent="VBoxContainer/EditorView"]
 anchor_left = 0.15
 anchor_right = 1.0
 anchor_bottom = 1.0
-tab_align = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Piano Roll" parent="VBoxContainer/EditorView/Tab Workspace" instance=ExtResource( 1 )]
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
