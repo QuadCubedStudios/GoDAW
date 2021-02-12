@@ -7,16 +7,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="Panel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 1024.0
-margin_bottom = 14.0
+anchor_right = 1.0
+anchor_bottom = 0.05
 text = "Instruments"
 valign = 1
 __meta__ = {
@@ -24,9 +21,9 @@ __meta__ = {
 }
 
 [node name="List" type="ItemList" parent="VBoxContainer"]
-margin_top = 18.0
-margin_right = 1024.0
-margin_bottom = 18.0
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
 icon_mode = 0
