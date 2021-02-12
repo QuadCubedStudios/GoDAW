@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Panels/PianoRoll/Key.gd" type="Script" id=1]
+
+[node name="WhiteKey" type="Button"]
+margin_left = 0.25
+margin_top = 0.5
+margin_right = 80.25
+margin_bottom = 20.5
+rect_min_size = Vector2( 80, 0 )
+rect_scale = Vector2( 1, 0.5 )
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

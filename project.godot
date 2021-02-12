@@ -14,6 +14,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godaw_toolkit/Classes/Instrument.gd"
 }, {
+"base": "Button",
+"class": "Key",
+"language": "GDScript",
+"path": "res://Panels/PianoRoll/Key.gd"
+}, {
+"base": "Instrument",
+"class": "TERT",
+"language": "GDScript",
+"path": "res://Instruments/TEST/instrument.gd"
+}, {
 "base": "Instrument",
 "class": "TripleOsc",
 "language": "GDScript",
@@ -31,6 +41,8 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Instrument": "",
+"Key": "",
+"TERT": "",
 "TripleOsc": "",
 "Wave": "",
 "Waveforms": ""

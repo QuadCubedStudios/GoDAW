@@ -1,7 +1,7 @@
 extends Control
 
 onready var player = $AudioStreamPlayer
-onready var instrument_tab = $VBoxContainer/EditorView/Instruments
+#onready var instrument_tab = $VBoxContainer/EditorView/Instruments
 
 func _init():
 	pass
@@ -36,4 +36,4 @@ func _ready():
 	# Set stream and play
 	player.stream = osc.create_sample()
 	player.pitch_scale = 1.0
-	player.play()
+#	player.play()
