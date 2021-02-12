@@ -1,6 +1,6 @@
 extends Instrument
 
-func _init().("TripleOsc"):
+func _init().("TEST"):
 	pass
 
 func waveform(t):
