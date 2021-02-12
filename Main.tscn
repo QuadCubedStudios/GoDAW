@@ -16,16 +16,16 @@ __meta__ = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="Panel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Menu" type="HBoxContainer" parent="VBoxContainer"]
-margin_right = 1024.0
-margin_bottom = 30.0
+[node name="Menu" type="Panel" parent="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 0.05
 
 [node name="MenuButton" type="MenuButton" parent="VBoxContainer/Menu"]
 margin_right = 39.0
@@ -33,80 +33,26 @@ margin_bottom = 30.0
 text = "File"
 items = [ "New", null, 0, false, false, 0, 0, null, "", false, "", null, 0, false, false, 1, 0, null, "", true, "Item 2", null, 0, false, false, 2, 0, null, "", false ]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 34.0
-margin_right = 1024.0
-margin_bottom = 34.0
-
-[node name="Panel" type="Panel" parent="VBoxContainer"]
-visible = false
-margin_top = 34.0
-margin_right = 1024.0
-margin_bottom = 315.0
+[node name="EditorView" type="Panel" parent="VBoxContainer"]
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="SideBar" type="TabContainer" parent="VBoxContainer/Panel"]
-margin_left = -4.0
-margin_top = -32.0
-margin_right = 1008.0
-margin_bottom = 534.0
+[node name="SideBar" type="Panel" parent="VBoxContainer/EditorView"]
+anchor_right = 0.15
+anchor_bottom = 1.0
 size_flags_horizontal = 3
-tab_align = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Instruments" parent="VBoxContainer/Panel/SideBar" instance=ExtResource( 3 )]
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+[node name="Instruments" parent="VBoxContainer/EditorView/SideBar" instance=ExtResource( 3 )]
 
-[node name="Tab Workspace" type="TabContainer" parent="VBoxContainer/Panel"]
-margin_top = -32.0
-margin_right = 1020.0
-margin_bottom = 534.0
-tab_align = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Tab Workspace" type="Panel" parent="VBoxContainer/EditorView"]
+anchor_left = 0.15
+anchor_right = 1.0
+anchor_bottom = 1.0
 
-[node name="Piano Roll" parent="VBoxContainer/Panel/Tab Workspace" instance=ExtResource( 1 )]
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
-
-[node name="EditorView" type="HBoxContainer" parent="VBoxContainer"]
-visible = false
-margin_top = 319.0
-margin_bottom = 319.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
-
-[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
-margin_top = 38.0
-margin_right = 1024.0
-margin_bottom = 600.0
-rect_clip_content = true
-size_flags_vertical = 3
-tab_align = 0
-drag_to_rearrange_enabled = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="InstrumentList" parent="VBoxContainer/TabContainer" instance=ExtResource( 3 )]
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
-size_flags_vertical = 3
-
-[node name="Piano Roll" parent="VBoxContainer/TabContainer" instance=ExtResource( 1 )]
-visible = false
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+[node name="Piano Roll" parent="VBoxContainer/EditorView/Tab Workspace" instance=ExtResource( 1 )]
