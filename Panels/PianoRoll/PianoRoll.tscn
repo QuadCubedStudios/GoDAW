@@ -1,8 +1,11 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Panels/PianoRoll/Piano.tscn" type="PackedScene" id=1]
 
 [node name="Piano Roll" type="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -20,4 +23,13 @@ margin_right = 1024.0
 [node name="Editor" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 4.0
 margin_right = 1024.0
-margin_bottom = 4.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+
+[node name="Piano" parent="VBoxContainer/Editor" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 90.0
+margin_bottom = 596.0
+rect_min_size = Vector2( 90, 0 )
+size_flags_vertical = 3

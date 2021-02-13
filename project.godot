@@ -14,11 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godaw_toolkit/Classes/Instrument.gd"
 }, {
-"base": "Instrument",
-"class": "TripleOsc",
-"language": "GDScript",
-"path": "res://Instruments/TripleOsc/instrument.gd"
-}, {
 "base": "Node2D",
 "class": "Wave",
 "language": "GDScript",
@@ -31,7 +26,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Instrument": "",
-"TripleOsc": "",
 "Wave": "",
 "Waveforms": ""
 }

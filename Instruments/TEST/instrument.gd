@@ -1,6 +1,6 @@
 extends Instrument
 
-func _init().("TripleOsc"):
+func _init().("TEST"):
 	pass
 
 func waveform(t):
@@ -8,9 +8,7 @@ func waveform(t):
 
 	# Sub-waveforms
 	var funcs = [
-		Waveforms.sine(t, 200.00),
-		Waveforms.sine(t, 400.00),
-		Waveforms.sine(t, 600.00),
+		Waveforms.square(t, 440.00),
 	]
 
 	# Add amplitudes

@@ -1,7 +1,7 @@
 extends Control
 
 onready var player = $AudioStreamPlayer
-onready var instrument_tab = $VBoxContainer/EditorView/Instruments
+#onready var instrument_tab = $VBoxContainer/EditorView/Instruments
 
 func _init():
 	pass
@@ -29,11 +29,11 @@ func load_instruments():
 
 func _ready():
 	load_instruments()
-	var osc = GoDAW.get_instrument("TripleOsc")
+	var osc = GoDAW.get_instrument("TEST")
 	var wave = Wave.new(osc.create_sample())
 	wave.position += Vector2(10, 200)
 	#add_child(wave)
 	# Set stream and play
 	player.stream = osc.create_sample()
 	player.pitch_scale = 1.0
-	player.play()
+#	player.play()
