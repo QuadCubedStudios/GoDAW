@@ -27,7 +27,7 @@ func load_instruments():
 #				instrument_tab.add_item(instrument_name, load("%s/%s/icon.png" % [dir.get_current_dir(), instrument_name]))
 #			else:
 #				instrument_tab.add_item(instrument_name, load("res://util/defaultIcon.png"))
-				
+
 		else:
 			push_warning("Instrument %s does not have an instrument.gd file" % instrument_name)
 
@@ -35,7 +35,7 @@ func load_instruments():
 
 func _ready():
 	load_instruments()
-	var osc = GoDAW.get_instrument("TEST")
+	var osc = GoDAW.get_instrument("Square")
 	var wave = Wave.new(osc.create_sample())
 	wave.position += Vector2(10, 200)
 	#add_child(wave)
@@ -49,7 +49,7 @@ func _process(delta):
 	var events:Array = pattern.get_next_events(time)
 	for e in events:
 		play_note(e) # TODO: notes don't play with accurate timing
-	
+
 	if time > pattern.length: #simple loop
 		time = 0
 		pattern.last_poll_time = 0
