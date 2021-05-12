@@ -1,13 +1,35 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Panels/PianoRoll/PianoRoll.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Theme/Default/Play_Active.svg" type="Texture" id=1]
 [ext_resource path="res://Theme/Default/GoDAWTheme.tres" type="Theme" id=2]
-[ext_resource path="res://Panels/InstrumentList/InstrumentList.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Theme/Default/Add.svg" type="Texture" id=3]
 [ext_resource path="res://Main.gd" type="Script" id=4]
+[ext_resource path="res://Theme/Default/Pause_Active.svg" type="Texture" id=5]
+[ext_resource path="res://Theme/Default/Stop_Inactive.svg" type="Texture" id=6]
+[ext_resource path="res://Theme/Default/Stop_Active.svg" type="Texture" id=7]
+[ext_resource path="res://Theme/Default/Play_Inactive.svg" type="Texture" id=8]
+[ext_resource path="res://Theme/Default/Pause_Inactive.svg" type="Texture" id=9]
+[ext_resource path="res://Theme/Default/mononoki-Regular Nerd Font Complete Mono.ttf" type="DynamicFontData" id=10]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.215686, 0.215686, 0.282353, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 10 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.215686, 0.215686, 0.282353, 1 )
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 3.5676
+margin_bottom = 3.56763
 theme = ExtResource( 2 )
 script = ExtResource( 4 )
 __meta__ = {
@@ -16,46 +38,170 @@ __meta__ = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="VBoxContainer" type="Panel" parent="."]
+[node name="TopMenuContainer" type="Panel" parent="."]
 anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Menu" type="Panel" parent="VBoxContainer"]
-anchor_right = 1.0
-anchor_bottom = 0.05
-
-[node name="MenuButton" type="MenuButton" parent="VBoxContainer/Menu"]
-margin_right = 39.0
 margin_bottom = 30.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopMenuContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1095.0
+margin_bottom = 1.0
+custom_constants/separation = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileMenu" type="MenuButton" parent="TopMenuContainer/HBoxContainer"]
+margin_right = 47.0
+margin_bottom = 31.0
+focus_mode = 2
+mouse_default_cursor_shape = 2
 text = "File"
-items = [ "New", null, 0, false, false, 0, 0, null, "", false, "", null, 0, false, false, 1, 0, null, "", true, "Item 2", null, 0, false, false, 2, 0, null, "", false ]
+switch_on_hover = true
 
-[node name="EditorView" type="Panel" parent="VBoxContainer"]
-anchor_top = 0.05
-anchor_right = 1.0
+[node name="EditMenu" type="MenuButton" parent="TopMenuContainer/HBoxContainer"]
+margin_left = 50.0
+margin_right = 97.0
+margin_bottom = 31.0
+focus_mode = 2
+mouse_default_cursor_shape = 2
+text = "Edit"
+switch_on_hover = true
+
+[node name="ViewMenu" type="MenuButton" parent="TopMenuContainer/HBoxContainer"]
+margin_left = 100.0
+margin_right = 147.0
+margin_bottom = 31.0
+focus_mode = 2
+mouse_default_cursor_shape = 2
+text = "View"
+switch_on_hover = true
+
+[node name="HelpMenu" type="MenuButton" parent="TopMenuContainer/HBoxContainer"]
+margin_left = 150.0
+margin_right = 197.0
+margin_bottom = 31.0
+focus_mode = 2
+mouse_default_cursor_shape = 2
+text = "Help"
+switch_on_hover = true
+
+[node name="InstrumentsPanel" type="Panel" parent="."]
 anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+margin_top = 30.0
+margin_right = 250.0
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SideBar" type="Panel" parent="VBoxContainer/EditorView"]
-anchor_right = 0.15
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-
-[node name="Instruments" parent="VBoxContainer/EditorView/SideBar" instance=ExtResource( 3 )]
-
-[node name="Tab Workspace" type="Panel" parent="VBoxContainer/EditorView"]
-anchor_left = 0.15
+[node name="VBox" type="VBoxContainer" parent="InstrumentsPanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Piano Roll" parent="VBoxContainer/EditorView/Tab Workspace" instance=ExtResource( 1 )]
+[node name="Title" type="VBoxContainer" parent="InstrumentsPanel/VBox"]
+margin_right = 250.0
+margin_bottom = 36.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InstrumentsPanel/VBox/Title"]
+margin_right = 250.0
+margin_bottom = 29.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.717647, 0.717647, 0.784314, 1 )
+text = "Instruments"
+align = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="InstrumentsPanel/VBox/Title"]
+margin_top = 33.0
+margin_right = 250.0
+margin_bottom = 36.0
+
+[node name="ColorRect" type="ColorRect" parent="InstrumentsPanel/VBox/Title/CenterContainer"]
+margin_left = 5.0
+margin_right = 245.0
+margin_bottom = 3.0
+rect_min_size = Vector2( 240, 3 )
+size_flags_horizontal = 0
+color = Color( 0.717647, 0.717647, 0.784314, 1 )
+
+[node name="Instruments" type="VBoxContainer" parent="InstrumentsPanel/VBox"]
+margin_top = 46.0
+margin_right = 250.0
+margin_bottom = 46.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ControlPanel" type="Panel" parent="."]
+margin_left = 260.0
+margin_top = 30.0
+margin_right = 430.0
+margin_bottom = 70.0
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 5.0
+margin_bottom = -5.0
+custom_constants/separation = 10
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="TextureButton" parent="ControlPanel/HBoxContainer"]
+margin_left = 10.0
+margin_right = 40.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
+texture_normal = ExtResource( 1 )
+texture_disabled = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+
+[node name="PauseButton" type="TextureButton" parent="ControlPanel/HBoxContainer"]
+margin_left = 50.0
+margin_right = 80.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
+disabled = true
+texture_normal = ExtResource( 5 )
+texture_disabled = ExtResource( 9 )
+expand = true
+stretch_mode = 4
+
+[node name="StopButton" type="TextureButton" parent="ControlPanel/HBoxContainer"]
+margin_left = 90.0
+margin_right = 120.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_disabled = ExtResource( 6 )
+expand = true
+stretch_mode = 4
+
+[node name="AddButton" type="TextureButton" parent="ControlPanel/HBoxContainer"]
+margin_left = 130.0
+margin_right = 160.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4

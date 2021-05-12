@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=2 format=2]
+[gd_resource type="Theme" load_steps=7 format=2]
+
+[ext_resource path="res://Theme/Default/mononoki-Regular.tres" type="DynamicFont" id=1]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 8.0
@@ -7,7 +9,26 @@ content_margin_top = 8.0
 content_margin_bottom = 8.0
 corner_detail = 1
 
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.717647, 0.717647, 0.784314, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+content_margin_left = 5.0
+content_margin_right = 10.0
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.0666667, 0.0666667, 0.0823529, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.215686, 0.215686, 0.282353, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [resource]
+default_font = ExtResource( 1 )
 Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
 Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
@@ -19,3 +40,18 @@ Button/styles/focus = null
 Button/styles/hover = null
 Button/styles/normal = SubResource( 1 )
 Button/styles/pressed = null
+HSeparator/constants/separation = 4
+HSeparator/styles/separator = SubResource( 2 )
+MenuButton/colors/font_color = Color( 0.858824, 0.858824, 0.890196, 1 )
+MenuButton/colors/font_color_disabled = Color( 1, 1, 1, 0.3 )
+MenuButton/colors/font_color_hover = Color( 1, 1, 1, 1 )
+MenuButton/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+MenuButton/constants/hseparation = 3
+MenuButton/fonts/font = null
+MenuButton/styles/disabled = null
+MenuButton/styles/focus = SubResource( 3 )
+MenuButton/styles/hover = SubResource( 3 )
+MenuButton/styles/normal = SubResource( 3 )
+MenuButton/styles/pressed = SubResource( 3 )
+Panel/styles/panel = SubResource( 4 )
+PanelContainer/styles/panel = SubResource( 5 )

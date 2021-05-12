@@ -19,6 +19,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godaw_toolkit/Classes/Instrument.gd"
 }, {
+"base": "PanelContainer",
+"class": "Instruments",
+"language": "GDScript",
+"path": "res://PanelContainer.gd"
+}, {
 "base": "Node2D",
 "class": "Wave",
 "language": "GDScript",
@@ -32,6 +37,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "GDW_pattern": "",
 "Instrument": "",
+"Instruments": "",
 "Wave": "",
 "Waveforms": ""
 }
@@ -46,6 +52,15 @@ run/low_processor_mode=true
 
 GoDAW="*res://addons/godaw_toolkit/API/GoDAW.gd"
 
+[display]
+
+window/size/width=1280
+window/size/height=720
+
 [editor_plugins]
 
 enabled=PoolStringArray( "godaw_toolkit" )
+
+[rendering]
+
+environment/default_clear_color=Color( 0.109804, 0.109804, 0.141176, 1 )
