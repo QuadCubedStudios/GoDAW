@@ -41,8 +41,7 @@ func _ready():
 
 #func _process(delta):
 	time *= bpm/60.0
-	var events:Array = pattern.get_next_events(time)
-	print(events)
+#	var events:Array = pattern.get_next_events(time)
 #	for e in events:
 #		play_note(e) # TODO: notes don't play with accurate timing
 #

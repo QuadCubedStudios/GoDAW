@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Panels/PianoRoll/PianoRollPanel.gd" type="Script" id=1]
-[ext_resource path="res://Panels/PianoRoll/KinematicBody2D.gd" type="Script" id=2]
+[ext_resource path="res://Panels/PianoRoll/CameraMan.gd" type="Script" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.215686, 0.215686, 0.282353, 1 )
@@ -41,6 +41,7 @@ align = 1
 margin_top = 18.0
 margin_right = 1010.0
 margin_bottom = 310.0
+size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -51,43 +52,61 @@ margin_right = 10.0
 margin_bottom = 292.0
 rect_min_size = Vector2( 10, 0 )
 
-[node name="ViewportContainer" type="ViewportContainer" parent="VBox/HBox"]
+[node name="PianoContainer" type="ViewportContainer" parent="VBox/HBox"]
 margin_left = 14.0
 margin_right = 104.0
 margin_bottom = 292.0
 
-[node name="Viewport" type="Viewport" parent="VBox/HBox/ViewportContainer"]
+[node name="PianoViewport" type="Viewport" parent="VBox/HBox/PianoContainer"]
 size = Vector2( 90, 289 )
 handle_input_locally = false
 render_target_update_mode = 3
 
-[node name="Background" type="CanvasLayer" parent="VBox/HBox/ViewportContainer/Viewport"]
+[node name="Background" type="CanvasLayer" parent="VBox/HBox/PianoContainer/PianoViewport"]
 layer = -1
 
-[node name="ColorRect" type="ColorRect" parent="VBox/HBox/ViewportContainer/Viewport/Background"]
+[node name="ColorRect" type="ColorRect" parent="VBox/HBox/PianoContainer/PianoViewport/Background"]
 margin_right = 90.0
 margin_bottom = 1000.0
 color = Color( 0.215686, 0.215686, 0.282353, 1 )
 
-[node name="Disabled" type="CanvasLayer" parent="VBox/HBox/ViewportContainer/Viewport"]
+[node name="Disabled" type="CanvasLayer" parent="VBox/HBox/PianoContainer/PianoViewport"]
 layer = 2
 
-[node name="ColorRect" type="ColorRect" parent="VBox/HBox/ViewportContainer/Viewport/Disabled"]
+[node name="ColorRect" type="ColorRect" parent="VBox/HBox/PianoContainer/PianoViewport/Disabled"]
 margin_right = 10000.0
 margin_bottom = 1000.0
 color = Color( 0, 0, 0, 0.392157 )
 
-[node name="white_keys" type="Control" parent="VBox/HBox/ViewportContainer/Viewport"]
+[node name="white_keys" type="Control" parent="VBox/HBox/PianoContainer/PianoViewport"]
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="black_keys" type="Control" parent="VBox/HBox/ViewportContainer/Viewport"]
+[node name="black_keys" type="Control" parent="VBox/HBox/PianoContainer/PianoViewport"]
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="VBox/HBox/ViewportContainer/Viewport"]
+[node name="CameraMan" type="KinematicBody2D" parent="VBox/HBox/PianoContainer/PianoViewport"]
 script = ExtResource( 2 )
 
-[node name="Camera" type="Camera2D" parent="VBox/HBox/ViewportContainer/Viewport/KinematicBody2D"]
+[node name="Camera" type="Camera2D" parent="VBox/HBox/PianoContainer/PianoViewport/CameraMan"]
 anchor_mode = 0
 current = true
+
+[node name="NoteContainer" type="ViewportContainer" parent="VBox/HBox"]
+visible = false
+margin_left = 108.0
+margin_right = 996.0
+margin_bottom = 292.0
+size_flags_horizontal = 3
+
+[node name="NotesViewport" type="Viewport" parent="VBox/HBox/NoteContainer"]
+size = Vector2( 888, 292 )
+handle_input_locally = false
+render_target_update_mode = 0
+
+[node name="Space2" type="Control" parent="VBox/HBox"]
+margin_left = 108.0
+margin_right = 118.0
+margin_bottom = 292.0
+rect_min_size = Vector2( 10, 0 )

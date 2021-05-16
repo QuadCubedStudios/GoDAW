@@ -3,10 +3,11 @@ extends Button
 var key_no: int
 
 func _ready():
-	connect("button_up", self, "stop")
-	connect("button_down", self, "start")
+	var _n = connect("button_up", self, "stop")
+	_n = connect("button_down", self, "start")
 
 func stop():
+	print(key_no)
 	var player_idx = Global.selected_instrument.get_index()-2
 	var player = Global.players.get_child(player_idx)
 	player.stop()

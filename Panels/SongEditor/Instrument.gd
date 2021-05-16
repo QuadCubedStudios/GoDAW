@@ -11,6 +11,7 @@ func init(ico: Resource, instrument_name: String):
 	player = player_scn.instance()
 	player.stream = GoDAW.get_instrument(text).create_sample()
 	Global.players.add_child(player)
+#	player.play_c_chord()
 
 func set_text(val: String):
 	text = val

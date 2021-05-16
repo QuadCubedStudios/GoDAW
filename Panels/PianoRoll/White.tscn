@@ -35,9 +35,11 @@ corner_radius_bottom_right = 5
 [node name="White" type="Button"]
 margin_right = 90.0
 margin_bottom = 20.0
+focus_mode = 0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/normal = SubResource( 3 )
+enabled_focus_mode = 0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
