@@ -52,3 +52,5 @@ margin_top = 8.0
 margin_right = 50.0
 margin_bottom = 31.0
 custom_fonts/font = SubResource( 2 )
+
+[connection signal="gui_input" from="." to="." method="_on_Instrument_gui_input"]

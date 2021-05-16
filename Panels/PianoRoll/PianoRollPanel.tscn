@@ -1,0 +1,93 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Panels/PianoRoll/PianoRollPanel.gd" type="Script" id=1]
+[ext_resource path="res://Panels/PianoRoll/KinematicBody2D.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.215686, 0.215686, 0.282353, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="PianoRollPanel" type="Panel"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 260.0
+margin_top = -320.0
+margin_right = -10.0
+margin_bottom = -10.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBox"]
+margin_right = 1010.0
+margin_bottom = 14.0
+text = "Piano Roll"
+align = 1
+
+[node name="HBox" type="HBoxContainer" parent="VBox"]
+margin_top = 18.0
+margin_right = 1010.0
+margin_bottom = 310.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Space" type="Control" parent="VBox/HBox"]
+margin_right = 10.0
+margin_bottom = 292.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="ViewportContainer" type="ViewportContainer" parent="VBox/HBox"]
+margin_left = 14.0
+margin_right = 104.0
+margin_bottom = 292.0
+
+[node name="Viewport" type="Viewport" parent="VBox/HBox/ViewportContainer"]
+size = Vector2( 90, 289 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Background" type="CanvasLayer" parent="VBox/HBox/ViewportContainer/Viewport"]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="VBox/HBox/ViewportContainer/Viewport/Background"]
+margin_right = 90.0
+margin_bottom = 1000.0
+color = Color( 0.215686, 0.215686, 0.282353, 1 )
+
+[node name="Disabled" type="CanvasLayer" parent="VBox/HBox/ViewportContainer/Viewport"]
+layer = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBox/HBox/ViewportContainer/Viewport/Disabled"]
+margin_right = 10000.0
+margin_bottom = 1000.0
+color = Color( 0, 0, 0, 0.392157 )
+
+[node name="white_keys" type="Control" parent="VBox/HBox/ViewportContainer/Viewport"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="black_keys" type="Control" parent="VBox/HBox/ViewportContainer/Viewport"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="VBox/HBox/ViewportContainer/Viewport"]
+script = ExtResource( 2 )
+
+[node name="Camera" type="Camera2D" parent="VBox/HBox/ViewportContainer/Viewport/KinematicBody2D"]
+anchor_mode = 0
+current = true

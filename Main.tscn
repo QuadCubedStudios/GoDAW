@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Theme/Default/Play_Active.svg" type="Texture" id=1]
 [ext_resource path="res://Theme/Default/GoDAWTheme.tres" type="Theme" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Theme/Default/Play_Inactive.svg" type="Texture" id=8]
 [ext_resource path="res://Theme/Default/Pause_Inactive.svg" type="Texture" id=9]
 [ext_resource path="res://Theme/Default/mononoki-Regular Nerd Font Complete Mono.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Panels/PianoRoll/PianoRollPanel.tscn" type="PackedScene" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.215686, 0.215686, 0.282353, 1 )
@@ -25,18 +26,29 @@ bg_color = Color( 0.215686, 0.215686, 0.282353, 1 )
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.215686, 0.215686, 0.282353, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=5]
+size = 9
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 10 )
+
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 3.5676
-margin_bottom = 3.56763
 theme = ExtResource( 2 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Players" type="Node" parent="."]
 
 [node name="TopMenuContainer" type="Panel" parent="."]
 anchor_right = 1.0
@@ -102,6 +114,7 @@ __meta__ = {
 [node name="VBox" type="VBoxContainer" parent="InstrumentsPanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = -3.0
 custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
@@ -205,3 +218,68 @@ rect_min_size = Vector2( 30, 30 )
 texture_normal = ExtResource( 3 )
 expand = true
 stretch_mode = 4
+
+[node name="SongEditor" type="Panel" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 260.0
+margin_top = -640.0
+margin_right = -10.0
+margin_bottom = -330.0
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="SongEditor"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 5.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="SongEditor/VBox"]
+margin_right = 990.0
+margin_bottom = 17.0
+text = "Song Editor"
+align = 1
+
+[node name="Control" type="Control" parent="SongEditor/VBox"]
+margin_top = 21.0
+margin_right = 990.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 0, 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="SongEditor/VBox/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 235.0
+margin_right = -5.0
+rect_min_size = Vector2( 750, 10 )
+color = Color( 0.0666667, 0.0666667, 0.0823529, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SongEditor/VBox/Control/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="SongEditor/VBox/Control/ColorRect/HBoxContainer"]
+margin_right = 5.0
+margin_bottom = 11.0
+custom_fonts/font = SubResource( 5 )
+text = "1"
+
+[node name="PianoRollPanel" parent="." instance=ExtResource( 12 )]
