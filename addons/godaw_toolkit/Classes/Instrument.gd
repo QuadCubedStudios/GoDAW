@@ -11,10 +11,10 @@ func _init(instrument_name: String, sample_length: float = 1, sample_rate: int =
 	self.sample_length = sample_length
 	self.sample_rate = sample_rate
 
-func waveform(t: float) -> int:
+func waveform(t: float, freq: float) -> int:
 	return 0
 
-func create_sample() -> AudioStreamSample:
+func create_sample(freq) -> AudioStreamSample:
 	# Create sample and set its sample rate
 	var sample = AudioStreamSample.new()
 	sample.mix_rate = self.sample_rate
@@ -30,7 +30,7 @@ func create_sample() -> AudioStreamSample:
 	# Start sampling
 	for t in sample.mix_rate:
 		# Call waveform function at each sample interval
-		var amplitude = self.waveform(float(t) / sample.mix_rate)
+		var amplitude = self.waveform(float(t) / sample.mix_rate, freq)
 		# Store into sample buffer
 		data.append(127 * amplitude)
 

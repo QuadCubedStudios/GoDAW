@@ -8,7 +8,7 @@ var instrument: PackedScene
 var song_editor: Panel
 var piano_roll: Panel
 var window_size: Vector2 = Vector2(0, 0)
-var selected_instrument: HBoxContainer = null
+var selected_instrument: String
 
 signal window_size_changed
 
@@ -16,7 +16,7 @@ func _ready():
 	instrument = preload("res://Panels/Instruments/Instrument.tscn")
 	root = get_tree().get_root()
 	main = get_node("/root/Main")
-	players = main.find_node("Players")
+	players = main.find_node("Player")
 	instruments = main.find_node("Instruments")
 	song_editor = main.find_node("SongEditor")
 	piano_roll = main.find_node("PianoRollPanel")

@@ -37,7 +37,7 @@ func _on_HBoxContainer_gui_input(event):
 func segment_input(event, song_segment):
 	if event is InputEventMouseButton:
 		if event.button_index == 1 and event.doubleclick:
-			Global.selected_instrument = self
+			Global.selected_instrument = instrument.text
 			disabled.hide()
 		elif event.button_index == 2:
 			song_segment.set_disabled(false)

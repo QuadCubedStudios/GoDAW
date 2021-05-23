@@ -1,18 +1,15 @@
 extends Button
 
 var key_no: int
+var player: AudioStreamPlayer
 
 func _ready():
 	var _n = connect("button_up", self, "stop")
 	_n = connect("button_down", self, "start")
 
 func stop():
-	print(key_no)
-	var player_idx = Global.selected_instrument.get_index()-2
-	var player = Global.players.get_child(player_idx)
-	player.stop()
+	player.queue_free()
 
 func start():
-	var player_idx = Global.selected_instrument.get_index()-2
-	var player = Global.players.get_child(player_idx)
-	player.play_note({'e':0,'p':key_no, 't':-1, 'v':127})
+	print(key_no)
+	player = Global.players.play(Global.selected_instrument, key_no)

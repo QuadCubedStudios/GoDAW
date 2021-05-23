@@ -18,7 +18,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 
 [node name="Black" type="Button"]
-margin_right = 55.0
+margin_right = 50.0
 margin_bottom = 14.0
 focus_mode = 0
 custom_styles/hover = SubResource( 1 )

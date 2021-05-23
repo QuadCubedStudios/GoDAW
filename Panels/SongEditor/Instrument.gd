@@ -4,14 +4,11 @@ var text: String setget set_text
 var icon: Resource setget set_icon
 var player: AudioStreamPlayer
 var player_scn: PackedScene = preload("res://util/Player.tscn")
+var recordingeffectmaster = AudioServer.get_bus_effect(0, 0)
 
 func init(ico: Resource, instrument_name: String):
 	set_text(instrument_name)
 	set_icon(ico)
-	player = player_scn.instance()
-	player.stream = GoDAW.get_instrument(text).create_sample()
-	Global.players.add_child(player)
-#	player.play_c_chord()
 
 func set_text(val: String):
 	text = val
