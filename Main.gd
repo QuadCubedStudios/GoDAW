@@ -37,20 +37,6 @@ func _ready():
 	Global.piano_roll.rect_position.y = ((OS.window_size.y-80)/2)+80
 	Global.piano_roll.rect_size.y = ((OS.window_size.y-80)/2)-10
 
-#	player.play()
-
-#func _process(delta):
-	time *= bpm/60.0
-#	var events:Array = pattern.get_next_events(time)
-#	for e in events:
-#		play_note(e) # TODO: notes don't play with accurate timing
-#
-#	if time > pattern.length: #simple loop
-#		time = 0
-#		pattern.last_poll_time = 0
-#
-
-
 func add_instrument(instrument_name: String, icon: Resource):
 	var new_instrument = Global.instrument.instance()
 	var center = CenterContainer.new()
