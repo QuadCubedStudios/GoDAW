@@ -30,4 +30,3 @@ func _draw():
 	for y in range(get_node("../../../").rect_size.y/14*13):
 		draw_line(Vector2(90, y*14*12+14*scroll),
 		Vector2(90+OS.window_size.x, y*14*12+14*scroll), Color("1f1c24"), 4)
-#		print(y*SIZE*13+SIZE*scroll)
