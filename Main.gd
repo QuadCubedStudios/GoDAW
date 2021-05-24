@@ -19,7 +19,6 @@ func load_instruments():
 		if dir.file_exists("./%s/instrument.gd" % instrument_name):
 			var instrument = load("%s/%s/instrument.gd" % [dir.get_current_dir(), instrument_name])
 			GoDAW.register_instrument(instrument_name, instrument.new())
-#			instrument_tab.add_item(instrument_name, load("%s/%s/icon.png" % [dir.get_current_dir(), instrument_name]))
 			if dir.file_exists("./%s/Icon.png" % instrument_name):
 				add_instrument(instrument_name, load("%s/%s/Icon.png" % [dir.get_current_dir(), instrument_name]))
 			else:
