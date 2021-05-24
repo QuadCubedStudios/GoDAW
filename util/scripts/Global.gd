@@ -10,6 +10,9 @@ var piano_roll: Panel
 var window_size: Vector2 = Vector2(0, 0)
 var selected_instrument: String
 
+signal play
+signal pause
+signal stop
 signal window_size_changed
 
 func _ready():
