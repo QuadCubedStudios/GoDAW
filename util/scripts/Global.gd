@@ -13,6 +13,7 @@ var selected_instrument: String
 signal play
 signal pause
 signal stop
+signal piano_state_changed
 signal window_size_changed
 
 func _ready():

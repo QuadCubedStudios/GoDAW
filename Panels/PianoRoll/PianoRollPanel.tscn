@@ -96,6 +96,7 @@ anchor_mode = 0
 current = true
 
 [node name="Grid" type="CanvasLayer" parent="VBox/HBox/PianoContainer/PianoViewport"]
+layer = -1
 
 [node name="Grid" type="Control" parent="VBox/HBox/PianoContainer/PianoViewport/Grid"]
 margin_right = 40.0

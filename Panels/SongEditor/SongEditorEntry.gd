@@ -39,6 +39,7 @@ func segment_input(event, song_segment):
 		if event.button_index == 1 and event.doubleclick:
 			Global.selected_instrument = instrument.text
 			disabled.hide()
+			Global.emit_signal("piano_state_changed")
 		elif event.button_index == 2:
 			song_segment.set_disabled(false)
 

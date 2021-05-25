@@ -1,12 +1,15 @@
 extends KinematicBody2D
 
-onready var disabled = get_node("../../../PianoContainer/PianoViewport/Disabled/ColorRect")
+var disabled = false
 
 func _ready():
 	set_position(Vector2(0, 672))
+	Global.connect("piano_state_changed", self, "piano_changed")
+
+func piano_changed():	disabled = true
 
 func _input(event):
-	if !disabled.visible:
+	if !disabled:
 		var mouse_pos = get_global_mouse_position()
 		if mouse_pos.y > -90 and mouse_pos.x > 0:
 			if event.is_action("scroll_down"):
