@@ -16,7 +16,7 @@ func set_scroll(val):
 
 func _draw():
 	for x in range(Global.piano_roll.piano.size.x):
-		draw_line(Vector2(90+x*14, 0), Vector2(90+x*14, get_node("../../../").rect_size.y),
+		draw_line(Vector2(90+x*14, 0), Vector2(90+x*14, Global.piano_roll.piano.size.y),
 		Color("1f1c24"), 1)
 	for y in range(Global.piano_roll.piano.size.y/14):
 		draw_line(Vector2(90, y*14), Vector2(Global.piano_roll.piano.size.x, y*14), Color("1f1c24"), 1)
@@ -27,6 +27,6 @@ func _draw():
 			continue
 		draw_line(Vector2(90+x*14*4, 0), Vector2(90+x*14*4, Global.piano_roll.piano.size.y),
 		Color("1f1c24"), 4)
-	for y in range(get_node("../../../").rect_size.y/14*13):
+	for y in range(Global.piano_roll.piano.size.y/14*13):
 		draw_line(Vector2(90, y*14*12+14*scroll),
 		Vector2(90+OS.window_size.x, y*14*12+14*scroll), Color("1f1c24"), 4)
