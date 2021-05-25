@@ -3,12 +3,12 @@ extends Instrument
 func _init().("Square"):
 	pass
 
-func waveform(t):
+func waveform(t, freq):
 	# Example function: Adds amplitudes of multiple waveforms
 
 	# Sub-waveforms
 	var funcs = [
-		Waveforms.square(t, 440.00),
+		Waveforms.square(t, freq),
 	]
 
 	# Add amplitudes

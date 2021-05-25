@@ -3,7 +3,7 @@ extends Instrument
 func _init().("TripleOsc"):
 	pass
 
-func waveform(t):
+func waveform(t, freq):
 	# Example function: Adds amplitudes of multiple waveforms
 
 	# Sub-waveforms

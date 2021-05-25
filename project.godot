@@ -45,7 +45,30 @@ run/low_processor_mode=true
 [autoload]
 
 GoDAW="*res://addons/godaw_toolkit/API/GoDAW.gd"
+Global="*res://util/scripts/Global.gd"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
 
 [editor_plugins]
 
 enabled=PoolStringArray( "godaw_toolkit" )
+
+[input]
+
+scroll_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":4,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+scroll_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":5,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[rendering]
+
+environment/default_clear_color=Color( 0.109804, 0.109804, 0.141176, 1 )

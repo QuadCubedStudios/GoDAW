@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-ebc6f3a8cbff42093a4990feefde6741.stex"
+path="res://.import/Icon.png-f8cd506d19eaa059d637854b967aff4b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Instruments/TripleOsc/icon.png"
-dest_files=[ "res://.import/icon.png-ebc6f3a8cbff42093a4990feefde6741.stex" ]
+source_file="res://Instruments/Square/Icon.png"
+dest_files=[ "res://.import/Icon.png-f8cd506d19eaa059d637854b967aff4b.stex" ]
 
 [params]
 
