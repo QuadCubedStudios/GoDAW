@@ -2,26 +2,31 @@
 
 What is GoDAW
 -------------
-GoDAW is a free and open source [DAW](https://en.wikipedia.org/wiki/Digital_audio_workstation) made in [Godot Game Engine](https://godotengine.org/).
-Which allows you to create music. 
+GoDAW is a free and open source [DAW](https://en.wikipedia.org/wiki/Digital_audio_workstation) made using the [Godot Game Engine](https://godotengine.org/).
+
 > Note: GoDAW is still in it's early alpha stage.
 
 Why GoDAW ?
 ---------
-[Godot](https://godotengine.org/) is a amazing open source game engine. Godot is not only used for making games. Many have used godot for making applications. It has come to a point that one can make an entire game using only godot and godot-made projects like [pixelorama](https://github.com/Orama-Interactive/Pixelorama), [Material Maker](https://github.com/RodZill4/material-maker) ect. We have covered art. But music, which can change the mood of the game, which enriches your experience with joy was an unknown territory. So GoDAW.
+While Godot was intended to be used as a game engine, it has a very flexible API that allows for non-game applications, especially since the Godot Editor is itself built with Godot. Some examples include [Pixelorama](https://github.com/Orama-Interactive/Pixelorama) and [Material Maker](https://github.com/RodZill4/material-maker), which deal with images and texturing respectively. Godot also provides a decent audio API, and there was a distinct lack of Godot projects that use it for more than just playing sounds. Hence, GoDAW was born.
+
+In all honesty though, the GoDAW pun was too good to pass up, thanks to [@luiq54](https://github.com/luiq54) from the Pixelorama Disocrd server for the name!
+![image](https://user-images.githubusercontent.com/11648300/119843934-a05bd480-bf25-11eb-8bd7-74b0d2100b85.png)
 
 Features
 --------
-* Piano roll (Only the piano works)
-* Song Editor (Can't edit song)
-* DIY instruments (Make your own instruments!! with gdscript)
+* Instrument Interface for implementing instruments in your scripting language of choice
 
-Cloning Instructions
+Pending:
+* Piano roll (Note drawing)
+* Song Editor
+
+Running
 --------------------
-GoDaw is developed in godot 3. You need any version of godot 3 (3.1, 3.2, 3.3). As of now GoDAW is entirely made in GDScript so the Mono version of godot is not needed. You can run GoDAW in the Mono version too
+GoDAW is developed using Godot 3.x (3.1, 3.2, preferably 3.3). As of now GoDAW is entirely made in GDScript so the Mono version is not needed, but should work.
 
-Thanks to
+Thanks
 ---------
 * All [Godot](https://github.com/godotengine/godot) contributors. 
 * [Pixelorama](https://github.com/Orama-Interactive/Pixelorama) devs who inspired us to make GoDAW
-* All contributors of Godaw
+* All contributors of GoDAW
