@@ -15,7 +15,7 @@ In all honesty though, the GoDAW pun was too good to pass up, thanks to [@luiq54
 
 Features
 --------
-* Instrument Interface for implementing instruments in your scripting language of choice
+* Instrument Interface for implementing instruments using GDScript
 
 Pending:
 * Piano roll (Note drawing)
