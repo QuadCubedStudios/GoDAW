@@ -1,4 +1,4 @@
-extends Panel
+extends Control
 
 func _on_PlayButton_pressed():
 	Global.emit_signal("play")
