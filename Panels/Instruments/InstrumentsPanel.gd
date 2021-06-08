@@ -16,7 +16,7 @@ func _ready() -> void:
 			icon = load("res://Theme/Default/default_icon.png")
 
 		btn.icon = icon
-		btn.text = instrument
+		btn.text = instrument if instrument.length() <= 20 else instrument.substr(0, 17) + "..."
 		btn.flat = false
 		btn.focus_mode = Control.FOCUS_NONE
 		btn.connect("pressed", self, "_on_Instrument_pressed", [btn])
