@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=2]
+[gd_resource type="Theme" load_steps=10 format=2]
 
 [ext_resource path="res://Theme/Default/mononoki-Regular.tres" type="DynamicFont" id=1]
 
@@ -26,6 +26,54 @@ corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id=8]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color( 0.278431, 0.278431, 0.356863, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 0 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=6]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color( 0.32549, 0.32549, 0.423529, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 0 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=7]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color( 0.160784, 0.160784, 0.203922, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 0 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [resource]
 default_font = ExtResource( 1 )
@@ -55,3 +103,14 @@ MenuButton/styles/normal = SubResource( 3 )
 MenuButton/styles/pressed = SubResource( 3 )
 Panel/styles/panel = SubResource( 4 )
 PanelContainer/styles/panel = SubResource( 5 )
+ToolButton/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+ToolButton/colors/font_color_disabled = Color( 0.9, 0.95, 1, 0.3 )
+ToolButton/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+ToolButton/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+ToolButton/constants/hseparation = 3
+ToolButton/fonts/font = null
+ToolButton/styles/disabled = null
+ToolButton/styles/focus = null
+ToolButton/styles/hover = SubResource( 8 )
+ToolButton/styles/normal = SubResource( 6 )
+ToolButton/styles/pressed = SubResource( 7 )

@@ -8,8 +8,6 @@ func _ready() -> void:
 
 	for instrument in GoDAW.instruments:
 		var btn = ToolButton.new()
-#		var center = CenterContainer.new()
-#		center.add_child(new_instrument)
 
 		var icon = null
 		if dir.file_exists("./%s/Icon.png" % instrument):
@@ -19,6 +17,8 @@ func _ready() -> void:
 
 		btn.icon = icon
 		btn.text = instrument
+		btn.flat = false
+		btn.focus_mode = Control.FOCUS_NONE
 		btn.connect("pressed", self, "_on_Instrument_pressed", [btn])
 		$Instruments/VBoxContainer.add_child(btn)
 
