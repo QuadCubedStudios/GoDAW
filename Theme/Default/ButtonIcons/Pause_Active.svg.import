@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Play_Inactive.svg-b6834b7f1d7471f9d909393b1f0bdae7.stex"
+path="res://.import/Pause_Active.svg-4e033e87b2f8b884b45308ef731647c0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Theme/Default/Play_Inactive.svg"
-dest_files=[ "res://.import/Play_Inactive.svg-b6834b7f1d7471f9d909393b1f0bdae7.stex" ]
+source_file="res://Theme/Default/ButtonIcons/Pause_Active.svg"
+dest_files=[ "res://.import/Pause_Active.svg-4e033e87b2f8b884b45308ef731647c0.stex" ]
 
 [params]
 

@@ -1,9 +1,10 @@
 [gd_resource type="DynamicFont" load_steps=2 format=2]
 
-[ext_resource path="res://Theme/Default/mononoki-Regular Nerd Font Complete Mono.ttf" type="DynamicFontData" id=1]
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Theme/Default/mononoki-Regular Nerd Font Complete Mono.ttf"
 
 [resource]
 size = 14
 use_mipmaps = true
 use_filter = true
-font_data = ExtResource( 1 )
+font_data = SubResource( 1 )

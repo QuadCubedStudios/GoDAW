@@ -13,7 +13,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="1.0.2 (e86c870879, 2021-01-15, custom)"
-   sodipodi:docname="Play.svg">
+   sodipodi:docname="Play_Active.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -24,7 +24,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="15.839192"
-     inkscape:cx="8.3713901"
+     inkscape:cx="-6.5599271"
      inkscape:cy="20.445003"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -37,10 +37,10 @@
      inkscape:bbox-nodes="true"
      inkscape:snap-bbox-midpoints="true"
      showguides="false"
-     inkscape:window-width="1840"
-     inkscape:window-height="973"
-     inkscape:window-x="35"
-     inkscape:window-y="62"
+     inkscape:window-width="1820"
+     inkscape:window-height="953"
+     inkscape:window-x="45"
+     inkscape:window-y="72"
      inkscape:window-maximized="0" />
   <metadata
      id="metadata5">
@@ -60,11 +60,11 @@
      id="layer1">
     <path
        id="path901"
-       style="opacity:0.998204;fill:none;stroke:#111115;stroke-width:0.916916;stroke-opacity:1"
+       style="opacity:0.998204;fill:none;stroke:#dbdbe3;stroke-width:0.916916;stroke-opacity:1"
        d="M 1.6285682,0.45845918 A 1.1700987,1.1700987 0 0 0 0.45845587,1.6285417 V 3.9687663 6.308961 A 1.1700987,1.1700987 0 0 0 1.6285682,7.4790435 h 2.3401947 0.0051 2.335091 a 1.1700987,1.1700987 0 0 0 1.1700824,-1.1700825 1.1700987,1.1700987 0 0 0 0,-0.00513 V 3.96877 a 1.1700987,1.1700987 0 0 0 0,-0.00513 V 1.6285417 A 1.1700987,1.1700987 0 0 0 6.3089577,0.45845918 h -0.00513 -2.335061 -0.00513 -2.3299571 a 1.1700987,1.1700987 0 0 0 -0.0051,0 z" />
     <path
        sodipodi:type="star"
-       style="opacity:0.998204;fill:#111115;fill-opacity:1;stroke:#111115;stroke-width:0.749341;stroke-opacity:1"
+       style="opacity:0.998204;fill:#dbdbe3;fill-opacity:1;stroke:#dbdbe3;stroke-width:0.749341;stroke-opacity:1"
        id="path923"
        sodipodi:sides="3"
        sodipodi:cx="3.5381086"
