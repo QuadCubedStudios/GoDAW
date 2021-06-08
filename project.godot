@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godaw_toolkit/Classes/Instrument.gd"
 }, {
-"base": "Resource",
-"class": "MIDI",
-"language": "GDScript",
-"path": "res://addons/godaw_toolkit/Classes/MIDI.gd"
-}, {
 "base": "Node2D",
 "class": "Wave",
 "language": "GDScript",
@@ -37,7 +32,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "GDW_pattern": "",
 "Instrument": "",
-"MIDI": "",
 "Wave": "",
 "Waveforms": ""
 }
