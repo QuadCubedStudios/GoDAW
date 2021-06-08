@@ -100,3 +100,5 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[connection signal="gui_input" from="HBoxContainer/Segments/ScrollContainer" to="." method="_on_Segments_gui_input"]
