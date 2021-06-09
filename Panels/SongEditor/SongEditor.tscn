@@ -23,48 +23,82 @@ margin_bottom = 14.0
 text = "Untitled Song"
 align = 1
 
-[node name="Control" type="Control" parent="."]
+[node name="Timeline" type="HBoxContainer" parent="."]
 margin_top = 18.0
 margin_right = 1280.0
 margin_bottom = 28.0
-rect_min_size = Vector2( 0, 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 235.0
-margin_right = -5.0
+[node name="Space" type="Control" parent="Timeline"]
+margin_right = 235.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 235, 0 )
+
+[node name="Timeline" type="ColorRect" parent="Timeline"]
+margin_left = 239.0
+margin_right = 1271.0
+margin_bottom = 10.0
 rect_min_size = Vector2( 750, 10 )
+size_flags_horizontal = 3
 color = Color( 0.0666667, 0.0666667, 0.0823529, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorRect"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Timeline/Timeline"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Control/ColorRect/HBoxContainer"]
+[node name="Label" type="Label" parent="Timeline/Timeline/HBoxContainer"]
 margin_right = 5.0
 margin_bottom = 11.0
 custom_fonts/font = SubResource( 1 )
 text = "1"
 
+[node name="Space2" type="Control" parent="Timeline"]
+margin_left = 1275.0
+margin_right = 1280.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 5, 0 )
+
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 margin_top = 32.0
 margin_right = 1280.0
-margin_bottom = 720.0
+margin_bottom = 704.0
 size_flags_vertical = 3
-scroll_horizontal_enabled = false
 
 [node name="Tracks" type="VBoxContainer" parent="ScrollContainer"]
 margin_right = 1280.0
-margin_bottom = 688.0
+margin_bottom = 672.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Scrollbar" type="HBoxContainer" parent="."]
+margin_top = 708.0
+margin_right = 1280.0
+margin_bottom = 720.0
+
+[node name="Space" type="Control" parent="Scrollbar"]
+margin_right = 235.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 235, 0 )
+
+[node name="HScrollBar" type="HScrollBar" parent="Scrollbar"]
+margin_left = 239.0
+margin_right = 1271.0
+margin_bottom = 12.0
+size_flags_horizontal = 3
+page = 80.0
+
+[node name="Space2" type="Control" parent="Scrollbar"]
+margin_left = 1275.0
+margin_right = 1280.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 5, 0 )
+
+[connection signal="value_changed" from="Scrollbar/HScrollBar" to="." method="_on_HScrollBar_value_changed"]
