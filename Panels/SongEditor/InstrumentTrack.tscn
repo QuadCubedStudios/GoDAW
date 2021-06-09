@@ -3,14 +3,14 @@
 [ext_resource path="res://Theme/Default/default_icon.png" type="Texture" id=1]
 [ext_resource path="res://Panels/SongEditor/InstrumentTrack.gd" type="Script" id=2]
 
-[sub_resource type="DynamicFontData" id=4]
+[sub_resource type="DynamicFontData" id=1]
 font_path = "res://Theme/Default/mononoki-Regular Nerd Font Complete Mono.ttf"
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=2]
 size = 48
 use_mipmaps = true
 use_filter = true
-font_data = SubResource( 4 )
+font_data = SubResource( 1 )
 
 [node name="InstrumentTrack" type="VBoxContainer"]
 anchor_right = 1.0
@@ -79,7 +79,7 @@ size_flags_vertical = 3
 [node name="Label" type="Label" parent="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 2 )
 text = "Piano roll goes here"
 align = 1
 valign = 1
