@@ -15,10 +15,6 @@ font_data = SubResource( 1 )
 [node name="InstrumentTrack" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1.78033
-margin_top = -4.22498
-margin_right = -1.78027
-margin_bottom = -4.22498
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false

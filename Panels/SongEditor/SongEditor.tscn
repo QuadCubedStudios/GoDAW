@@ -93,7 +93,7 @@ margin_left = 239.0
 margin_right = 1271.0
 margin_bottom = 12.0
 size_flags_horizontal = 3
-page = 80.0
+page = 100.0
 
 [node name="Space2" type="Control" parent="Scrollbar"]
 margin_left = 1275.0

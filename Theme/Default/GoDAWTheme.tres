@@ -29,12 +29,12 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=6]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
 content_margin_bottom = 10.0
-bg_color = Color( 0.278431, 0.278431, 0.356863, 1 )
+bg_color = Color( 0.160784, 0.160784, 0.203922, 1 )
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -45,7 +45,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=7]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
@@ -61,7 +61,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=8]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
@@ -113,6 +113,6 @@ ToolButton/constants/hseparation = 3
 ToolButton/fonts/font = null
 ToolButton/styles/disabled = null
 ToolButton/styles/focus = null
-ToolButton/styles/hover = SubResource( 8 )
-ToolButton/styles/normal = SubResource( 6 )
-ToolButton/styles/pressed = SubResource( 7 )
+ToolButton/styles/hover = SubResource( 6 )
+ToolButton/styles/normal = SubResource( 7 )
+ToolButton/styles/pressed = SubResource( 8 )

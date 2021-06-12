@@ -3,6 +3,7 @@ extends VBoxContainer
 var InstrumentTrack = preload("./InstrumentTrack.tscn")
 
 onready var tracks = $ScrollContainer/Tracks
+onready var scroll_bar = $Scrollbar/HScrollBar
 
 # Takes a Button since it conveniently sends an icon and message
 func add_track(instrument: Button):
@@ -19,3 +20,4 @@ func _on_InstrumentsPanel_instrument_chosen(instrument) -> void:
 func _on_HScrollBar_value_changed(value):
 	for track in tracks.get_children():
 		track.scroll = value
+
