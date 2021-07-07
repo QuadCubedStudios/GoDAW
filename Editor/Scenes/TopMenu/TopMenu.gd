@@ -1,20 +1,20 @@
 extends HBoxContainer
 
-var menus = {
+onready var menus = {
 	"File": {
-		"node": "FileMenu",
+		"node": $FileMenu,
 		"elements": { "Open": "_open", "Save": "", "Save as...": "", "New": "", "Separator": "", "Quit": "" }
 	},
 	"Edit": {
-		"node": "EditMenu",
+		"node": $EditMenu,
 		"elements": { }
 	},
 	"View": {
-		"node": "ViewMenu",
+		"node": $ViewMenu,
 		"elements": {  }
 	},
 	"Help": {
-		"node": "HelpMenu",
+		"node": $HelpMenu,
 		"elements": {  }
 	}
 }
@@ -22,13 +22,13 @@ var menus = {
 func _ready():
 	for menu in menus:
 		var m = menus[menu]
-		var node = get_node(m.node)
+		var node = m.node
 		init_menu(node, m.elements)
 		node.get_popup().connect("id_pressed", self, "on_item_pressed", [menu])
 
 func on_item_pressed(id, menu):
 	var menu_dict = menus[menu]
-	var node = get_node(menu_dict.node)
+	var node = menu_dict.node
 
 	var item_name = node.get_popup().get_item_text(id)
 	var func_to_call = menu_dict["elements"][item_name]
