@@ -18,10 +18,6 @@ var menus = {
 		"elements": {  }
 	}
 }
-onready var file_menu = $FileMenu
-onready var edit_menu = $EditMenu
-onready var view_menu = $ViewMenu
-onready var help_menu = $HelpMenu
 
 func _ready():
 	for menu in menus:
@@ -31,11 +27,11 @@ func _ready():
 		node.get_popup().connect("id_pressed", self, "on_item_pressed", [menu])
 
 func on_item_pressed(id, menu):
-	var menu_dic = menus[menu]
-	var node = get_node(menu_dic.node)
+	var menu_dict = menus[menu]
+	var node = get_node(menu_dict.node)
 
 	var item_name = node.get_popup().get_item_text(id)
-	var func_to_call = menu_dic["elements"][item_name]
+	var func_to_call = menu_dict["elements"][item_name]
 
 	if self.has_method(func_to_call):
 		self.call(func_to_call)
