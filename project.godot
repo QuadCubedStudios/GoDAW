@@ -55,7 +55,7 @@ window/size/height=720
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/godaw_toolkit/plugin.cfg", "res://addons/godot_film_maker/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/godaw_toolkit/plugin.cfg" )
 
 [input]
 
