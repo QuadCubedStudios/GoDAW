@@ -31,3 +31,6 @@ margin_top = 52.0
 margin_right = 200.0
 margin_bottom = 122.0
 size_flags_horizontal = 0
+
+[connection signal="gui_input" from="." to="." method="_on_InstrumentToggle_gui_input"]
+[connection signal="confirmed" from="DeleteConfirm" to="." method="_on_DeleteConfirm_confirmed"]

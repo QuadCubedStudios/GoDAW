@@ -15,11 +15,11 @@ var style_pressed = preload("res://Theme/Default/SongButtonPressed.tres")
 # TODO: Not use button as param
 func add_track(instrument: Button):
 	var name = track_name.instance()
-	name.set_instrument(instrument.icon, instrument.text)
-	names.add_child(name)
 	var segment_container = HBoxContainer.new()
+	name.set_instrument(instrument.icon, instrument.text, segment_container)
+	names.add_child(name)
 	if Global.segments == 0:
-		Global.segments = segments.get_parent().get_size().x/30
+		Global.segments = segments.get_parent().get_size().x/25
 	add_segments(segment_container, name.rect_size.y, true)
 	segments.add_child(segment_container)
 
@@ -43,10 +43,9 @@ func segment_input(event, segment: Button):
 			if event.button_index == 1:
 				segment.disabled = true
 				if segment.get_index() == Global.segments - 1:
-					print(Global.segments)
-					Global.segments += segments.get_parent().get_size().x/30
-					print(Global.segments)
-					add_segments(segment.get_parent(), segment.get_size().x, false)
+					Global.segments += segments.get_parent().get_size().x/25
+					var style = segment.get_stylebox("normal") == style_1
+					add_segments(segment.get_parent(), segment.get_size().x, segment)
 #			if event.doubleclick :
 #				$Panel.visible = !$Panel.visible
 			if event.button_index == 3:
