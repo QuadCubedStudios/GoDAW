@@ -55,7 +55,7 @@ window/size/height=720
 
 [editor_plugins]
 
-enabled=PoolStringArray( "godaw_toolkit" )
+enabled=PoolStringArray( "res://addons/godaw_toolkit/plugin.cfg" )
 
 [input]
 
