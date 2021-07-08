@@ -108,4 +108,4 @@ size_flags_vertical = 3
 [node name="Player" type="Node" parent="."]
 script = ExtResource( 11 )
 
-[connection signal="instrument_chosen" from="VBoxContainer/HBoxContainer/InstrumentsPanel" to="VBoxContainer/HBoxContainer/VBoxContainer/SongEditor" method="_on_InstrumentsPanel_instrument_chosen"]
+[connection signal="instrument_chosen" from="VBoxContainer/HBoxContainer/InstrumentsPanel" to="VBoxContainer/HBoxContainer/VBoxContainer/SongEditor" method="add_track"]

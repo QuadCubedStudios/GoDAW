@@ -46,6 +46,7 @@ run/low_processor_mode=true
 
 GoDAW="*res://addons/godaw_toolkit/API/GoDAW.gd"
 Global="*res://util/scripts/Global.gd"
+gfm="*res://addons/godot_film_maker/recorder.tscn"
 
 [display]
 
@@ -54,7 +55,7 @@ window/size/height=720
 
 [editor_plugins]
 
-enabled=PoolStringArray( "godaw_toolkit" )
+enabled=PoolStringArray( "res://addons/godaw_toolkit/plugin.cfg", "res://addons/godot_film_maker/plugin.cfg" )
 
 [input]
 

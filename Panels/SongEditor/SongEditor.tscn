@@ -66,39 +66,27 @@ margin_right = 1280.0
 margin_bottom = 10.0
 rect_min_size = Vector2( 5, 0 )
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="TracksScroll" type="ScrollContainer" parent="."]
 margin_top = 32.0
 margin_right = 1280.0
-margin_bottom = 704.0
-size_flags_vertical = 3
-
-[node name="Tracks" type="VBoxContainer" parent="ScrollContainer"]
-margin_right = 1280.0
-margin_bottom = 672.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Scrollbar" type="HBoxContainer" parent="."]
-margin_top = 708.0
-margin_right = 1280.0
 margin_bottom = 720.0
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
 
-[node name="Space" type="Control" parent="Scrollbar"]
-margin_right = 235.0
-margin_bottom = 12.0
-rect_min_size = Vector2( 235, 0 )
-
-[node name="HScrollBar" type="HScrollBar" parent="Scrollbar"]
-margin_left = 239.0
-margin_right = 1271.0
-margin_bottom = 12.0
-size_flags_horizontal = 3
-page = 100.0
-
-[node name="Space2" type="Control" parent="Scrollbar"]
-margin_left = 1275.0
+[node name="HBox" type="HBoxContainer" parent="TracksScroll"]
 margin_right = 1280.0
-margin_bottom = 12.0
-rect_min_size = Vector2( 5, 0 )
+margin_bottom = 688.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[connection signal="value_changed" from="Scrollbar/HScrollBar" to="." method="_on_HScrollBar_value_changed"]
+[node name="Names" type="VBoxContainer" parent="TracksScroll/HBox"]
+margin_bottom = 688.0
+
+[node name="SegmentScroll" type="ScrollContainer" parent="TracksScroll/HBox"]
+margin_left = 4.0
+margin_right = 1280.0
+margin_bottom = 688.0
+size_flags_horizontal = 3
+scroll_vertical_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TracksScroll/HBox/SegmentScroll"]

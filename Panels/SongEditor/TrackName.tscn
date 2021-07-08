@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Theme/Default/default_icon.png" type="Texture" id=1]
+[ext_resource path="res://Panels/SongEditor/TrackName.gd" type="Script" id=2]
+
+[node name="InstrumentToggle" type="ToolButton"]
+margin_right = 235.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 235, 0 )
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Placeholder Instrument"
+icon = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 235, 0 )
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeleteConfirm" type="ConfirmationDialog" parent="."]
+margin_top = 52.0
+margin_right = 200.0
+margin_bottom = 122.0
+size_flags_horizontal = 0
