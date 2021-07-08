@@ -6,8 +6,9 @@ var segments: HBoxContainer
 
 func set_instrument(icon: Texture, instrument_name: String, segments: HBoxContainer) -> void:
 	self.icon = icon
-	self.text = (instrument_name if instrument_name.length() <= 20
-								else instrument_name.substr(0, 17) + "...")
+	self.text = instrument_name
+	if instrument_name.length() > 20:
+		self.text = instrument_name.substr(0, 17) + "..."
 	self.segments = segments
 
 func _on_InstrumentToggle_gui_input(event):

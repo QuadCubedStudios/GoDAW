@@ -46,7 +46,6 @@ run/low_processor_mode=true
 
 GoDAW="*res://addons/godaw_toolkit/API/GoDAW.gd"
 Global="*res://util/scripts/Global.gd"
-gfm="*res://addons/godot_film_maker/recorder.tscn"
 
 [display]
 

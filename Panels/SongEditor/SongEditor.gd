@@ -1,7 +1,6 @@
 extends VBoxContainer
 
 var track_name = preload("./TrackName.tscn")
-var song_segment = preload("./SongSegment.tscn")
 
 onready var names = $TracksScroll/HBox/Names
 onready var segments = $TracksScroll/HBox/SegmentScroll/VBoxContainer
@@ -38,15 +37,13 @@ func add_segments(segment_container: HBoxContainer, size, style):
 		segment_container.add_child(segment)
 
 func segment_input(event, segment: Button):
-	if event is InputEventMouseButton:
-		if event.pressed:
-			if event.button_index == 1:
+	if event is InputEventMouseButton & event.pressed:
+		match event.button_index:
+			1:
 				segment.disabled = true
-				if segment.get_index() == Global.segments - 1:
-					Global.segments += segments.get_parent().get_size().x/25
-					var style = segment.get_stylebox("normal") == style_1
-					add_segments(segment.get_parent(), segment.get_size().x, segment)
-#			if event.doubleclick :
-#				$Panel.visible = !$Panel.visible
-			if event.button_index == 3:
+				if segment.get_index() != Global.segments - 1: return
+				Global.segments += segments.get_parent().get_size().x/25
+				var style = segment.get_stylebox("normal") == style_1
+				add_segments(segment.get_parent(), segment.get_size().x, segment)
+			3:
 				segment.disabled = false
