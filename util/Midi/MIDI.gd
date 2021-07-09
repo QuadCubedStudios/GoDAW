@@ -3,19 +3,20 @@ class_name MIDI extends Resource
 # MIDI classes
 class MidiEvent:
 	enum { NoteOff, NoteOn, Other }
-	var type; var key; var wall_tick; var delta_tick
-	func _init(t, k = 0, w = 0, d = 0):
-		self.type = t
-		self.key = k
-		self.wall_tick = w
-		self.delta_tick = d
+	var type; var key; var velocity; var delta_tick
+	func _init(t, k = 0, v = 0, d = 0):
+		type = t
+		key = k
+		velocity = v
+		delta_tick = d
 
 class MidiNote:
-	func _init(key = 0, velocity = 0, start_time = 0, duration = 0):
-		self.key = key
-		self.velocity = velocity
-		self.start_time = start_time
-		self.duration = duration
+	var key; var velocity; var start_time; var duration
+	func _init(k = 0, v = 0, s = 0, d = 0):
+		key = k
+		velocity = v
+		start_time = s
+		duration = d
 	pass
 
 class MidiTrack:
@@ -43,6 +44,7 @@ enum EventName  {
 	VoicePitchBend = 0xE0,
 	SystemExclusive = 0xF0,
 	}
+
 #Meta Event Names
 enum MetaEventName  {
 	MetaSequence = 0x00,
@@ -59,9 +61,15 @@ enum MetaEventName  {
 	MetaSMPTEOffset = 0x54,
 	MetaTimesSignature = 0x58,
 	MetaKeySignature = 0x59,
-	MetaSequencerSpecifi = 0x7F,
+	MetaSequencerSpecific = 0x7F,
 	}
 
+# SystemExclusiveStatus
+enum SystemExclusiveStatus {
+	StatusBegin = 0xF0,
+	StatusEnd = 0xF7,
+	StatusMessage = 0xFF,
+}
 
 # Vars
 var tracks = []
@@ -75,23 +83,26 @@ func parse_file(filename: String = "") -> bool:
 	var input_file = File.new()
 	var err = input_file.open(filename, File.READ)
 	if err:
+		push_error("Error Opening File: " + str(err))
 		return false
+	
+	input_file.set_endian_swap(true)
 
 	# Parse MIDI File
 
 	# Read the header of MIDI File
-	var _file_id = swap32(input_file.get_32())
-	var _header_length = swap32(input_file.get_32())
-	var _format = swap16(input_file.get_16())
-	var track_chunks = swap16(input_file.get_16())
-	var _division = swap16(input_file.get_16())
-
+	var _file_id = input_file.get_32()
+	var _header_length = input_file.get_32()
+	var _format = input_file.get_16()
+	var track_chunks = input_file.get_16()
+	var _division = input_file.get_16()
+	print("Tracks: ", track_chunks)
 	# Read data from the MIDI File
 	for chunk in range(track_chunks):
 		#print("++New Track++")
 		# Read Track Header
-		var _track_id = swap32(input_file.get_32())
-		var _track_lenght = swap32(input_file.get_32())
+		var _track_id = input_file.get_32()
+		var _track_lenght = input_file.get_32()
 
 		var end_of_track = false
 		var previous_status = 0
@@ -156,84 +167,92 @@ func parse_file(filename: String = "") -> bool:
 					var _MS7B = input_file.get_8()
 					tracks[chunk].events.append(MidiEvent.new(MidiEvent.Other))
 				EventName.SystemExclusive:
-					if status == 0xF0:
-						#System Exclusive Message Begin
-						print("System Exclusive Begin: " + read_string(input_file,
-							read_value(input_file)))
-					if status == 0xF7:
-						print("System Exclusive End: " + read_string(input_file,
-							read_value(input_file)))
-					if status == 0xFF:
-						# Meta Message
-						var type = input_file.get_8()
-						var length = read_value(input_file)
-						match type:
-							MetaEventName.MetaSequence:
-								print("Sequence Number: ", input_file.get_8(), input_file.get_8())
-							MetaEventName.MetaText:
-								print("Text: ", read_string(input_file, length))
-							MetaEventName.MetaCopyright:
-								print("Copyright: ", read_string(input_file, length))
-							MetaEventName.MetaTrackName:
-								tracks[chunk].name = read_string(input_file, length)
-								print("Track Name: ", tracks[chunk].name)
-							MetaEventName.MetaInstrumentName:
-								tracks[chunk].instrument = read_string(input_file, length)
-								print("Instrument Name: ", tracks[chunk].instrument)
-							MetaEventName.MetaLyrics:
-								print("Lyrics: ", read_string(input_file, length))
-							MetaEventName.MetaMarker:
-								print("Marker: ", read_string(input_file, length))
-							MetaEventName.MetaCuePoint:
-								print("Cue: ", read_string(input_file, length))
-							MetaEventName.MetaChannelPrefix:
-								print("Prefix: ", input_file.get_8())
-							MetaEventName.MetaEndOfTrack:
-								end_of_track = true
-							MetaEventName.MetaSetTempo:
-								# Tempo is in microseconds per quarter note
-								if tempo == 0:
-									(tempo |= (input_file.get_8() << 16))
-									(tempo |= (input_file.get_8() << 8))
-									(tempo |= (input_file.get_8() << 0))
-									bpm = (60000000 / tempo)
-									print("Tempo: ", tempo, " (bpm:", bpm, ")")
-							MetaEventName.MetaSMPTEOffset:
-								print("SMPTE: H:", input_file.get_8(), " M:", input_file.get_8(),
-								" S:", input_file.get_8(), " FR:", input_file.get_8(), " FF:",
-								input_file.get_8())
-							MetaEventName.MetaTimesSignature:
-								print("Time Signature: ", input_file.get_8(), "/", input_file.get_8())
-								print("ClocksPerTick: ", input_file.get_8())
+					previous_status = 0
+					match status:
+						SystemExclusiveStatus.StatusBegin:
+							#System Exclusive Message Begin
+							print("System Exclusive Begin: " + read_string(input_file,
+								read_value(input_file)))
+						SystemExclusiveStatus.StatusEnd:
+							print("System Exclusive End: " + read_string(input_file,
+								read_value(input_file)))
+						SystemExclusiveStatus.StatusMessage:
+							# Meta Message
+							var type = input_file.get_8()
+							var length = read_value(input_file)
+							match type:
+								MetaEventName.MetaSequence:
+									print("Sequence Number: ", input_file.get_8(), input_file.get_8())
+								MetaEventName.MetaText:
+									print("Text: ", read_string(input_file, length))
+								MetaEventName.MetaCopyright:
+									print("Copyright: ", read_string(input_file, length))
+								MetaEventName.MetaTrackName:
+									tracks[chunk].name = read_string(input_file, length)
+									print("Track Name: ", tracks[chunk].name)
+								MetaEventName.MetaInstrumentName:
+									tracks[chunk].instrument = read_string(input_file, length)
+									print("Instrument Name: ", tracks[chunk].instrument)
+								MetaEventName.MetaLyrics:
+									print("Lyrics: ", read_string(input_file, length))
+								MetaEventName.MetaMarker:
+									print("Marker: ", read_string(input_file, length))
+								MetaEventName.MetaCuePoint:
+									print("Cue: ", read_string(input_file, length))
+								MetaEventName.MetaChannelPrefix:
+									print("Prefix: ", input_file.get_8())
+								MetaEventName.MetaEndOfTrack:
+									end_of_track = true
+								MetaEventName.MetaSetTempo:
+									# Tempo is in microseconds per quarter note
+									if tempo == 0:
+										(tempo |= (input_file.get_8() << 16))
+										(tempo |= (input_file.get_8() << 8))
+										(tempo |= (input_file.get_8() << 0))
+										bpm = (60000000 / tempo)
+										print("Tempo: ", tempo, " (bpm:", bpm, ")")
+								MetaEventName.MetaSMPTEOffset:
+									print("SMPTE: H:", input_file.get_8(), " M:", input_file.get_8(),
+									" S:", input_file.get_8(), " FR:", input_file.get_8(), " FF:",
+									input_file.get_8())
+								MetaEventName.MetaTimesSignature:
+									print("Time Signature: ", input_file.get_8(), "/", input_file.get_8())
+									print("ClocksPerTick: ", input_file.get_8())
 
-								# Midi "Beats" are 24 ticks, sepcify how many 32nd notes constitute a beat
-								print("32per24clocks: ", input_file.get_8())
-							MetaEventName.MetaKeySignature:
-								print("Key Signature: ", input_file.get_8())
-								print("Minor Key: ", input_file.get_8())
-							MetaEventName.MetaSequencerSpecific:
-								print("Sequencer Specific: ", read_string(input_file, length))
-							_:
-								print("Unrecognised MetaEvent: ", type)
-				_:
-					print("Unrecognized Status Byte")
+									# Midi "Beats" are 24 ticks, sepcify how many 32nd notes constitute a beat
+									print("32per24clocks: ", input_file.get_8())
+								MetaEventName.MetaKeySignature:
+									print("Key Signature: ", input_file.get_8())
+									print("Minor Key: ", input_file.get_8())
+								MetaEventName.MetaSequencerSpecific:
+									print("Sequencer Specific: ", read_string(input_file, length))
+								_:
+									print("Unrecognised MetaEvent: ", type)
+						_:
+							print("Unrecognized Status Byte")
 
+	for track in tracks:
+		var wall_time = 0
+
+		var notes_being_processed = []
+
+		for event in track.events:
+			wall_time += event.delta_tick
+			if event.type == MidiEvent.NoteOn:
+				notes_being_processed.append(MidiNote.new(event.key, event.velocity, wall_time, 0))
+			elif event.type == MidiEvent.NoteOff:
+				for note in notes_being_processed:
+					if note.key == event.key:
+						track.notes.append(MidiNote.new(note.key, note.velocity, note.start_time,
+						wall_time - note.start_time))
+						track.min_note = note.key * int(note.key < track.min_note)
+						track.max_note = note.key * int(note.key > track.max_note)
+						notes_being_processed.remove(notes_being_processed.find(note))
+						continue
 
 	return true
 
 	pass
-
-
-# Swap byte order of integers as midi was made years ago
-# and the byte order have changed over the years.
-
-# Swaps byte order of 32-bit integer
-func swap32(n):
-	return (((n >> 24) & 0xff) | ((n << 8) & 0xff0000) | ((n >> 8) & 0xff00) | ((n << 24) & 0xff000000))
-
-# swaps byte order of 16-bit integer
-func swap16(n):
-	return ((n >> 8) | (n << 8))
 
 
 # Read values from the midi file. Midi has data in on 7 bits
