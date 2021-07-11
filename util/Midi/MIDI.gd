@@ -75,6 +75,14 @@ enum SystemExclusiveStatus {
 var tracks = []
 export var tempo = 0
 export var bpm = 0
+export var ppq = 0.0
+
+var current_note = [0];
+var song_time = 0.0;
+var run_time = 0.0;
+var midi_clock = 0;
+
+var play = false
 
 
 # function to parse files to midi
@@ -95,7 +103,8 @@ func parse_file(filename: String = "") -> bool:
 	var _header_length = input_file.get_32()
 	var _format = input_file.get_16()
 	var track_chunks = input_file.get_16()
-	var _division = input_file.get_16()
+	ppq = float(input_file.get_16())
+	print("PPQ: ", ppq)
 	print("Tracks: ", track_chunks)
 	# Read data from the MIDI File
 	for chunk in range(track_chunks):
@@ -289,3 +298,13 @@ func read_value(file: File):
 
 	# Return final construction
 	return val
+
+func play(start_time = 0):
+	var ticks_waited = 0
+	var seconds_per_tick = (ppq/tempo)
+	for note in tracks[0].notes:
+		yield(Global.get_tree().create_timer(((note.start_time-ticks_waited)
+			* seconds_per_tick)*4), "timeout")
+		ticks_waited += note.start_time-ticks_waited
+		Global.players.play("Square", note, seconds_per_tick)
+	play = true
