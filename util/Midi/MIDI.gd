@@ -77,11 +77,6 @@ export var tempo = 0
 export var bpm = 0
 export var ppq = 0.0
 
-var current_note = [0];
-var song_time = 0.0;
-var run_time = 0.0;
-var midi_clock = 0;
-
 
 # function to parse files to midi
 func parse_file(filename: String = "") -> bool:
