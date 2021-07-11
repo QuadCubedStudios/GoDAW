@@ -82,8 +82,6 @@ var song_time = 0.0;
 var run_time = 0.0;
 var midi_clock = 0;
 
-var play = false
-
 
 # function to parse files to midi
 func parse_file(filename: String = "") -> bool:
@@ -307,4 +305,3 @@ func play(start_time = 0):
 			* seconds_per_tick)*4), "timeout")
 		ticks_waited += note.start_time-ticks_waited
 		Global.players.play("Square", note, seconds_per_tick)
-	play = true
