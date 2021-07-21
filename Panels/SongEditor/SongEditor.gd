@@ -37,7 +37,7 @@ func add_segments(segment_container: HBoxContainer, size, style):
 		segment_container.add_child(segment)
 
 func segment_input(event, segment: Button):
-	if event is InputEventMouseButton & event.pressed:
+	if event is InputEventMouseButton && event.is_pressed():
 		match event.button_index:
 			1:
 				segment.disabled = true
