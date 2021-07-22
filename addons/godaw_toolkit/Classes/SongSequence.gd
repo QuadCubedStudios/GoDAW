@@ -1,4 +1,4 @@
-class_name SongSequence extends Reference
+class_name SongSequence extends Resource
 
 #Tempo in bpm
 export var tracks: Array = []
