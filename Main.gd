@@ -12,13 +12,22 @@ func load_instruments():
 
 	var instrument_name = dir.get_next()
 	while instrument_name != "":
-		if dir.file_exists("./%s/instrument.gd" % instrument_name):
-			var instrument = load("%s/%s/instrument.gd" % [dir.get_current_dir(), instrument_name])
-			GoDAW.register_instrument(instrument_name, instrument.new())
+		if dir.file_exists("./%s/Instrument.tscn" % instrument_name):
+			var instrument: PackedScene = load("%s/%s/Instrument.tscn" % [dir.get_current_dir(), instrument_name])
+			GoDAW.register_instrument(instrument_name, instrument.instance())
 		else:
-			push_warning("Instrument %s does not have an instrument.gd file" % instrument_name)
+			push_warning("Instrument %s does not have an Instrument.tscn file" % instrument_name)
 
 		instrument_name = dir.get_next()
 
 func _init():
 	load_instruments()
+
+func _ready():
+	var inst = GoDAW.get_instrument("Square")
+	add_child(inst)
+	var note = {
+		"duration": 0.2,
+		"instrument_data": { "key": 59 }
+	}
+	inst.play_note(note)

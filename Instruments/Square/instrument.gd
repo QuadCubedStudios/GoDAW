@@ -1,4 +1,4 @@
-extends Instrument
+extends "res://addons/godaw_toolkit/Classes/Piano.gd"
 
 func _init().("Square"):
 	pass
