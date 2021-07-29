@@ -8,7 +8,7 @@ func waveform(t, freq):
 
 	# Sub-waveforms
 	var funcs = [
-		Waveforms.square(t, freq),
+		OSC.osc(t, freq, OSC.SQR),
 	]
 
 	# Add amplitudes
