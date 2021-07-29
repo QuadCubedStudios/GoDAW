@@ -16,5 +16,5 @@ func set_pitch(val: int):
 func set_volume(val: int):
 	master_volume = linear2db(val)
 
-func add_track(val):
+func add_track(val: Track):
 	tracks.append(val)

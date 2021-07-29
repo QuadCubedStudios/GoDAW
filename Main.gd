@@ -24,10 +24,27 @@ func _init():
 	load_instruments()
 
 func _ready():
-	var inst = GoDAW.get_instrument("Square")
-	add_child(inst)
-	var note = {
-		"duration": 0.2,
-		"instrument_data": { "key": 59 }
-	}
-	inst.play_note(note)
+	var song = SongSequence.new()
+	var track = Track.new()
+	track.instrument = "Square"
+	song.add_track(track)
+	for i in range(12):
+		var n = Note.new()
+		n.duration = 0.8
+		n.note_start = i
+		n.instrument_data = {
+			"key": 59+i
+		}
+		track.add_note(n)
+		pass
+	var seq = Sequencer.new()
+	seq.data = song
+	add_child(seq)
+	seq.play()
+#	var inst = GoDAW.get_instrument("Square")
+#	add_child(inst)
+#	var note = {
+#		"duration": 0.2,
+#		"instrument_data": { "key": 59 }
+#	}
+#	inst.play_note(note)
