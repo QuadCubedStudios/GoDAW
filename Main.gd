@@ -24,6 +24,9 @@ func _init():
 	load_instruments()
 
 func _ready():
+	Global.connect("play", self, "play")
+
+func play():
 	var song = SongSequence.new()
 	var track = Track.new()
 	track.instrument = "Square"
