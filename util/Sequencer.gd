@@ -6,9 +6,6 @@ var playing: bool
 var paused: bool
 var player: AnimationPlayer
 
-# Signals
-signal finished
-
 
 # Functions
 func sequence(sequence: SongSequence):
@@ -38,6 +35,7 @@ func sequence(sequence: SongSequence):
 	Global.connect("pause", self, "pause")
 	Global.connect("stop", self, "stop")
 	Global.connect("play", self, "play")
+	player.connect("animation_finished", self, "finished")
 
 func play():
 	playing = true
@@ -58,3 +56,6 @@ func pause():
 func seek(sec: float):
 	player.seek(sec, true)
 	pass
+
+func finished(_anim):
+	Global.emit_signal("finished")
