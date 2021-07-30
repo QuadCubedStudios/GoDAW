@@ -11,8 +11,9 @@ signal finished
 
 
 # Functions
-func play():
-	playing = true
+func sequence(sequence: SongSequence):
+	for i in get_children(): i.queue_free()
+	data = sequence
 	var song = Animation.new()
 	song.set_step(0.001)
 	for track in data.tracks:
@@ -34,12 +35,26 @@ func play():
 	add_child(player)
 	player.add_animation("song", song)
 	player.root_node = self.get_path()
+	Global.connect("pause", self, "pause")
+	Global.connect("stop", self, "stop")
+	Global.connect("play", self, "play")
+
+func play():
+	playing = true
+	if paused: 
+		paused = false
+		player.play()
+		return
 	player.play("song")
 
 func stop():
 	playing = false
-	# Code to stop
+	player.stop()
 
-func seek():
-	# Change with code to seek
+func pause():
+	paused = true
+	player.stop(false)
+
+func seek(sec: float):
+	player.seek(sec, true)
 	pass
