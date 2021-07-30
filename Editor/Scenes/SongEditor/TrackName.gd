@@ -11,12 +11,12 @@ func set_instrument(icon: Texture, instrument_name: String, segments: HBoxContai
 		self.text = instrument_name.substr(0, 17) + "..."
 	self.segments = segments
 
-func _on_InstrumentToggle_gui_input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == 3 && event.pressed:
-			delete_confirm.dialog_text = (
-				"Are you sure you want to delete track " + self.text)
-			delete_confirm.popup_centered()
+#func _on_InstrumentToggle_gui_input(event):
+#	if event is InputEventMouseButton:
+#		if event.button_index == 3 && event.pressed:
+#			delete_confirm.dialog_text = (
+#				"Are you sure you want to delete track " + self.text)
+#			delete_confirm.popup_centered()
 
 func _on_DeleteConfirm_confirmed():
 	segments.queue_free()

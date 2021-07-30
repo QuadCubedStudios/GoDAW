@@ -1,15 +1,18 @@
-class_name Sequencer extends Node
+extends Node
+
+onready var instruments = $Instruments
+onready var player = $AnimationPlayer
 
 # Data
 var data: SongSequence
 var playing: bool
 var paused: bool
-var player: AnimationPlayer
-
 
 # Functions
 func sequence(sequence: SongSequence):
-	for i in get_children(): i.queue_free()
+	for i in instruments.get_children():
+		i.queue_free()
+
 	data = sequence
 	var song = Animation.new()
 	song.set_step(0.001)
@@ -28,13 +31,9 @@ func sequence(sequence: SongSequence):
 				})
 			var dur = note.note_start + note.duration
 			if dur > song.length: song.length = dur
-	player = AnimationPlayer.new()
-	add_child(player)
+
 	player.add_animation("song", song)
 	player.root_node = self.get_path()
-	Global.connect("pause", self, "pause")
-	Global.connect("stop", self, "stop")
-	Global.connect("play", self, "play")
 	player.connect("animation_finished", self, "finished")
 
 func play():
@@ -58,4 +57,5 @@ func seek(sec: float):
 	pass
 
 func finished(_anim):
-	Global.emit_signal("finished")
+	pass
+#	Global.emit_signal("finished")

@@ -1,10 +1,5 @@
 extends Control
 
-export var pattern: Resource = preload("res://Patterns/pattern1.tres")
-
-var bpm = 140
-var time := 0.0 # timeline position, not system time
-
 func load_instruments():
 	var dir = Directory.new()
 	dir.open("res://Instruments")
@@ -23,6 +18,7 @@ func load_instruments():
 func _init():
 	load_instruments()
 
+# This function is solely testing code
 func _ready():
 	var song = SongSequence.new()
 	var track = Track.new()

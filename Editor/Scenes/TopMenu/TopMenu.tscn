@@ -3,8 +3,8 @@
 [ext_resource path="res://Editor/Scenes/TopMenu/TopMenu.gd" type="Script" id=1]
 
 [node name="TopMenu" type="HBoxContainer"]
-margin_right = 1264.0
-margin_bottom = 17.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -12,7 +12,7 @@ __meta__ = {
 
 [node name="FileMenu" type="MenuButton" parent="."]
 margin_right = 35.0
-margin_bottom = 20.0
+margin_bottom = 720.0
 focus_mode = 2
 mouse_default_cursor_shape = 2
 text = "File"
@@ -21,7 +21,7 @@ switch_on_hover = true
 [node name="EditMenu" type="MenuButton" parent="."]
 margin_left = 39.0
 margin_right = 75.0
-margin_bottom = 20.0
+margin_bottom = 720.0
 focus_mode = 2
 mouse_default_cursor_shape = 2
 text = "Edit"
@@ -30,7 +30,7 @@ switch_on_hover = true
 [node name="ViewMenu" type="MenuButton" parent="."]
 margin_left = 79.0
 margin_right = 121.0
-margin_bottom = 20.0
+margin_bottom = 720.0
 focus_mode = 2
 mouse_default_cursor_shape = 2
 text = "View"
@@ -39,7 +39,7 @@ switch_on_hover = true
 [node name="HelpMenu" type="MenuButton" parent="."]
 margin_left = 125.0
 margin_right = 167.0
-margin_bottom = 20.0
+margin_bottom = 720.0
 focus_mode = 2
 mouse_default_cursor_shape = 2
 text = "Help"
