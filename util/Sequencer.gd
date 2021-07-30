@@ -18,7 +18,7 @@ func sequence(sequence: SongSequence):
 		var track_index = song.add_track(Animation.TYPE_METHOD)
 		var inst = GoDAW.get_instrument(track.instrument)
 		add_child(inst)
-		song.track_set_path(track_index, track.instrument)
+		song.track_set_path(track_index, inst.name)
 		for note in track.notes:
 			note = note as Note
 			song.track_insert_key(track_index, note.note_start,
