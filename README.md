@@ -10,7 +10,7 @@ Why?
 --
 While Godot was intended to be used as a game engine, it has a very flexible API that allows for non-game applications, especially since the Godot Editor is itself built with Godot. Some examples include [Pixelorama](https://github.com/Orama-Interactive/Pixelorama) and [Material Maker](https://github.com/RodZill4/material-maker), which deal with images and texturing respectively. Godot also provides a decent audio API, and there was a distinct lack of Godot projects that use it for more than just playing sounds. Hence, GoDAW was born.
 
-In all honesty though, the GoDAW pun was too good to pass up, thanks to [@luiq54](https://github.com/luiq54) from the Pixelorama Disocrd server for the name!
+In all honesty though, the GoDAW pun was too good to pass up, thanks to [@luiq54](https://github.com/luiq54) from the Pixelorama Discord server for the name!
 ![image](https://user-images.githubusercontent.com/11648300/119843934-a05bd480-bf25-11eb-8bd7-74b0d2100b85.png)
 
 Features
