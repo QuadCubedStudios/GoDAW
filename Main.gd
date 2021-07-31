@@ -22,26 +22,16 @@ func _init():
 func _ready():
 	var song = SongSequence.new()
 	var track = Track.new()
-	var track2 = Track.new()
-	track.instrument = "Square"
-	track2.instrument = "Square"
+	track.instrument = "DTMF"
 	song.add_track(track)
-	song.add_track(track2)
-	for i in range(12):
-		var n = Note.new()
-		n.duration = 0.8
-		n.note_start = i
-		n.instrument_data = {
-			"key": 59+i
-		}
-		var n2 = Note.new()
-		n2.duration = 0.4
-		n2.note_start = i+0.4
-		n2.instrument_data = {
-			"key": 70+i
-		}
-		track.add_note(n)
-		track2.add_note(n2)
-		pass
+	var i = 0.0
+	# Number taken from https://en.wikipedia.org/wiki/Fictitious_telephone_number
+	for key in "1800160401":
+		var note = Note.new()
+		note.duration = 0.3
+		note.note_start = i
+		note.instrument_data = key
+		track.add_note(note)
+		i += 0.3
 
 	$Application/Main/SongEditor/Sequencer.sequence(song)
