@@ -1,56 +1,52 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Panels/ControlPanel/ControlPanel.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Theme/Default/GoDAWTheme.tres" type="Theme" id=2]
-[ext_resource path="res://Panels/SongEditor/SongEditor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Editor/Scenes/ControlPanel/ControlPanel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Themes/Default/GoDAWTheme.tres" type="Theme" id=2]
+[ext_resource path="res://Editor/Scenes/SongEditor/SongEditor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Main.gd" type="Script" id=4]
-[ext_resource path="res://Panels/Instruments/InstrumentsPanel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Editor/Scenes/Instruments/InstrumentsPanel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Editor/Scenes/TopMenu/TopMenu.tscn" type="PackedScene" id=6]
-[ext_resource path="res://util/scripts/Players.gd" type="Script" id=11]
 
-[node name="Main" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-theme = ExtResource( 2 )
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Main" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
 margin_top = 8.0
 margin_right = -8.0
 margin_bottom = -8.0
+theme = ExtResource( 2 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TopMenu" parent="VBoxContainer" instance=ExtResource( 6 )]
+[node name="TopMenu" parent="." instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1264.0
+margin_bottom = 17.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Application" type="HBoxContainer" parent="."]
 margin_top = 21.0
 margin_right = 1264.0
 margin_bottom = 704.0
 size_flags_vertical = 3
 custom_constants/separation = 10
 
-[node name="InstrumentsPanel" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
+[node name="InstrumentsPanel" parent="Application" instance=ExtResource( 5 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 240.0
 margin_bottom = 683.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="Main" type="VBoxContainer" parent="Application"]
 margin_left = 250.0
 margin_right = 1264.0
 margin_bottom = 683.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.0
 
-[node name="ControlPanel" parent="VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 1 )]
+[node name="ControlPanel" parent="Application/Main" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 0.0
@@ -58,7 +54,7 @@ margin_right = 150.0
 margin_bottom = 30.0
 size_flags_horizontal = 0
 
-[node name="SongEditor" parent="VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 3 )]
+[node name="SongEditor" parent="Application/Main" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 34.0
@@ -66,7 +62,8 @@ margin_right = 1014.0
 margin_bottom = 683.0
 size_flags_vertical = 3
 
-[node name="Player" type="Node" parent="."]
-script = ExtResource( 11 )
-
-[connection signal="instrument_chosen" from="VBoxContainer/HBoxContainer/InstrumentsPanel" to="VBoxContainer/HBoxContainer/VBoxContainer/SongEditor" method="add_track"]
+[connection signal="instrument_chosen" from="Application/InstrumentsPanel" to="Application/Main/SongEditor" method="add_track"]
+[connection signal="pause" from="Application/Main/ControlPanel" to="Application/Main/SongEditor" method="_on_pause"]
+[connection signal="play" from="Application/Main/ControlPanel" to="Application/Main/SongEditor" method="_on_play"]
+[connection signal="stop" from="Application/Main/ControlPanel" to="Application/Main/SongEditor" method="_on_stop"]
+[connection signal="playback_finished" from="Application/Main/SongEditor" to="Application/Main/ControlPanel" method="_on_finished"]

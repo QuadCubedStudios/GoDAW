@@ -1,7 +1,7 @@
 [gd_resource type="DynamicFont" load_steps=2 format=2]
 
 [sub_resource type="DynamicFontData" id=1]
-font_path = "res://Theme/Default/mononoki-Regular Nerd Font Complete Mono.ttf"
+font_path = "res://Themes/Default/mononoki-Regular Nerd Font Complete Mono.ttf"
 
 [resource]
 size = 14

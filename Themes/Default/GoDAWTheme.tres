@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=10 format=2]
 
-[ext_resource path="res://Theme/Default/mononoki-Regular.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Themes/Default/mononoki-Regular.tres" type="DynamicFont" id=1]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 8.0

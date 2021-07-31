@@ -1,4 +1,4 @@
-extends Instrument
+extends "res://addons/godaw_toolkit/Classes/Piano.gd"
 
 func _init().("TripleOsc"):
 	pass
@@ -8,9 +8,9 @@ func waveform(t, freq):
 
 	# Sub-waveforms
 	var funcs = [
-		Waveforms.sine(t, 200.00),
-		Waveforms.sine(t, 400.00),
-		Waveforms.sine(t, 600.00),
+		Waveforms.sine(t, freq),
+		0.5 * Waveforms.sine(t, 2 * freq),
+		0.25 * Waveforms.sine(t, 3 * freq),
 	]
 
 	# Add amplitudes
