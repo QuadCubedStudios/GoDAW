@@ -29,7 +29,7 @@ margin_bottom = 17.0
 [node name="Application" type="HBoxContainer" parent="."]
 margin_top = 21.0
 margin_right = 1264.0
-margin_bottom = 704.0
+margin_bottom = 700.0
 size_flags_vertical = 3
 custom_constants/separation = 10
 
@@ -37,12 +37,12 @@ custom_constants/separation = 10
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 240.0
-margin_bottom = 683.0
+margin_bottom = 679.0
 
 [node name="Main" type="VBoxContainer" parent="Application"]
 margin_left = 250.0
 margin_right = 1264.0
-margin_bottom = 683.0
+margin_bottom = 679.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.0
 
@@ -59,8 +59,56 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 34.0
 margin_right = 1014.0
-margin_bottom = 683.0
+margin_bottom = 679.0
 size_flags_vertical = 3
+
+[node name="DialogBoxes" type="Control" parent="."]
+margin_top = 704.0
+margin_right = 1264.0
+margin_bottom = 704.0
+
+[node name="LoadingDialog" type="WindowDialog" parent="DialogBoxes"]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -280.5
+margin_top = -40.5
+margin_right = 280.5
+margin_bottom = 40.5
+popup_exclusive = true
+window_title = "Loading"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogBoxes/LoadingDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="DialogBoxes/LoadingDialog/VBoxContainer"]
+margin_top = 13.0
+margin_right = 545.0
+margin_bottom = 30.0
+text = "Loading..."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="DialogBoxes/LoadingDialog/VBoxContainer"]
+margin_top = 34.0
+margin_right = 545.0
+margin_bottom = 51.0
 
 [connection signal="instrument_chosen" from="Application/InstrumentsPanel" to="Application/Main/SongEditor" method="add_track"]
 [connection signal="pause" from="Application/Main/ControlPanel" to="Application/Main/SongEditor" method="_on_pause"]
