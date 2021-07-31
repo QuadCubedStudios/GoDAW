@@ -43,6 +43,5 @@ func _ready():
 		track.add_note(n)
 		track2.add_note(n2)
 		pass
-	var seq = Sequencer.new()
-	add_child(seq)
-	seq.sequence(song)
+
+	$Application/Main/SongEditor/Sequencer.sequence(song)

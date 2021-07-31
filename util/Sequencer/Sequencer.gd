@@ -1,5 +1,7 @@
 extends Node
 
+signal playback_finished()
+
 onready var instruments = $Instruments
 onready var player = $AnimationPlayer
 
@@ -16,12 +18,14 @@ func sequence(sequence: SongSequence):
 	data = sequence
 	var song = Animation.new()
 	song.set_step(0.001)
+
 	for track in data.tracks:
 		track = track as Track
 		var track_index = song.add_track(Animation.TYPE_METHOD)
 		var inst = GoDAW.get_instrument(track.instrument)
-		add_child(inst)
-		song.track_set_path(track_index, inst.name)
+		instruments.add_child(inst)
+
+		song.track_set_path(track_index, "Instruments/" + inst.name)
 		for note in track.notes:
 			note = note as Note
 			song.track_insert_key(track_index, note.note_start,
@@ -33,8 +37,6 @@ func sequence(sequence: SongSequence):
 			if dur > song.length: song.length = dur
 
 	player.add_animation("song", song)
-	player.root_node = self.get_path()
-	player.connect("animation_finished", self, "finished")
 
 func play():
 	playing = true
@@ -57,5 +59,5 @@ func seek(sec: float):
 	pass
 
 func finished(_anim):
+	emit_signal("playback_finished")
 	pass
-#	Global.emit_signal("finished")

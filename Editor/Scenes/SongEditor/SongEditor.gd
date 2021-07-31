@@ -1,5 +1,7 @@
 extends VBoxContainer
 
+signal playback_finished()
+
 var track_name = preload("./TrackName.tscn")
 
 onready var names = $TracksScroll/HBox/Names
@@ -57,3 +59,6 @@ func _on_pause():
 
 func _on_stop():
 	$Sequencer.stop()
+
+func _on_Sequencer_playback_finished():
+	emit_signal("playback_finished")

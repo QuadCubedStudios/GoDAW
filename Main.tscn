@@ -66,3 +66,4 @@ size_flags_vertical = 3
 [connection signal="pause" from="Application/Main/ControlPanel" to="Application/Main/SongEditor" method="_on_pause"]
 [connection signal="play" from="Application/Main/ControlPanel" to="Application/Main/SongEditor" method="_on_play"]
 [connection signal="stop" from="Application/Main/ControlPanel" to="Application/Main/SongEditor" method="_on_stop"]
+[connection signal="playback_finished" from="Application/Main/SongEditor" to="Application/Main/ControlPanel" method="_on_finished"]

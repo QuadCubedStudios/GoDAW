@@ -70,6 +70,7 @@ config/icon="res://Icon.png"
 [autoload]
 
 GoDAW="*res://addons/godaw_toolkit/API/GoDAW.gd"
+Global="*res://util/scripts/Global.gd"
 
 [display]
 
