@@ -8,7 +8,7 @@ func waveform(t, freq):
 
 	# Sub-waveforms
 	var funcs = [
-		Waveforms.square(t, freq),
+		Waveforms.square(t, freq, 0),
 	]
 
 	# Add amplitudes

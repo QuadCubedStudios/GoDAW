@@ -28,27 +28,18 @@ func to_hertz(key_no):
 
 func create_sample(freq: float) -> AudioStreamSample:
 	# Create sample and set its sample rate
-	var sample = AudioStreamSample.new()
-	sample.mix_rate = 44100 #self.sample_rate
-
-	# Loop sample if needed
-	sample.loop_mode = AudioStreamSample.LOOP_FORWARD
-	sample.loop_begin = 0
-	sample.loop_end = floor(sample.mix_rate)
-
-	# Prepare samples buffer
-	var data = PoolByteArray([])
+	var sample = SampleTools.new(1.0)
+	var sample_end = sample.total_sample_count()
+	var mix_rate = sample.mix_rate()
 
 	# Start sampling
-	for t in sample.mix_rate:
+	for t in sample_end:
 		# Call waveform function at each sample interval
-		var amplitude = self.waveform(float(t) / sample.mix_rate, freq)
+		var amplitude = self.waveform(float(t) / mix_rate, freq)
 		# Store into sample buffer
-		data.append(127 * amplitude)
+		sample.append_data(amplitude)
 
-	# Set buffer
-	sample.data = data
-	return sample
+	return sample.as_sample()
 
 func waveform(t: float, freq: float) -> float:
 	return 0.0

@@ -8,9 +8,9 @@ func waveform(t, freq):
 
 	# Sub-waveforms
 	var funcs = [
-		Waveforms.sine(t, freq),
-		0.5 * Waveforms.sine(t, 2 * freq),
-		0.25 * Waveforms.sine(t, 3 * freq),
+		Waveforms.sine(t, freq, 0),
+		0.5 * Waveforms.sine(t, 2 * freq, 0),
+		0.25 * Waveforms.sine(t, 3 * freq, 0),
 	]
 
 	# Add amplitudes

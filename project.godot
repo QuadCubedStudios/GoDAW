@@ -27,7 +27,12 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "Note",
 "language": "GDScript",
-"path": "res://util/Note.gd"
+"path": "res://util/Sequencer/Note.gd"
+}, {
+"base": "Reference",
+"class": "SampleTools",
+"language": "GDScript",
+"path": "res://addons/godaw_toolkit/Classes/SampleTools.gd"
 }, {
 "base": "Resource",
 "class": "SongSequence",
@@ -37,7 +42,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "Track",
 "language": "GDScript",
-"path": "res://util/Track.gd"
+"path": "res://util/Sequencer/Track.gd"
 }, {
 "base": "Node2D",
 "class": "Wave",
@@ -54,6 +59,7 @@ _global_script_class_icons={
 "Instrument": "",
 "MIDI": "",
 "Note": "",
+"SampleTools": "",
 "SongSequence": "",
 "Track": "",
 "Wave": "",
