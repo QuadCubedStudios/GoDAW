@@ -1,6 +1,7 @@
 extends Node
 
 signal playback_finished()
+signal on_note(progress)
 
 onready var instruments = $Instruments
 onready var player = $AnimationPlayer
@@ -25,13 +26,13 @@ func sequence(sequence: SongSequence):
 		var inst = GoDAW.get_instrument(track.instrument)
 		instruments.add_child(inst)
 
-		song.track_set_path(track_index, "Instruments/" + inst.name)
+		song.track_set_path(track_index, ".")
 		for note in track.notes:
 			note = note as Note
 			song.track_insert_key(track_index, note.note_start,
 				{
 					"method": "play_note",
-					"args": [note]
+					"args": [inst.get_index(), note]
 				})
 			song.track_insert_key(track_index, note.note_start+note.duration,
 				{
@@ -42,6 +43,10 @@ func sequence(sequence: SongSequence):
 			if dur > song.length: song.length = dur
 
 	player.add_animation("song", song)
+
+func play_note(idx: int, note):
+	emit_signal("on_note", (player.current_animation_position/player.current_animation_length)*100)
+	instruments.get_child(idx).play_note(note)
 
 func play():
 	playing = true

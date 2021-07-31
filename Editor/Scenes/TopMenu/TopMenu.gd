@@ -42,18 +42,28 @@ func _open():
 	print("Opened")
 
 func _export():
+	var file_dialogue = get_parent().get_node("DialogBoxes/FileDialog")
+	file_dialogue.popup_centered()
+	file_dialogue.connect("file_selected", self, "file_selected")
+
+func file_selected(path):
 	var sequencer = get_parent().get_node("Application/Main/SongEditor/Sequencer")
 	var recorder = AudioEffectRecord.new()
 	AudioServer.add_bus_effect(0, recorder)
 	recorder.set_recording_active(true)
-	sequencer.connect("playback_finished", self, "_export_finished", [recorder])
+	var export_load = get_parent().get_node("DialogBoxes/ExportProgress")
+	sequencer.connect("playback_finished", self, "_export_finished"
+					, [recorder, path, export_load])
 	sequencer.play()
-	pass
+	export_load.popup_centered()
+	var progress = export_load.get_node("VBoxContainer/ProgressBar")
+	sequencer.connect("on_note", progress, "set_value")
 
-func _export_finished(recorder: AudioEffectRecord):
+func _export_finished(recorder: AudioEffectRecord, path, export_load):
 	recorder.set_recording_active(false)
 	var recording = recorder.get_recording()
-	recording.save_to_wav("/tmp/GoDAW_Export.wav")
+	recording.save_to_wav(path)
+	export_load.hide()
 
 func init_menu(menu, items):
 	for e in items:
