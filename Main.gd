@@ -30,6 +30,7 @@ func load_instruments():
 		loading_dialog_progress.value += 1
 
 	loading_dialog.hide()
+	$Application/InstrumentsPanel.reload_instruments()
 
 # This function is solely testing code
 func _ready():

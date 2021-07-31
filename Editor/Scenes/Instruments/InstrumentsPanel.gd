@@ -2,7 +2,7 @@ extends Control
 
 signal instrument_chosen(instrument)
 
-func _ready() -> void:
+func reload_instruments():
 	var dir = Directory.new()
 	dir.open("res://Instruments")
 
