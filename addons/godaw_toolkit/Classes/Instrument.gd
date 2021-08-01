@@ -9,3 +9,6 @@ func _init(instrument_name: String):
 
 func play_note(note):
 	pass
+
+func stop_note(note):
+	pass
