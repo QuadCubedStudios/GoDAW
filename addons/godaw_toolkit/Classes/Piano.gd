@@ -3,15 +3,12 @@ extends Instrument
 const OCTAVE_FACTOR = pow(2, 1.0/12)
 
 var player: AudioStreamPlayer
-var play_timer: Timer
 
 func _init(instrument_name: String).(instrument_name):
 	player = AudioStreamPlayer.new()
 	player.stream = create_sample(440.00)
-	play_timer = Timer.new()
 
 func _ready():
-	add_child(play_timer)
 	add_child(player)
 
 func play_note(note):
