@@ -33,6 +33,11 @@ func sequence(sequence: SongSequence):
 					"method": "play_note",
 					"args": [note]
 				})
+			song.track_insert_key(track_index, note.note_start+note.duration,
+				{
+					"method": "stop_note",
+					"args": [note]
+				})
 			var dur = note.note_start + note.duration
 			if dur > song.length: song.length = dur
 

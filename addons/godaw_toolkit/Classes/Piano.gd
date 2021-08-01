@@ -18,9 +18,7 @@ func play_note(note):
 	player.pitch_scale = (to_hertz(note.instrument_data.key) / 440.00)
 	player.play()
 
-	play_timer.start(note.duration)
-	yield(play_timer, "timeout")
-
+func stop_note(note):
 	player.stop()
 
 func to_hertz(key_no):
