@@ -68,7 +68,6 @@ margin_right = 1264.0
 margin_bottom = 704.0
 
 [node name="LoadingDialog" type="WindowDialog" parent="DialogBoxes"]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -110,6 +109,61 @@ margin_top = 34.0
 margin_right = 545.0
 margin_bottom = 51.0
 
+[node name="ExportProgress" type="WindowDialog" parent="DialogBoxes"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -280.5
+margin_top = -40.5
+margin_right = 280.5
+margin_bottom = 40.5
+popup_exclusive = true
+window_title = "Exporting"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogBoxes/ExportProgress"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="DialogBoxes/ExportProgress/VBoxContainer"]
+margin_top = 13.0
+margin_right = 545.0
+margin_bottom = 30.0
+text = "Exporting...."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="DialogBoxes/ExportProgress/VBoxContainer"]
+margin_top = 34.0
+margin_right = 545.0
+margin_bottom = 51.0
+
+[node name="FileDialog" type="FileDialog" parent="DialogBoxes"]
+margin_right = 876.0
+margin_bottom = 480.0
+window_title = "Save"
+access = 2
+filters = PoolStringArray( "*.wav ; Wav Files" )
+current_dir = "/home/abhi/Dev/GoDAW"
+current_path = "/home/abhi/Dev/GoDAW/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="export_pressed" from="TopMenu" to="." method="_on_TopMenu_export_pressed"]
 [connection signal="instrument_chosen" from="Application/InstrumentsPanel" to="Application/Main/SongEditor" method="add_track"]
 [connection signal="pause" from="Application/Main/ControlPanel" to="Application/Main/SongEditor" method="_on_pause"]
 [connection signal="play" from="Application/Main/ControlPanel" to="Application/Main/SongEditor" method="_on_play"]

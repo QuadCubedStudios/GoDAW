@@ -1,9 +1,11 @@
 extends HBoxContainer
 
+signal export_pressed()
+
 onready var menus = {
 	"File": {
 		"node": $FileMenu,
-		"elements": { "Open": "_open", "Save": "", "Save as...": "", "New": "", "Separator": "", "Quit": "" }
+		"elements": { "New": "", "Open": "", "Save": "", "Save as...": "", "Export": "export_pressed" ,"Separator": "", "Quit": "" }
 	},
 	"Edit": {
 		"node": $EditMenu,
@@ -29,17 +31,9 @@ func _ready():
 func on_item_pressed(id, menu):
 	var menu_dict = menus[menu]
 	var node = menu_dict.node
-
 	var item_name = node.get_popup().get_item_text(id)
-	var func_to_call = menu_dict["elements"][item_name]
-
-	if self.has_method(func_to_call):
-		self.call(func_to_call)
-	else:
-		push_error("NO METHOD CALLED " + func_to_call + " FOUND IN " + self.name)
-
-func _open():
-	print("Opened")
+	var s = menu_dict["elements"][item_name]
+	emit_signal(s)
 
 func init_menu(menu, items):
 	for e in items:
