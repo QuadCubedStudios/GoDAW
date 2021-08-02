@@ -57,7 +57,7 @@ func _export_finished(recorder: AudioEffectRecord, path):
 	export_progress.hide()
 
 func _ready():
-	#load instrumets
+	#load instruments
 	loading_dialog.popup()
 	yield(load_instruments(), "completed")
 	test()
