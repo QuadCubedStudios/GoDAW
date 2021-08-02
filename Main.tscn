@@ -163,6 +163,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="export_pressed" from="TopMenu" to="." method="_on_TopMenu_export_pressed"]
 [connection signal="instrument_chosen" from="Application/InstrumentsPanel" to="Application/Main/SongEditor" method="add_track"]
 [connection signal="pause" from="Application/Main/ControlPanel" to="Application/Main/SongEditor" method="_on_pause"]
 [connection signal="play" from="Application/Main/ControlPanel" to="Application/Main/SongEditor" method="_on_play"]

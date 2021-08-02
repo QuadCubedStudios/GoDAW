@@ -37,7 +37,7 @@ func sequence(sequence: SongSequence):
 			song.track_insert_key(track_index, note.note_start+note.duration,
 				{
 					"method": "stop_note",
-					"args": [note]
+					"args": [inst.get_index(), note]
 				})
 			var dur = note.note_start + note.duration
 			if dur > song.length: song.length = dur
@@ -47,6 +47,10 @@ func sequence(sequence: SongSequence):
 func play_note(idx: int, note):
 	emit_signal("on_note", (player.current_animation_position/player.current_animation_length)*100)
 	instruments.get_child(idx).play_note(note)
+
+func stop_note(idx:int, note):
+	emit_signal("on_note", (player.current_animation_position/player.current_animation_length)*100)
+	instruments.get_child(idx).stop_note(note)
 
 func play():
 	playing = true
