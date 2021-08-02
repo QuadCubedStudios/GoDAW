@@ -293,10 +293,18 @@ func read_value(file: File):
 	return val
 
 func play(start_time = 0):
-	var ticks_waited = 0
-	var seconds_per_tick = (ppq/tempo)
-	for note in tracks[0].notes:
-		yield(Global.get_tree().create_timer(((note.start_time-ticks_waited)
-			* seconds_per_tick)*4), "timeout")
-		ticks_waited += note.start_time-ticks_waited
-		Global.players.play("Square", note, seconds_per_tick)
+	var ms_per_tick = 60000 / (float(bpm) * float(ppq))
+	var seconds_per_tick = ms_per_tick / 1000
+	var song = SongSequence.new()
+	for track in tracks:
+		var new_track = Track.new()
+		new_track.instrument = "Piano"
+		for note in track.notes:
+			note = note as MidiNote
+			var new_note = Note.new()
+			new_note.instrument_data = { "key": note.key }
+			new_note.note_start = note.start_time * seconds_per_tick
+			new_note.duration = note.duration * seconds_per_tick
+			new_track.add_note(new_note)
+		song.add_track(new_track)
+	return song
