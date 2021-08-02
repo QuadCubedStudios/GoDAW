@@ -33,7 +33,6 @@ func on_item_pressed(id, menu):
 	var node = menu_dict.node
 	var item_name = node.get_popup().get_item_text(id)
 	var s = menu_dict["elements"][item_name]
-	print(s)
 	emit_signal(s)
 
 func init_menu(menu, items):

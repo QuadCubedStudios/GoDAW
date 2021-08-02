@@ -37,7 +37,6 @@ func load_instruments():
 	$Application/InstrumentsPanel.reload_instruments()
 
 func _on_TopMenu_export_pressed():
-	print("TEST")
 	file_dialog.popup_centered()
 	file_dialog.connect("file_selected", self, "file_selected")
 
