@@ -74,7 +74,7 @@ enum SystemExclusiveStatus {
 # Vars
 var tracks = []
 export var tempo = 0
-export var bpm = 0
+export var bpm = 120
 export var ppq = 0.0
 
 
