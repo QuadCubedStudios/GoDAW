@@ -38,20 +38,19 @@ func load_instruments():
 
 func _on_TopMenu_export_pressed():
 	file_dialog.popup_centered()
-	file_dialog.connect("file_selected", self, "file_selected")
+	var path = yield(file_dialog, "file_selected")
 
-func file_selected(path):
 	var recorder = AudioEffectRecord.new()
 	AudioServer.add_bus_effect(0, recorder, AudioServer.get_bus_effect_count(0))
-	recorder.set_recording_active(true)
-	sequencer.connect("playback_finished", self, "_export_finished"
-					, [recorder, path])
-	sequencer.play()
+
 	export_progress.popup_centered()
 	sequencer.connect("on_note", export_progress_bar, "set_value")
-
-func _export_finished(recorder: AudioEffectRecord, path):
+	
+	recorder.set_recording_active(true)
+	sequencer.play()
+	yield(sequencer, "playback_finished")
 	recorder.set_recording_active(false)
+
 	var recording = recorder.get_recording()
 	recording.save_to_wav(path)
 	export_progress.hide()
