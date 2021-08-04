@@ -63,18 +63,9 @@ func _ready():
 
 # This function is solely test code
 func test():
-	var song = SongSequence.new()
-	var track = Track.new()
-	track.instrument = "DTMF"
-	song.add_track(track)
-	var i = 0.0
-	# Number taken from https://en.wikipedia.org/wiki/Fictitious_telephone_number
-	for key in "1800160401":
-		var note = Note.new()
-		note.duration = 0.3
-		note.note_start = i
-		note.instrument_data = key
-		track.add_note(note)
-		i += 0.3
+	
+	var midi = MIDI.new()
+	midi.parse_file("/home/abhi/Downloads/Slow Dance Adrienette.mid")
+	var song = midi.play()
 	
 	sequencer.sequence(song)
