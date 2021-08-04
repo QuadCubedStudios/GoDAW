@@ -6,6 +6,7 @@ onready var export_progress: WindowDialog = $DialogBoxes/ExportProgress
 onready var export_progress_bar: ProgressBar = $DialogBoxes/ExportProgress/VBoxContainer/ProgressBar
 onready var file_dialog: FileDialog = $DialogBoxes/FileDialog
 onready var sequencer: Node = $Application/Main/SongEditor/Sequencer
+onready var instrument_panel: VBoxContainer = $Application/InstrumentsPanel
 
 func load_instruments():
 	var dir = Directory.new()
@@ -56,16 +57,32 @@ func _on_TopMenu_export_pressed():
 	export_progress.hide()
 
 func _ready():
+	# Editor Setup
+	
+	# Set Font
+	var font = get_theme().get_default_font().font_data
+	instrument_panel.Title.get_font("font", "Label").font_data = font
+	
 	#load instruments
 	loading_dialog.popup()
 	yield(load_instruments(), "completed")
+	
 	test()
 
 # This function is solely test code
 func test():
-	
-	var midi = MIDI.new()
-	midi.parse_file("/home/abhi/Downloads/Slow Dance Adrienette.mid")
-	var song = midi.play()
+	var song = SongSequence.new()
+	var track = Track.new()
+	track.instrument = "DTMF"
+	song.add_track(track)
+	var i = 0.0
+	# Number taken from https://en.wikipedia.org/wiki/Fictitious_telephone_number
+	for key in "1800160401":
+		var note = Note.new()
+		note.duration = 0.3
+		note.note_start = i
+		note.instrument_data = key
+		track.add_note(note)
+		i += 0.3
 	
 	sequencer.sequence(song)

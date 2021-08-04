@@ -2,6 +2,8 @@ extends Control
 
 signal instrument_chosen(instrument)
 
+onready var Title: Label = $Title/Label
+
 func reload_instruments():
 	var dir = Directory.new()
 	dir.open("res://Instruments")
