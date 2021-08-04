@@ -31,6 +31,9 @@ func _init().("DTMF"):
 
 			DTMF_TONES[KEYS[row][col]] = sample.as_sample()
 
+func _ready():
+	$AudioStreamPlayer.bus = AudioServer.get_bus_name(bus_idx)
+
 func play_note(note):
 	$AudioStreamPlayer.stream = DTMF_TONES[note.instrument_data]
 	$AudioStreamPlayer.play()
