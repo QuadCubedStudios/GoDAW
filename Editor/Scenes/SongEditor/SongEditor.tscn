@@ -1,14 +1,11 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Themes/Default/mononoki-Regular Nerd Font Complete Mono.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Editor/Scenes/SongEditor/SongEditor.gd" type="Script" id=2]
 [ext_resource path="res://util/Sequencer/Sequencer.tscn" type="PackedScene" id=3]
 
-[sub_resource type="DynamicFont" id=1]
-size = 9
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 1 )
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
 
 [node name="SongEditor" type="VBoxContainer"]
 anchor_right = 1.0
@@ -55,12 +52,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Timeline/Timeline/HBoxContainer"]
-margin_right = 5.0
-margin_bottom = 11.0
-custom_fonts/font = SubResource( 1 )
-text = "1"
-
 [node name="Space2" type="Control" parent="Timeline"]
 margin_left = 1275.0
 margin_right = 1280.0
@@ -72,6 +63,7 @@ margin_top = 32.0
 margin_right = 1280.0
 margin_bottom = 720.0
 size_flags_vertical = 3
+custom_styles/bg = SubResource( 1 )
 scroll_horizontal_enabled = false
 
 [node name="HBox" type="HBoxContainer" parent="TracksScroll"]
@@ -88,6 +80,7 @@ margin_left = 4.0
 margin_right = 1280.0
 margin_bottom = 688.0
 size_flags_horizontal = 3
+custom_styles/bg = SubResource( 2 )
 scroll_vertical_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TracksScroll/HBox/SegmentScroll"]

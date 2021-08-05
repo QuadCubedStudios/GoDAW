@@ -6,6 +6,7 @@ onready var export_progress: WindowDialog = $DialogBoxes/ExportProgress
 onready var export_progress_bar: ProgressBar = $DialogBoxes/ExportProgress/VBoxContainer/ProgressBar
 onready var file_dialog: FileDialog = $DialogBoxes/FileDialog
 onready var sequencer: Node = $Application/Main/SongEditor/Sequencer
+onready var instrument_panel: VBoxContainer = $Application/InstrumentsPanel
 
 func load_instruments():
 	var dir = Directory.new()
@@ -56,9 +57,16 @@ func _on_TopMenu_export_pressed():
 	export_progress.hide()
 
 func _ready():
+	# Editor Setup
+	
+	# Set Font
+	var font = get_theme().get_default_font().font_data
+	instrument_panel.Title.get_font("font", "Label").font_data = font
+	
 	#load instruments
 	loading_dialog.popup()
 	yield(load_instruments(), "completed")
+	
 	test()
 
 # This function is solely test code
