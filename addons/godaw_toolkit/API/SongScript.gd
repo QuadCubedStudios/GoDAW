@@ -11,19 +11,26 @@ func track(instrument: String, notes: Array):
 	var track = Track.new()
 	track.instrument = instrument
 	# Convenient for nested patterns
-	track.notes = pattern(1, notes)
+	track.notes = pattern(0.0, 1, notes)
 
 	self.sequence.add_track(track)
 
-func pattern(repeat: int, notes: Array) -> Array:
+func pattern(start_delta: float, repeat: int, notes: Array) -> Array:
 	var expanded = []
 	for _i in repeat:
 		for el in notes:
 			if el is Note:
 				expanded.append(el)
 			elif el is Array:
-				expanded.append_array(pattern(1, el))
+				expanded.append_array(pattern(0.0, 1, el))
 
+	# TODO: Move note copy code elsewhere
+	var new_first = Note.new()
+	new_first.note_start_delta = (expanded[0] as Note).note_start_delta + start_delta
+	new_first.duration = (expanded[0] as Note).duration
+	new_first.instrument_data = (expanded[0] as Note).instrument_data
+
+	expanded[0] = new_first
 	return expanded
 
 func note(note_start_delta: float, duration: float, data) -> Note:
