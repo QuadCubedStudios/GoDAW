@@ -3,4 +3,5 @@
 [ext_resource path="res://Themes/Default/Font/Mononoki/Mononoki.ttf" type="DynamicFontData" id=1]
 
 [resource]
+use_filter = true
 font_data = ExtResource( 1 )
