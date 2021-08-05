@@ -1,6 +1,8 @@
-[gd_resource type="Theme" load_steps=29 format=2]
+[gd_resource type="Theme" load_steps=25 format=2]
 
 [ext_resource path="res://Themes/Default/Font/Mononoki/Font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Themes/Default/ButtonIcons/close.png" type="Texture" id=2]
+[ext_resource path="res://Themes/Default/ButtonIcons/grabber.png" type="Texture" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 6.0
@@ -18,7 +20,7 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[sub_resource type="StyleBoxFlat" id=37]
+[sub_resource type="StyleBoxFlat" id=2]
 content_margin_left = 6.0
 content_margin_right = 6.0
 content_margin_top = 4.0
@@ -29,7 +31,7 @@ border_color = Color( 0.112745, 0.127451, 0.156862, 1 )
 corner_radius_top_left = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id=40]
+[sub_resource type="StyleBoxFlat" id=3]
 content_margin_left = 6.0
 content_margin_right = 6.0
 content_margin_top = 4.0
@@ -45,7 +47,7 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[sub_resource type="StyleBoxFlat" id=41]
+[sub_resource type="StyleBoxFlat" id=4]
 content_margin_left = 6.0
 content_margin_right = 6.0
 content_margin_top = 4.0
@@ -61,7 +63,7 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[sub_resource type="StyleBoxFlat" id=42]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.32549, 0.32549, 0.423529, 1 )
 border_width_left = 3
 border_width_top = 2
@@ -71,7 +73,7 @@ border_color = Color( 0.8, 0.8, 0.8, 0 )
 corner_radius_top_left = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id=43]
+[sub_resource type="StyleBoxFlat" id=6]
 content_margin_left = 15.0
 content_margin_right = 15.0
 content_margin_top = 15.0
@@ -89,7 +91,7 @@ corner_radius_bottom_left = 5
 shadow_color = Color( 0, 0, 0, 0.3 )
 shadow_size = 4
 
-[sub_resource type="StyleBoxFlat" id=58]
+[sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0.1377, 0.1377, 0.17, 0.670588 )
 corner_radius_top_left = 5
 corner_radius_top_right = 5
@@ -98,12 +100,12 @@ corner_radius_bottom_left = 5
 expand_margin_left = 3.0
 expand_margin_right = 3.0
 
-[sub_resource type="StyleBoxLine" id=59]
+[sub_resource type="StyleBoxLine" id=8]
 color = Color( 0.568627, 0.568627, 0.666667, 1 )
 grow_begin = 7.0
 grow_end = 7.0
 
-[sub_resource type="StyleBoxFlat" id=126]
+[sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.156863, 0.156863, 0.2, 1 )
 border_width_left = 3
 border_width_top = 3
@@ -111,7 +113,7 @@ border_width_right = 3
 border_width_bottom = 3
 border_color = Color( 0.121569, 0.121569, 0.156863, 1 )
 
-[sub_resource type="StyleBoxFlat" id=127]
+[sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.215686, 0.215686, 0.282353, 1 )
 border_width_left = 3
 border_width_top = 3
@@ -119,14 +121,14 @@ border_width_right = 3
 border_width_bottom = 3
 border_color = Color( 0.121569, 0.121569, 0.156863, 1 )
 
-[sub_resource type="StyleBoxFlat" id=60]
+[sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0.215686, 0.215686, 0.282353, 1 )
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id=75]
+[sub_resource type="StyleBoxFlat" id=12]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 5.0
@@ -138,7 +140,7 @@ border_width_right = 1
 border_color = Color( 0.112745, 0.127451, 0.156862, 1 )
 expand_margin_bottom = 1.0
 
-[sub_resource type="StyleBoxFlat" id=76]
+[sub_resource type="StyleBoxFlat" id=13]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 5.0
@@ -150,7 +152,7 @@ border_width_right = 1
 border_color = Color( 0.126274, 0.142745, 0.175686, 1 )
 expand_margin_bottom = 1.0
 
-[sub_resource type="StyleBoxFlat" id=77]
+[sub_resource type="StyleBoxFlat" id=14]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 5.0
@@ -162,7 +164,7 @@ border_width_right = 1
 border_color = Color( 0.090196, 0.101961, 0.12549, 1 )
 expand_margin_bottom = 1.0
 
-[sub_resource type="StyleBoxFlat" id=86]
+[sub_resource type="StyleBoxFlat" id=15]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
@@ -178,7 +180,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id=87]
+[sub_resource type="StyleBoxFlat" id=16]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
@@ -194,7 +196,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id=88]
+[sub_resource type="StyleBoxFlat" id=17]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
@@ -210,7 +212,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id=93]
+[sub_resource type="StyleBoxFlat" id=18]
 content_margin_left = 4.0
 content_margin_right = 4.0
 content_margin_top = 4.0
@@ -226,7 +228,7 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[sub_resource type="StyleBoxFlat" id=94]
+[sub_resource type="StyleBoxFlat" id=19]
 bg_color = Color( 0.1377, 0.1377, 0.17, 0.670588 )
 corner_radius_top_left = 3
 corner_radius_top_right = 3
@@ -234,60 +236,10 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 expand_margin_left = 20.0
 
-[sub_resource type="Image" id=128]
-data = {
-"data": PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 49, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 49, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 49, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 100, 255, 255, 255, 49, 255, 255, 255, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
-"format": "RGBA8",
-"height": 8,
-"mipmaps": false,
-"width": 64
-}
+[sub_resource type="StyleBoxFlat" id=26]
+bg_color = Color( 0.152941, 0.152941, 0.152941, 0.0627451 )
 
-[sub_resource type="ImageTexture" id=96]
-flags = 0
-flags = 0
-image = SubResource( 128 )
-size = Vector2( 64, 8 )
-
-[sub_resource type="Image" id=129]
-data = {
-"data": PoolByteArray( 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24, 0, 0, 0, 24 ),
-"format": "RGBA8",
-"height": 8,
-"mipmaps": false,
-"width": 8
-}
-
-[sub_resource type="ImageTexture" id=98]
-flags = 0
-flags = 0
-image = SubResource( 129 )
-size = Vector2( 8, 8 )
-
-[sub_resource type="StyleBoxTexture" id=99]
-texture = SubResource( 98 )
-region_rect = Rect2( 0, 0, 8, 8 )
-margin_left = 1.0
-margin_right = 1.0
-margin_top = 1.0
-margin_bottom = 1.0
-
-[sub_resource type="Image" id=130]
-data = {
-"data": PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 76, 255, 255, 255, 17, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 17, 255, 255, 255, 76, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 76, 255, 255, 255, 228, 255, 255, 255, 188, 255, 255, 255, 17, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 17, 255, 255, 255, 188, 255, 255, 255, 228, 255, 255, 255, 76, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 18, 255, 255, 255, 188, 255, 255, 255, 229, 255, 255, 255, 187, 255, 255, 255, 17, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 17, 255, 255, 255, 187, 255, 255, 255, 229, 255, 255, 255, 188, 255, 255, 255, 18, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 19, 255, 255, 255, 188, 255, 255, 255, 229, 255, 255, 255, 185, 255, 255, 255, 17, 255, 255, 255, 17, 255, 255, 255, 186, 255, 255, 255, 229, 255, 255, 255, 188, 255, 255, 255, 19, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 19, 255, 255, 255, 190, 255, 255, 255, 229, 255, 255, 255, 185, 255, 255, 255, 185, 255, 255, 255, 229, 255, 255, 255, 189, 255, 255, 255, 19, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 19, 255, 255, 255, 191, 255, 255, 255, 229, 255, 255, 255, 229, 255, 255, 255, 190, 255, 255, 255, 19, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 17, 255, 255, 255, 188, 255, 255, 255, 229, 255, 255, 255, 229, 255, 255, 255, 188, 255, 255, 255, 17, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 17, 255, 255, 255, 188, 255, 255, 255, 229, 255, 255, 255, 188, 255, 255, 255, 188, 255, 255, 255, 229, 255, 255, 255, 187, 255, 255, 255, 17, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 17, 255, 255, 255, 187, 255, 255, 255, 229, 255, 255, 255, 188, 255, 255, 255, 18, 255, 255, 255, 19, 255, 255, 255, 188, 255, 255, 255, 229, 255, 255, 255, 186, 255, 255, 255, 17, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 17, 255, 255, 255, 185, 255, 255, 255, 229, 255, 255, 255, 189, 255, 255, 255, 19, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 19, 255, 255, 255, 189, 255, 255, 255, 229, 255, 255, 255, 185, 255, 255, 255, 17, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 76, 255, 255, 255, 229, 255, 255, 255, 190, 255, 255, 255, 19, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 19, 255, 255, 255, 190, 255, 255, 255, 229, 255, 255, 255, 76, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 77, 255, 255, 255, 19, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 19, 255, 255, 255, 77, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 0, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
-"format": "RGBA8",
-"height": 16,
-"mipmaps": false,
-"width": 16
-}
-
-[sub_resource type="ImageTexture" id=36]
-flags = 0
-flags = 0
-image = SubResource( 130 )
-size = Vector2( 16, 16 )
-
-[sub_resource type="StyleBoxFlat" id=100]
+[sub_resource type="StyleBoxFlat" id=25]
 content_margin_left = 8.0
 content_margin_right = 8.0
 content_margin_top = 8.0
@@ -517,11 +469,11 @@ MenuButton/colors/font_color_hover = Color( 0.85098, 0.85098, 0.882353, 1 )
 MenuButton/colors/font_color_pressed = Color( 0.85098, 0.85098, 0.882353, 1 )
 MenuButton/constants/hseparation = 3
 MenuButton/fonts/font = null
-MenuButton/styles/disabled = SubResource( 37 )
-MenuButton/styles/focus = SubResource( 37 )
-MenuButton/styles/hover = SubResource( 37 )
-MenuButton/styles/normal = SubResource( 37 )
-MenuButton/styles/pressed = SubResource( 37 )
+MenuButton/styles/disabled = SubResource( 2 )
+MenuButton/styles/focus = SubResource( 2 )
+MenuButton/styles/hover = SubResource( 2 )
+MenuButton/styles/normal = SubResource( 2 )
+MenuButton/styles/pressed = SubResource( 2 )
 OptionButton/colors/font_color = Color( 0.795098, 0.800981, 0.812745, 1 )
 OptionButton/colors/font_color_disabled = Color( 1, 1, 1, 0.3 )
 OptionButton/colors/font_color_hover = Color( 0.877059, 0.880588, 0.887647, 1 )
@@ -534,12 +486,12 @@ OptionButton/fonts/font = null
 OptionButton/icons/arrow = null
 OptionButton/styles/disabled = null
 OptionButton/styles/focus = SubResource( 1 )
-OptionButton/styles/hover = SubResource( 40 )
+OptionButton/styles/hover = SubResource( 3 )
 OptionButton/styles/normal = SubResource( 1 )
-OptionButton/styles/pressed = SubResource( 41 )
+OptionButton/styles/pressed = SubResource( 4 )
 Panel/styles/panel = null
-PanelContainer/styles/panel = SubResource( 42 )
-PopupDialog/styles/panel = SubResource( 43 )
+PanelContainer/styles/panel = SubResource( 5 )
+PopupDialog/styles/panel = SubResource( 6 )
 PopupMenu/colors/font_color = Color( 0.795098, 0.800981, 0.812745, 1 )
 PopupMenu/colors/font_color_accel = Color( 1, 1, 1, 0.301961 )
 PopupMenu/colors/font_color_disabled = Color( 1, 1, 1, 0.3 )
@@ -558,20 +510,20 @@ PopupMenu/icons/visibility_visible = null
 PopupMenu/icons/visibility_xray = null
 PopupMenu/styles/disabled = null
 PopupMenu/styles/focus = null
-PopupMenu/styles/hover = SubResource( 58 )
+PopupMenu/styles/hover = SubResource( 7 )
 PopupMenu/styles/labeled_separator_left = null
 PopupMenu/styles/labeled_separator_right = null
 PopupMenu/styles/normal = null
-PopupMenu/styles/panel = SubResource( 43 )
+PopupMenu/styles/panel = SubResource( 6 )
 PopupMenu/styles/panel_disabled = null
 PopupMenu/styles/pressed = null
-PopupMenu/styles/separator = SubResource( 59 )
-PopupPanel/styles/panel = SubResource( 43 )
+PopupMenu/styles/separator = SubResource( 8 )
+PopupPanel/styles/panel = SubResource( 6 )
 ProgressBar/colors/font_color = Color( 0.85098, 0.85098, 0.882353, 1 )
 ProgressBar/colors/font_color_shadow = Color( 0, 0, 0, 1 )
 ProgressBar/fonts/font = null
-ProgressBar/styles/bg = SubResource( 126 )
-ProgressBar/styles/fg = SubResource( 127 )
+ProgressBar/styles/bg = SubResource( 9 )
+ProgressBar/styles/fg = SubResource( 10 )
 ProjectSettingsEditor/styles/panel = null
 RichTextLabel/colors/default_color = Color( 0.795098, 0.800981, 0.812745, 1 )
 RichTextLabel/colors/font_color_selected = Color( 0, 0, 0, 1 )
@@ -590,7 +542,7 @@ RichTextLabel/fonts/mono_font = null
 RichTextLabel/fonts/normal_font = null
 RichTextLabel/styles/focus = null
 RichTextLabel/styles/normal = null
-ScrollContainer/styles/bg = SubResource( 60 )
+ScrollContainer/styles/bg = SubResource( 11 )
 SpinBox/icons/updown = null
 TabContainer/colors/font_color_bg = Color( 1, 1, 1, 0.3 )
 TabContainer/colors/font_color_disabled = Color( 0, 0, 0, 1 )
@@ -624,12 +576,12 @@ Tabs/icons/decrement = null
 Tabs/icons/decrement_highlight = null
 Tabs/icons/increment = null
 Tabs/icons/increment_highlight = null
-Tabs/styles/button = SubResource( 37 )
-Tabs/styles/button_pressed = SubResource( 37 )
+Tabs/styles/button = SubResource( 2 )
+Tabs/styles/button_pressed = SubResource( 2 )
 Tabs/styles/panel = null
-Tabs/styles/tab_bg = SubResource( 75 )
-Tabs/styles/tab_disabled = SubResource( 76 )
-Tabs/styles/tab_fg = SubResource( 77 )
+Tabs/styles/tab_bg = SubResource( 12 )
+Tabs/styles/tab_disabled = SubResource( 13 )
+Tabs/styles/tab_fg = SubResource( 14 )
 TextEdit/colors/background_color = Color( 0, 0, 0, 1 )
 TextEdit/colors/bookmark_color = Color( 0, 0, 0, 1 )
 TextEdit/colors/brace_mismatch_color = Color( 0, 0, 0, 1 )
@@ -677,9 +629,9 @@ ToolButton/constants/hseparation = 3
 ToolButton/fonts/font = null
 ToolButton/styles/disabled = null
 ToolButton/styles/focus = null
-ToolButton/styles/hover = SubResource( 86 )
-ToolButton/styles/normal = SubResource( 87 )
-ToolButton/styles/pressed = SubResource( 88 )
+ToolButton/styles/hover = SubResource( 15 )
+ToolButton/styles/normal = SubResource( 16 )
+ToolButton/styles/pressed = SubResource( 17 )
 TooltipLabel/colors/font_color = Color( 0.204902, 0.199019, 0.187255, 1 )
 TooltipLabel/colors/font_color_shadow = Color( 0, 0, 0, 0.1 )
 TooltipLabel/constants/shadow_offset_x = 1
@@ -709,7 +661,7 @@ Tree/icons/checked = null
 Tree/icons/select_arrow = null
 Tree/icons/unchecked = null
 Tree/icons/updown = null
-Tree/styles/bg = SubResource( 93 )
+Tree/styles/bg = SubResource( 18 )
 Tree/styles/bg_focus = null
 Tree/styles/button_pressed = null
 Tree/styles/cursor = null
@@ -718,8 +670,8 @@ Tree/styles/custom_button = null
 Tree/styles/custom_button_hover = null
 Tree/styles/custom_button_pressed = null
 Tree/styles/hover = null
-Tree/styles/selected = SubResource( 94 )
-Tree/styles/selected_focus = SubResource( 94 )
+Tree/styles/selected = SubResource( 19 )
+Tree/styles/selected_focus = SubResource( 19 )
 Tree/styles/title_button_hover = null
 Tree/styles/title_button_normal = null
 Tree/styles/title_button_pressed = null
@@ -744,14 +696,14 @@ VSlider/styles/grabber_area_highlight = null
 VSlider/styles/slider = null
 VSplitContainer/constants/autohide = 1
 VSplitContainer/constants/separation = 8
-VSplitContainer/icons/grabber = SubResource( 96 )
-VSplitContainer/styles/bg = SubResource( 99 )
+VSplitContainer/icons/grabber = ExtResource( 3 )
+VSplitContainer/styles/bg = SubResource( 26 )
 WindowDialog/colors/title_color = Color( 0.85098, 0.85098, 0.882353, 1 )
 WindowDialog/constants/close_h_ofs = 22
 WindowDialog/constants/close_v_ofs = 20
 WindowDialog/constants/scaleborder_size = 4
 WindowDialog/constants/title_height = 24
 WindowDialog/fonts/title_font = null
-WindowDialog/icons/close = SubResource( 36 )
-WindowDialog/icons/close_highlight = SubResource( 36 )
-WindowDialog/styles/panel = SubResource( 100 )
+WindowDialog/icons/close = ExtResource( 2 )
+WindowDialog/icons/close_highlight = ExtResource( 2 )
+WindowDialog/styles/panel = SubResource( 25 )
