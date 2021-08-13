@@ -1,4 +1,4 @@
-extends "res://addons/godaw_toolkit/Classes/Piano.gd"
+extends PianoInstrument
 
 func _init().("TripleOsc"):
 	pass

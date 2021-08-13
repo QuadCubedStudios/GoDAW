@@ -79,10 +79,10 @@ func test():
 	# Number taken from https://en.wikipedia.org/wiki/Fictitious_telephone_number
 	for key in "1800160401":
 		var note = Note.new()
-		note.duration = 0.3
+		note.duration = 0.1
 		note.note_start = i
 		note.instrument_data = key
 		track.add_note(note)
-		i += 0.3
-	
+		i += 0.2
+
 	sequencer.sequence(song)

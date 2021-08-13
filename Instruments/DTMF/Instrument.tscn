@@ -1,8 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Instruments/DTMF/instrument.gd" type="Script" id=1]
+[ext_resource path="res://Instruments/DTMF/Instrument.gd" type="Script" id=1]
 
 [node name="DTMF" type="Node"]
 script = ExtResource( 1 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -1,5 +1,7 @@
 extends Instrument
 
+class_name PianoInstrument
+
 const OCTAVE_FACTOR = pow(2, 1.0/12)
 
 var player: AudioStreamPlayer

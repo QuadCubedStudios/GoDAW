@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/godaw_toolkit/API/Instrument/Piano/Piano.gd" type="Script" id=1]
+
+[sub_resource type="AudioStreamGenerator" id=1]
+
+[node name="Piano" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource( 1 )
+bus = "GoDAW Global"
