@@ -73,15 +73,15 @@ func _ready():
 func test():
 	var song = SongSequence.new()
 	var track = Track.new()
-	track.instrument = "DTMF"
+	track.instrument = "TripleOsc"
 	song.add_track(track)
 	var i = 0.0
 	# Number taken from https://en.wikipedia.org/wiki/Fictitious_telephone_number
-	for key in "1800160401":
+	for key in 12:
 		var note = Note.new()
-		note.duration = 0.1
+		note.duration = 0.5
 		note.note_start = i
-		note.instrument_data = key
+		note.instrument_data = { "key": 69 + key }
 		track.add_note(note)
 		i += 0.2
 
