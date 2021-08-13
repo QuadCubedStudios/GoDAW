@@ -71,6 +71,10 @@ func _ready():
 
 # This function is solely test code
 func test():
+	var btn = ToolButton.new()
+	btn.text = "TripleOsc"
+	$Application/Main/SongEditor.add_track(btn)
+
 	var song = SongSequence.new()
 	var track = Track.new()
 	track.instrument = "TripleOsc"

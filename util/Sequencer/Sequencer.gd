@@ -3,7 +3,7 @@ extends Node
 signal playback_finished()
 signal on_note(progress)
 
-onready var instruments = $Instruments
+export var INSTRUMENTS = {}
 onready var player = $AnimationPlayer
 
 # Data
@@ -13,9 +13,6 @@ var paused: bool
 
 # Functions
 func sequence(sequence: SongSequence):
-	for i in instruments.get_children():
-		i.queue_free()
-
 	data = sequence
 	var song = Animation.new()
 	song.set_step(0.001)
@@ -23,34 +20,30 @@ func sequence(sequence: SongSequence):
 	for track in data.tracks:
 		track = track as Track
 		var track_index = song.add_track(Animation.TYPE_METHOD)
-		var inst = GoDAW.get_instrument(track.instrument)
-		instruments.add_child(inst)
 
 		song.track_set_path(track_index, ".")
 		for note in track.notes:
 			note = note as Note
-			song.track_insert_key(track_index, note.note_start,
-				{
-					"method": "play_note",
-					"args": [inst.get_index(), note]
-				})
-			song.track_insert_key(track_index, note.note_start+note.duration,
-				{
-					"method": "stop_note",
-					"args": [inst.get_index(), note]
-				})
+			song.track_insert_key(track_index, note.note_start, {
+				"method": "play_note",
+				"args": [track.instrument, note]
+			})
+			song.track_insert_key(track_index, note.note_start + note.duration, {
+				"method": "stop_note",
+				"args": [track.instrument, note]
+			})
 			var dur = note.note_start + note.duration
 			if dur > song.length: song.length = dur
 
 	player.add_animation("song", song)
 
-func play_note(idx: int, note):
+func play_note(instrument_name: String, note):
 	emit_signal("on_note", (player.current_animation_position/player.current_animation_length)*100)
-	instruments.get_child(idx).play_note(note)
+	(INSTRUMENTS[instrument_name] as Instrument).play_note(note)
 
-func stop_note(idx:int, note):
+func stop_note(instrument_name: String, note):
 	emit_signal("on_note", (player.current_animation_position/player.current_animation_length)*100)
-	instruments.get_child(idx).stop_note(note)
+	(INSTRUMENTS[instrument_name] as Instrument).stop_note(note)
 
 func play():
 	playing = true

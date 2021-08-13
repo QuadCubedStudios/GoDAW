@@ -23,6 +23,10 @@ func add_track(instrument: Button):
 #	if Global.segments == 0:
 #		Global.segments = segments.get_parent().get_size().x/25
 #	add_segments(segment_container, name.rect_size.y, true)
+	# TODO: Hacky code
+	var inst := GoDAW.get_instrument(instrument.text)
+	segment_container.add_child(inst)
+	$Sequencer.INSTRUMENTS[instrument.text] = inst
 	segments.add_child(segment_container)
 
 #func add_segments(segment_container: HBoxContainer, size, style):
