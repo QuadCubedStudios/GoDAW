@@ -22,6 +22,8 @@ func waveform(t: float):
 			amp += a
 
 	# Return normalized wave
+	if currently_playing.size() == 0:
+		return 0
 	return amp / currently_playing.size()
 
 # TODO: Move this to MIDI later
