@@ -16,7 +16,7 @@ func entry():
 				note(d, d, { "key": 64 }),
 				note(d, d, { "key": 66 }),
 			], 4),
-		]),
+		], 2),
 		pattern([
 			pattern([
 				note(d, d, { "key": 62 }),
@@ -30,5 +30,5 @@ func entry():
 				note(d, d, { "key": 0 }),
 				note(d, d, { "key": 66 }),
 			], 4),
-		]),
+		], 2),
 	])
