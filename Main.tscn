@@ -24,10 +24,10 @@ __meta__ = {
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1264.0
-margin_bottom = 17.0
+margin_bottom = 27.0
 
 [node name="Application" type="HBoxContainer" parent="."]
-margin_top = 21.0
+margin_top = 31.0
 margin_right = 1264.0
 margin_bottom = 700.0
 size_flags_vertical = 3
@@ -37,12 +37,12 @@ custom_constants/separation = 10
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 240.0
-margin_bottom = 679.0
+margin_bottom = 669.0
 
 [node name="Main" type="VBoxContainer" parent="Application"]
 margin_left = 250.0
 margin_right = 1264.0
-margin_bottom = 679.0
+margin_bottom = 669.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.0
 
@@ -59,7 +59,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 34.0
 margin_right = 1014.0
-margin_bottom = 679.0
+margin_bottom = 669.0
 size_flags_vertical = 3
 
 [node name="DialogBoxes" type="Control" parent="."]
@@ -157,8 +157,8 @@ margin_bottom = 480.0
 window_title = "Save"
 access = 2
 filters = PoolStringArray( "*.wav ; Wav Files" )
-current_dir = "/home/abhi/Dev/GoDAW"
-current_path = "/home/abhi/Dev/GoDAW/"
+current_dir = "/var/home/abhinav/Dev/GoDAW"
+current_path = "/var/home/abhinav/Dev/GoDAW/"
 __meta__ = {
 "_edit_use_anchors_": false
 }

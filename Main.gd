@@ -61,7 +61,7 @@ func _ready():
 	
 	# Set Font
 	var font = get_theme().get_default_font().font_data
-	instrument_panel.Title.get_font("font", "Label").font_data = font
+	instrument_panel.title.get_font("font", "Label").font_data = font
 	
 	#load instruments
 	loading_dialog.popup()
