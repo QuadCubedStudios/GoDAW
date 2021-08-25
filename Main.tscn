@@ -157,8 +157,6 @@ margin_bottom = 480.0
 window_title = "Save"
 access = 2
 filters = PoolStringArray( "*.wav ; Wav Files" )
-current_dir = "/var/home/abhinav/Dev/GoDAW"
-current_path = "/var/home/abhinav/Dev/GoDAW/"
 __meta__ = {
 "_edit_use_anchors_": false
 }
