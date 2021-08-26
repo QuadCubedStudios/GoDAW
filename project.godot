@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Resource",
-"class": "GDW_pattern",
-"language": "GDScript",
-"path": "res://Patterns/pattern.gd"
-}, {
 "base": "Node",
 "class": "Instrument",
 "language": "GDScript",
@@ -65,7 +60,6 @@ _global_script_classes=[ {
 "path": "res://addons/godaw_toolkit/API/Waveforms.gd"
 } ]
 _global_script_class_icons={
-"GDW_pattern": "",
 "Instrument": "",
 "LiveSynthesisInstrument": "",
 "MIDI": "",
