@@ -2,7 +2,8 @@ extends Control
 
 signal instrument_chosen(instrument)
 
-onready var Title: Label = $Title/Label
+onready var title: Label = $Title/Label
+onready var instrument_container = $Panel/Instruments/VBoxContainer
 
 func reload_instruments():
 	var dir = Directory.new()
@@ -22,7 +23,7 @@ func reload_instruments():
 		btn.flat = false
 		btn.focus_mode = Control.FOCUS_NONE
 		btn.connect("pressed", self, "_on_Instrument_pressed", [btn])
-		$Instruments/VBoxContainer.add_child(btn)
+		instrument_container.add_child(btn)
 
 func _on_Instrument_pressed(button) -> void:
 	emit_signal("instrument_chosen", button)

@@ -63,6 +63,13 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 0.215686, 0.215686, 0.282353, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.32549, 0.32549, 0.423529, 1 )
 border_width_left = 3
@@ -120,13 +127,6 @@ border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 border_color = Color( 0.121569, 0.121569, 0.156863, 1 )
-
-[sub_resource type="StyleBoxFlat" id=11]
-bg_color = Color( 0.215686, 0.215686, 0.282353, 1 )
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id=12]
 content_margin_left = 10.0
@@ -236,10 +236,10 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 expand_margin_left = 20.0
 
-[sub_resource type="StyleBoxFlat" id=26]
+[sub_resource type="StyleBoxFlat" id=20]
 bg_color = Color( 0.152941, 0.152941, 0.152941, 0.0627451 )
 
-[sub_resource type="StyleBoxFlat" id=25]
+[sub_resource type="StyleBoxFlat" id=21]
 content_margin_left = 8.0
 content_margin_right = 8.0
 content_margin_top = 8.0
@@ -489,7 +489,7 @@ OptionButton/styles/focus = SubResource( 1 )
 OptionButton/styles/hover = SubResource( 3 )
 OptionButton/styles/normal = SubResource( 1 )
 OptionButton/styles/pressed = SubResource( 4 )
-Panel/styles/panel = null
+Panel/styles/panel = SubResource( 22 )
 PanelContainer/styles/panel = SubResource( 5 )
 PopupDialog/styles/panel = SubResource( 6 )
 PopupMenu/colors/font_color = Color( 0.795098, 0.800981, 0.812745, 1 )
@@ -542,7 +542,7 @@ RichTextLabel/fonts/mono_font = null
 RichTextLabel/fonts/normal_font = null
 RichTextLabel/styles/focus = null
 RichTextLabel/styles/normal = null
-ScrollContainer/styles/bg = SubResource( 11 )
+ScrollContainer/styles/bg = null
 SpinBox/icons/updown = null
 TabContainer/colors/font_color_bg = Color( 1, 1, 1, 0.3 )
 TabContainer/colors/font_color_disabled = Color( 0, 0, 0, 1 )
@@ -697,7 +697,7 @@ VSlider/styles/slider = null
 VSplitContainer/constants/autohide = 1
 VSplitContainer/constants/separation = 8
 VSplitContainer/icons/grabber = ExtResource( 3 )
-VSplitContainer/styles/bg = SubResource( 26 )
+VSplitContainer/styles/bg = SubResource( 20 )
 WindowDialog/colors/title_color = Color( 0.85098, 0.85098, 0.882353, 1 )
 WindowDialog/constants/close_h_ofs = 22
 WindowDialog/constants/close_v_ofs = 20
@@ -706,4 +706,4 @@ WindowDialog/constants/title_height = 24
 WindowDialog/fonts/title_font = null
 WindowDialog/icons/close = ExtResource( 2 )
 WindowDialog/icons/close_highlight = ExtResource( 2 )
-WindowDialog/styles/panel = SubResource( 25 )
+WindowDialog/styles/panel = SubResource( 21 )
