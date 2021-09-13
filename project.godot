@@ -40,6 +40,11 @@ _global_script_classes=[ {
 "path": "res://addons/godaw_toolkit/API/SampleTools.gd"
 }, {
 "base": "Resource",
+"class": "SongScript",
+"language": "GDScript",
+"path": "res://addons/godaw_toolkit/API/SongScript.gd"
+}, {
+"base": "Resource",
 "class": "SongSequence",
 "language": "GDScript",
 "path": "res://addons/godaw_toolkit/API/SongSequence.gd"
@@ -66,6 +71,7 @@ _global_script_class_icons={
 "Note": "",
 "PianoInstrument": "",
 "SampleTools": "",
+"SongScript": "",
 "SongSequence": "",
 "Track": "",
 "Wave": "",

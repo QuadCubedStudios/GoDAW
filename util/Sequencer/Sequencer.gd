@@ -22,18 +22,22 @@ func sequence(sequence: SongSequence):
 		var track_index = song.add_track(Animation.TYPE_METHOD)
 
 		song.track_set_path(track_index, ".")
+		var current_time = 0.0
 		for note in track.notes:
 			note = note as Note
-			song.track_insert_key(track_index, note.note_start, {
+
+			current_time += note.note_start_delta
+			song.track_insert_key(track_index, current_time, {
 				"method": "play_note",
 				"args": [track.instrument, note]
 			})
-			song.track_insert_key(track_index, note.note_start + note.duration, {
+
+			song.track_insert_key(track_index, current_time + note.duration, {
 				"method": "stop_note",
 				"args": [track.instrument, note]
 			})
-			var dur = note.note_start + note.duration
-			if dur > song.length: song.length = dur
+
+		song.length = current_time + track.notes[-1].duration
 
 	player.add_animation("song", song)
 
