@@ -32,8 +32,7 @@ func to_hertz(key_no):
 
 func play_note(note: Note):
 	self.currently_playing[note.instrument_data.key] = note.instrument_data
-	self.currently_playing[note.instrument_data.key].start_t = note.note_start
-	self.currently_playing[note.instrument_data.key].end_t = note.note_start + note.duration
+	self.currently_playing[note.instrument_data.key].end_t = note.duration
 	.play_note(note)
 
 func stop_note(note: Note):

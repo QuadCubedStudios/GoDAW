@@ -26,6 +26,9 @@ func sequence(sequence: SongSequence):
 		for note in track.notes:
 			note = note as Note
 
+			if song.track_find_key(track_index, current_time, true) != -1:
+				current_time += 0.001
+
 			current_time += note.note_start_delta
 			song.track_insert_key(track_index, current_time, {
 				"method": "play_note",
