@@ -21,12 +21,18 @@ Pending:
 * Piano roll (Note drawing)
 * Song Editor
 
+Screenshots
+--
+As of commit [27e4e20](https://github.com/QuadCubedStudios/GoDAW/commit/27e4e20d0f59e207047c0da10054ef34ad062f6e)
+
+![image](https://user-images.githubusercontent.com/62714538/136144298-e10f31ef-39c1-4939-8350-708c004543a4.png)
+
 Running
 --
 GoDAW is developed using Godot 3.x (3.1, 3.2, preferably 3.3). As of now GoDAW is entirely made in GDScript so the Mono version is not needed, but should work.
 
 Thanks
 --
-* All [Godot](https://github.com/godotengine/godot) contributors. 
+* All [Godot](https://github.com/godotengine/godot) contributors.
 * [Pixelorama](https://github.com/Orama-Interactive/Pixelorama) devs who inspired us to make GoDAW
 * All contributors of GoDAW
