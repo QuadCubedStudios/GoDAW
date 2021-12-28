@@ -235,27 +235,24 @@ func parse_file(filename: String = "") -> bool:
 
 	for track in tracks:
 		var wall_time = 0
+		var last_note_on = 0
 
-		var notes_being_processed = []
+		var notes_being_processed := {}
 
 		for event in track.events:
 			wall_time += event.delta_tick
 			if event.type == MidiEvent.NoteOn:
-				notes_being_processed.append(MidiNote.new(event.key, event.velocity, wall_time, 0))
+				notes_being_processed[event.key] = MidiNote.new(event.key, event.velocity, wall_time - last_note_on, wall_time)
+				last_note_on = wall_time
 			elif event.type == MidiEvent.NoteOff:
-				for note in notes_being_processed:
-					if note.key == event.key:
-						track.notes.append(MidiNote.new(note.key, note.velocity, note.start_time,
-						wall_time - note.start_time))
-						track.min_note = note.key * int(note.key < track.min_note)
-						track.max_note = note.key * int(note.key > track.max_note)
-						notes_being_processed.remove(notes_being_processed.find(note))
-						continue
-
+				if notes_being_processed.has(event.key):
+					var note = notes_being_processed[event.key]
+					track.notes.append(MidiNote.new(note.key, note.velocity, note.start_time,
+					wall_time-note.duration))
+					track.min_note = note.key * int(note.key < track.min_note)
+					track.max_note = note.key * int(note.key > track.max_note)
+					notes_being_processed.erase(note.key)
 	return true
-
-	pass
-
 
 # Read values from the midi file. Midi has data in on 7 bits
 # in a byte. The first bit indicates weather or not to read the rest.
