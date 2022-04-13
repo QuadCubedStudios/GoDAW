@@ -7,6 +7,7 @@ onready var export_progress_bar: ProgressBar = $DialogBoxes/ExportProgress/VBoxC
 onready var file_dialog: FileDialog = $DialogBoxes/FileDialog
 onready var sequencer: Node = $Application/Main/SongEditor/Sequencer
 onready var instrument_panel: VBoxContainer = $Application/InstrumentsPanel
+onready var documents_dir = OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)
 
 func load_instruments():
 	var dir = Directory.new()
@@ -39,6 +40,7 @@ func load_instruments():
 
 func _on_TopMenu_export_pressed():
 	file_dialog.popup_centered()
+	file_dialog.current_dir = documents_dir
 	var path = yield(file_dialog, "file_selected")
 
 	var recorder = AudioEffectRecord.new()
