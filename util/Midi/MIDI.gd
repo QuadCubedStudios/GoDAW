@@ -86,7 +86,7 @@ func parse_file(filename: String = "") -> bool:
 	if err:
 		push_error("Error Opening File: " + str(err))
 		return false
-	
+
 	input_file.set_endian_swap(true)
 
 	# Parse MIDI File
@@ -295,12 +295,14 @@ func play(start_time = 0):
 	var song = SongSequence.new()
 	for track in tracks:
 		var new_track = Track.new()
-		new_track.instrument = "Piano"
-		for note in track.notes:
-			note = note as MidiNote
+		new_track.instrument = "Square"
+		for idx in track.notes.size():
+			var note = track.notes[idx] as MidiNote
 			var new_note = Note.new()
-			new_note.instrument_data = { "key": note.key }
-			new_note.note_start = note.start_time * seconds_per_tick
+			if note.duration == 0: continue
+			print(note.velocity)
+			new_note.instrument_data = { "key": note.key, "velocity": note.velocity }
+			new_note.note_start_delta = note.start_time * seconds_per_tick
 			new_note.duration = note.duration * seconds_per_tick
 			new_track.add_note(new_note)
 		song.add_track(new_track)
