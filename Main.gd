@@ -8,6 +8,8 @@ onready var file_dialog: FileDialog = $DialogBoxes/FileDialog
 onready var sequencer: Node = $Application/Main/SongEditor/Sequencer
 onready var instrument_panel: VBoxContainer = $Application/InstrumentsPanel
 
+var home_dir
+
 func load_instruments():
 	var dir = Directory.new()
 	dir.open("res://Instruments")
@@ -39,6 +41,7 @@ func load_instruments():
 
 func _on_TopMenu_export_pressed():
 	file_dialog.popup_centered()
+	file_dialog.current_path = home_dir
 	var path = yield(file_dialog, "file_selected")
 
 	var recorder = AudioEffectRecord.new()
@@ -62,6 +65,17 @@ func _ready():
 	# Set Font
 	var font = get_theme().get_default_font().font_data
 	instrument_panel.title.get_font("font", "Label").font_data = font
+	
+	# Home Directory
+	var  output = []
+	match OS.get_name():
+		"Windows": 
+			var _n = OS.execute("echo", ["%userprofile%"], true, output)
+			home_dir = output[0].trim_suffix("\n")+"\\Documents"
+		"X11":
+			var _n = OS.execute("echo", ["$HOME"], true, output)
+			home_dir = output[0].trim_suffix("\n") + "/"
+	print(home_dir)
 	
 	#load instruments
 	loading_dialog.popup()
