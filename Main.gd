@@ -75,7 +75,6 @@ func _ready():
 		"X11":
 			var _n = OS.execute("echo", ["$HOME"], true, output)
 			home_dir = output[0].trim_suffix("\n") + "/"
-	print(home_dir)
 	
 	#load instruments
 	loading_dialog.popup()
