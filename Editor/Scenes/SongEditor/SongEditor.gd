@@ -13,6 +13,9 @@ var style_1 = preload("res://Themes/Default/SongButton1.tres")
 var style_2 = preload("res://Themes/Default/SongButton2.tres")
 var style_pressed = preload("res://Themes/Default/SongButtonPressed.tres")
 
+# Signals
+signal track_pressed (name, track)
+
 # Takes a Button since it conveniently sends an icon and message
 # TODO: Not use button as param
 func add_track(instrument: Button):
@@ -20,6 +23,7 @@ func add_track(instrument: Button):
 	var segment_container = HBoxContainer.new()
 	name.set_instrument(instrument.icon, instrument.text, segment_container)
 	names.add_child(name)
+	name.connect("pressed", self, "emit_signal", ["track_pressed", instrument.text, name])
 #	if Global.segments == 0:
 #		Global.segments = segments.get_parent().get_size().x/25
 #	add_segments(segment_container, name.rect_size.y, true)
