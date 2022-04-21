@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Editor/Scenes/Dialogues/TrackEditor/TrackEditor.gd" type="Script" id=1]
+[ext_resource path="res://Themes/Default/GoDAWTheme.tres" type="Theme" id=2]
+[ext_resource path="res://Editor/Scenes/Dialogues/TrackEditor/GDScriptSyntaxHighlight.gd" type="Script" id=3]
+
+[node name="TrackEditor" type="WindowDialog"]
+margin_right = 48.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 876, 480 )
+theme = ExtResource( 2 )
+window_title = "Track Editor"
+script = ExtResource( 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer"]
+margin_right = 876.0
+margin_bottom = 480.0
+size_flags_horizontal = 3
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+caret_blink = true
+
+[node name="GDScriptSyntaxHighlight" type="Node" parent="HBoxContainer/TextEdit"]
+script = ExtResource( 3 )
+
+[connection signal="popup_hide" from="." to="." method="_unpopup"]
