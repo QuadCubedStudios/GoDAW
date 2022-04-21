@@ -18,6 +18,7 @@ var data = {
 func _popup(name, id):
 	if script_editor.text == "":
 		script_editor.text = BASE_SONG_SCRIPT % name
+	script_editor.clear_undo_history()
 	data.name = name
 	data.id = id
 	popup_centered()

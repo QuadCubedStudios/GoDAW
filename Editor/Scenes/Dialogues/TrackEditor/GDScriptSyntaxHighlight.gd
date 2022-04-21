@@ -8,6 +8,8 @@ func keyword(keyword: String):
 func region(start: String, end: String, color: Color, line_only: bool = false):
 	script_editor.add_color_region(start, end, color, line_only)
 
+func type(type_name: String):
+	script_editor.add_keyword_color(type_name, Color("fae3b0"))
 
 func _ready():
 	keyword("extends")
@@ -16,6 +18,7 @@ func _ready():
 	keyword("var")
 	keyword("const")
 	keyword("pass")
+	type("SongScript")
 	region('"', '"', Color("abe9b3"))
 	region("'", "'", Color("abe9b3"))
 	region("#", "\n", Color("6e6c7e"), true)
