@@ -1,6 +1,8 @@
 extends VBoxContainer
 
+# Signals
 signal playback_finished()
+signal track_pressed (name, track)
 
 var track_name = preload("./TrackName.tscn")
 
@@ -12,9 +14,6 @@ onready var segments = $TracksScroll/HBox/SegmentScroll/VBoxContainer
 var style_1 = preload("res://Themes/Default/SongButton1.tres")
 var style_2 = preload("res://Themes/Default/SongButton2.tres")
 var style_pressed = preload("res://Themes/Default/SongButtonPressed.tres")
-
-# Signals
-signal track_pressed (name, track)
 
 # Takes a Button since it conveniently sends an icon and message
 # TODO: Not use button as param
