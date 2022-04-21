@@ -34,4 +34,3 @@ func _unpopup():
 	var song: SongScript = load("res://song.gd").new()
 	song.entry()
 	get_parent().get_parent().sequencer.sequence(song.sequence)
-	pass
