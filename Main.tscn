@@ -157,22 +157,6 @@ filters = PoolStringArray( "*.wav ; Wav Files" )
 
 [node name="TrackEditor" parent="DialogBoxes" instance=ExtResource( 7 )]
 
-[node name="TrackEditor" type="WindowDialog" parent="DialogBoxes"]
-visible = true
-margin_right = 48.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 876, 480 )
-window_title = "Track Editor"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="DialogBoxes/TrackEditor"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="TextEdit" type="TextEdit" parent="DialogBoxes/TrackEditor/HBoxContainer"]
-margin_right = 876.0
-margin_bottom = 480.0
-size_flags_horizontal = 3
-
 [connection signal="export_pressed" from="TopMenu" to="." method="_on_TopMenu_export_pressed"]
 [connection signal="instrument_chosen" from="Application/InstrumentsPanel" to="Application/Main/SongEditor" method="add_track"]
 [connection signal="pause" from="Application/Main/ControlPanel" to="Application/Main/SongEditor" method="_on_pause"]
