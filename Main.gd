@@ -68,11 +68,3 @@ func _ready():
 	#load instruments
 	loading_dialog.popup()
 	yield(load_instruments(), "completed")
-	
-#	test()
-
-# This function is solely test code
-#func test():
-#	var example: SongScript = preload("res://Example.gd").new()
-#	example.entry()
-#	sequencer.sequence(example.sequence)
