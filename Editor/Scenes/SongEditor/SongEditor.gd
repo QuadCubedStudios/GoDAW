@@ -2,7 +2,7 @@ extends VBoxContainer
 
 # Signals
 signal playback_finished()
-signal track_pressed (name, track)
+signal track_pressed (name)
 
 var track_name = preload("./TrackName.tscn")
 
@@ -23,7 +23,7 @@ func add_track(instrument: Button):
 	var segment_container = HBoxContainer.new()
 	name.set_instrument(instrument.icon, instrument.text, segment_container)
 	names.add_child(name)
-	name.connect("pressed", self, "emit_signal", ["track_pressed", instrument.text, name])
+	name.connect("pressed", self, "emit_signal", ["track_pressed", instrument.text])
 #	if Global.segments == 0:
 #		Global.segments = segments.get_parent().get_size().x/25
 #	add_segments(segment_container, name.rect_size.y, true)
