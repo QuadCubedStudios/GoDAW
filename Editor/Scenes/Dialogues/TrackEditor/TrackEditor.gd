@@ -1,5 +1,7 @@
 extends WindowDialog
 
+signal sequence_song(sequence)
+
 onready var script_editor = $HBoxContainer/TextEdit
 
 const BASE_SONG_SCRIPT = """extends SongScript
@@ -10,17 +12,12 @@ func entry():
 	])
 	pass"""
 
-var data = {
-	"name": "String",
-	"id": null,
-}
-
-func _popup(name, id):
+func _popup(name):
 	if script_editor.text == "":
 		script_editor.text = BASE_SONG_SCRIPT % name
 	script_editor.clear_undo_history()
-	data.name = name
-	data.id = id
+#	data.name = name
+#	data.id = id
 	popup_centered()
 	script_editor.cursor_set_column(0)
 	script_editor.cursor_set_line(0)
@@ -33,4 +30,4 @@ func _unpopup():
 	file.close()
 	var song: SongScript = load("res://song.gd").new()
 	song.entry()
-	get_parent().get_parent().sequencer.sequence(song.sequence)
+	emit_signal("sequence_song", song.sequence)

@@ -8,6 +8,7 @@ var track_name = preload("./TrackName.tscn")
 
 onready var names = $TracksScroll/HBox/Names
 onready var segments = $TracksScroll/HBox/SegmentScroll/VBoxContainer
+onready var sequencer = $Sequencer
 
 # styles
 # techno: Make this support different themes
@@ -59,13 +60,17 @@ func segment_input(event, segment: Button):
 
 
 func _on_play():
-	$Sequencer.play()
+	sequencer.play()
 
 func _on_pause():
-	$Sequencer.pause()
+	sequencer.pause()
 
 func _on_stop():
-	$Sequencer.stop()
+	sequencer.stop()
 
 func _on_Sequencer_playback_finished():
 	emit_signal("playback_finished")
+
+
+func _on_TrackEditor_sequence_song(sequence):
+	sequencer.sequence(sequence)
