@@ -22,4 +22,3 @@ func _ready():
 	region('"', '"', Color("abe9b3"))
 	region("'", "'", Color("abe9b3"))
 	region("#", "\n", Color("6e6c7e"), true)
-	pass

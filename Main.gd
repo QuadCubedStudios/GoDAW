@@ -9,35 +9,6 @@ onready var sequencer: Node = $Application/Main/SongEditor/Sequencer
 onready var instrument_panel: VBoxContainer = $Application/InstrumentsPanel
 onready var documents_dir = OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)
 
-func load_instruments():
-	var dir = Directory.new()
-	dir.open("res://Instruments")
-	dir.list_dir_begin(true, true)
-
-	var instruments = []
-
-	var instrument_name = dir.get_next()
-	while instrument_name != "":
-		if dir.file_exists("./%s/Instrument.tscn" % instrument_name):
-			instruments.append(instrument_name)
-		else:
-			push_warning("Instrument %s does not have an Instrument.tscn file" % instrument_name)
-
-		instrument_name = dir.get_next()
-
-	loading_dialog_progress.max_value = instruments.size()
-
-	for name in instruments:
-		$DialogBoxes/LoadingDialog/VBoxContainer/Label.text = name
-
-		yield(get_tree(), "idle_frame")
-		var instrument: PackedScene = load("%s/%s/Instrument.tscn" % [dir.get_current_dir(), name])
-		GoDAW.register_instrument(name, instrument)
-		loading_dialog_progress.value += 1
-
-	loading_dialog.hide()
-	$Application/InstrumentsPanel.reload_instruments()
-
 func _on_TopMenu_export_pressed():
 	file_dialog.popup_centered()
 	file_dialog.current_dir = documents_dir
@@ -67,4 +38,9 @@ func _ready():
 	
 	#load instruments
 	loading_dialog.popup()
-	yield(load_instruments(), "completed")
+	GoDAW.connect("loading_progress_max_value_changed", loading_dialog_progress, "set_max")
+	GoDAW.connect("loading_progress_value_changed", loading_dialog_progress, "set_value", [loading_dialog_progress.value+1])
+	GoDAW.connect("loading_instrument_changed", $DialogBoxes/LoadingDialog/VBoxContainer/Label, "set_text")
+	yield(GoDAW.load_instruments(), "completed")
+	loading_dialog.hide()
+	instrument_panel.reload_instruments()

@@ -164,3 +164,4 @@ filters = PoolStringArray( "*.wav ; Wav Files" )
 [connection signal="stop" from="Application/Main/ControlPanel" to="Application/Main/SongEditor" method="_on_stop"]
 [connection signal="playback_finished" from="Application/Main/SongEditor" to="Application/Main/ControlPanel" method="_on_finished"]
 [connection signal="track_pressed" from="Application/Main/SongEditor" to="DialogBoxes/TrackEditor" method="_popup"]
+[connection signal="sequence_song" from="DialogBoxes/TrackEditor" to="Application/Main/SongEditor" method="_on_TrackEditor_sequence_song"]
