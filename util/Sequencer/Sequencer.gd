@@ -8,8 +8,8 @@ onready var player = $AnimationPlayer
 
 # Data
 var data: SongSequence
-var playing: bool
-var paused: bool
+var playing: bool = false
+var paused: bool = false
 
 # Functions
 func sequence(sequence: SongSequence):
@@ -58,6 +58,7 @@ func play():
 		paused = false
 		player.play()
 		return
+	player.seek(0)
 	player.play("song")
 
 func stop():

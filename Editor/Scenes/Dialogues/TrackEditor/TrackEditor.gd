@@ -6,7 +6,7 @@ onready var script_editor = $HBoxContainer/TextEdit
 
 const BASE_SONG_SCRIPT = """extends SongScript
 
-func entry():
+func song():
 	track("%s", [
 		# Place your notes here
 	])
