@@ -40,5 +40,10 @@ func note(note_start_delta: float, duration: float, data) -> Note:
 	note.instrument_data = data
 	return note
 
-func entry():
+# The function where notes go
+func song():
 	pass
+
+func entry():
+	sequence.tracks.clear()
+	song()

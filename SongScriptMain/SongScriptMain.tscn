@@ -39,3 +39,4 @@ size_flags_horizontal = 0
 layer = 5
 
 [connection signal="play" from="TrackEditor/ControlPanel" to="." method="_on_ControlPanel_play"]
+[connection signal="playback_finished" from="Sequencer" to="TrackEditor/ControlPanel" method="_on_finished"]
