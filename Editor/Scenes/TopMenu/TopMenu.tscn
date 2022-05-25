@@ -6,9 +6,6 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="FileMenu" type="MenuButton" parent="."]
 margin_right = 35.0
@@ -44,3 +41,12 @@ focus_mode = 2
 mouse_default_cursor_shape = 2
 text = "Help"
 switch_on_hover = true
+
+[node name="ProjectName" type="Label" parent="."]
+margin_left = 171.0
+margin_top = 353.0
+margin_right = 1280.0
+margin_bottom = 367.0
+size_flags_horizontal = 3
+align = 1
+valign = 1

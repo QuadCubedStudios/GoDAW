@@ -28,6 +28,9 @@ func _ready():
 		init_menu(node, m.elements)
 		node.get_popup().connect("id_pressed", self, "on_item_pressed", [menu])
 
+func project_changed(project):
+	$ProjectName.text = project.project_name
+
 func on_item_pressed(id, menu):
 	var menu_dict = menus[menu]
 	var node = menu_dict.node
