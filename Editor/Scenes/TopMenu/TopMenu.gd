@@ -1,11 +1,12 @@
 extends HBoxContainer
 
+signal new_pressed()
 signal export_pressed()
 
 onready var menus = {
-	"File": {
-		"node": $FileMenu,
-		"elements": { "New": "", "Open": "", "Save": "", "Save as...": "", "Export": "export_pressed" ,"Separator": "", "Quit": "" }
+	"Song": {
+		"node": $SongMenu,
+		"elements": { "New": "new_pressed", "Open": "", "Save": "", "Save as...": "", "Export": "export_pressed" ,"Separator": "", "Quit": "" }
 	},
 	"Edit": {
 		"node": $EditMenu,
