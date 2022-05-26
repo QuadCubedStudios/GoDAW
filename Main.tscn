@@ -18,18 +18,19 @@ margin_top = 8.0
 margin_right = -8.0
 margin_bottom = -8.0
 theme = ExtResource( 2 )
+custom_constants/separation = 10
 script = ExtResource( 4 )
 
 [node name="TopMenu" parent="." instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1264.0
-margin_bottom = 27.0
+margin_bottom = 25.0
 
 [node name="Application" type="HBoxContainer" parent="."]
-margin_top = 31.0
+margin_top = 35.0
 margin_right = 1264.0
-margin_bottom = 700.0
+margin_bottom = 694.0
 size_flags_vertical = 3
 custom_constants/separation = 10
 
@@ -37,12 +38,12 @@ custom_constants/separation = 10
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 240.0
-margin_bottom = 669.0
+margin_bottom = 659.0
 
 [node name="Main" type="VBoxContainer" parent="Application"]
 margin_left = 250.0
 margin_right = 1264.0
-margin_bottom = 669.0
+margin_bottom = 659.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.0
 
@@ -59,7 +60,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 34.0
 margin_right = 1014.0
-margin_bottom = 669.0
+margin_bottom = 659.0
 size_flags_vertical = 3
 
 [node name="DialogManager" type="Control" parent="."]
@@ -118,6 +119,7 @@ filters = PoolStringArray( "*.wav ; Wav Files" )
 [node name="NewSong" parent="DialogManager" instance=ExtResource( 9 )]
 
 [connection signal="project_changed" from="." to="TopMenu" method="project_changed"]
+[connection signal="project_changed" from="." to="Application/Main/SongEditor" method="project_changed"]
 [connection signal="export_pressed" from="TopMenu" to="." method="_on_TopMenu_export_pressed"]
 [connection signal="new_pressed" from="TopMenu" to="DialogManager/NewSong" method="popup_centered"]
 [connection signal="instrument_chosen" from="Application/InstrumentsPanel" to="Application/Main/SongEditor" method="add_track"]
