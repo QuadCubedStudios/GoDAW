@@ -11,10 +11,8 @@ focus_mode = 0
 enabled_focus_mode = 0
 text = "Placeholder Instrument"
 icon = ExtResource( 1 )
+clip_text = true
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Panel" type="PanelContainer" parent="."]
 show_behind_parent = true

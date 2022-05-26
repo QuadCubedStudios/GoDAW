@@ -3,6 +3,7 @@
 [ext_resource path="res://Themes/Default/Font/Mononoki/Font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Themes/Default/ButtonIcons/close.png" type="Texture" id=2]
 [ext_resource path="res://Themes/Default/ButtonIcons/grabber.png" type="Texture" id=3]
+[ext_resource path="res://Themes/Default/Font/DejaVuSans/Font.tres" type="DynamicFont" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 6.0
@@ -70,13 +71,8 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=26]
 bg_color = Color( 0.32549, 0.32549, 0.423529, 1 )
-border_width_left = 3
-border_width_top = 2
-border_width_right = 1
-border_width_bottom = 2
-border_color = Color( 0.8, 0.8, 0.8, 0 )
 corner_radius_top_left = 5
 corner_radius_bottom_left = 5
 
@@ -169,13 +165,22 @@ bg_color = Color( 0.215686, 0.215686, 0.282353, 0.745098 )
 
 [sub_resource type="StyleBoxFlat" id=23]
 bg_color = Color( 0.054902, 0.054902, 0.0705882, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.568627, 0.568627, 0.666667, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
-[sub_resource type="StyleBoxFlat" id=15]
+[sub_resource type="StyleBoxFlat" id=25]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
 content_margin_bottom = 10.0
-bg_color = Color( 0.160784, 0.160784, 0.203922, 1 )
+bg_color = Color( 0.308, 0.308, 0.4, 0.780392 )
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -185,8 +190,10 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+corner_detail = 10
+anti_aliasing_size = 2.0
 
-[sub_resource type="StyleBoxFlat" id=16]
+[sub_resource type="StyleBoxFlat" id=24]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
@@ -201,22 +208,8 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id=17]
-content_margin_left = 10.0
-content_margin_right = 10.0
-content_margin_top = 10.0
-content_margin_bottom = 10.0
-bg_color = Color( 0.160784, 0.160784, 0.203922, 1 )
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color( 0, 0, 0, 0 )
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+corner_detail = 10
+anti_aliasing_size = 2.0
 
 [sub_resource type="StyleBoxFlat" id=18]
 content_margin_left = 4.0
@@ -265,7 +258,7 @@ shadow_color = Color( 0, 0, 0, 0.3 )
 shadow_size = 4
 
 [resource]
-default_font = ExtResource( 1 )
+default_font = ExtResource( 4 )
 BoxContainer/constants/separation = 4
 Button/colors/font_color = Color( 0.85098, 0.85098, 0.882353, 1 )
 Button/colors/font_color_disabled = Color( 1, 1, 1, 0.301961 )
@@ -496,7 +489,7 @@ OptionButton/styles/hover = SubResource( 3 )
 OptionButton/styles/normal = SubResource( 1 )
 OptionButton/styles/pressed = SubResource( 4 )
 Panel/styles/panel = SubResource( 5 )
-PanelContainer/styles/panel = SubResource( 6 )
+PanelContainer/styles/panel = SubResource( 26 )
 PopupDialog/styles/panel = SubResource( 7 )
 PopupMenu/colors/font_color = Color( 0.795098, 0.800981, 0.812745, 1 )
 PopupMenu/colors/font_color_accel = Color( 1, 1, 1, 0.301961 )
@@ -588,7 +581,7 @@ Tabs/styles/panel = null
 Tabs/styles/tab_bg = SubResource( 12 )
 Tabs/styles/tab_disabled = SubResource( 13 )
 Tabs/styles/tab_fg = SubResource( 14 )
-TextEdit/colors/background_color = Color( 0.054902, 0.054902, 0.0705882, 1 )
+TextEdit/colors/background_color = Color( 0.0666667, 0.0666667, 0.0823529, 0 )
 TextEdit/colors/bookmark_color = Color( 0, 0, 0, 1 )
 TextEdit/colors/brace_mismatch_color = Color( 0, 0, 0, 1 )
 TextEdit/colors/breakpoint_color = Color( 0, 0, 0, 1 )
@@ -600,7 +593,7 @@ TextEdit/colors/completion_existing_color = Color( 1, 1, 1, 0.141176 )
 TextEdit/colors/completion_font_color = Color( 0.85098, 0.85098, 0.882353, 1 )
 TextEdit/colors/completion_scroll_color = Color( 1, 1, 1, 0.0705882 )
 TextEdit/colors/completion_selected_color = Color( 1, 1, 1, 0.0705882 )
-TextEdit/colors/current_line_color = Color( 0.215686, 0.215686, 0.282353, 0.109804 )
+TextEdit/colors/current_line_color = Color( 0.0666667, 0.0666667, 0.0823529, 0 )
 TextEdit/colors/executing_line_color = Color( 0, 0, 0, 1 )
 TextEdit/colors/font_color = Color( 0.796078, 0.8, 0.811765, 1 )
 TextEdit/colors/font_color_readonly = Color( 0, 0, 0, 1 )
@@ -618,7 +611,7 @@ TextEdit/constants/completion_lines = 7
 TextEdit/constants/completion_max_width = 50
 TextEdit/constants/completion_scroll_width = 3
 TextEdit/constants/line_spacing = 4
-TextEdit/fonts/font = null
+TextEdit/fonts/font = ExtResource( 1 )
 TextEdit/icons/fold = null
 TextEdit/icons/folded = null
 TextEdit/icons/space = null
@@ -635,9 +628,9 @@ ToolButton/constants/hseparation = 3
 ToolButton/fonts/font = null
 ToolButton/styles/disabled = null
 ToolButton/styles/focus = null
-ToolButton/styles/hover = SubResource( 15 )
-ToolButton/styles/normal = SubResource( 16 )
-ToolButton/styles/pressed = SubResource( 17 )
+ToolButton/styles/hover = SubResource( 25 )
+ToolButton/styles/normal = SubResource( 24 )
+ToolButton/styles/pressed = SubResource( 25 )
 TooltipLabel/colors/font_color = Color( 0.204902, 0.199019, 0.187255, 1 )
 TooltipLabel/colors/font_color_shadow = Color( 0, 0, 0, 0.1 )
 TooltipLabel/constants/shadow_offset_x = 1
