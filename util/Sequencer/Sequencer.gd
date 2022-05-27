@@ -58,7 +58,7 @@ func play():
 		paused = false
 		player.play()
 		return
-	player.seek(0)
+	player.stop()
 	player.play("song")
 
 func stop():

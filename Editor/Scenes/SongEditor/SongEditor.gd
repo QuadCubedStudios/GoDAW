@@ -16,9 +16,10 @@ var gui: bool = true
 var track_name = preload("./TrackName.tscn")
 
 onready var names = $TracksScroll/HBox/Names
-onready var sequencer = $Sequencer
 onready var song_script_editor = $SongScriptEditor
 onready var track_scroll = $TracksScroll
+onready var sequencer = $Sequencer
+onready var instrument_container = $InstrumentContainer
 
 # styles
 # techno: Make this support different themes
@@ -40,6 +41,23 @@ func add_track(instrument: Button):
 	$Sequencer.INSTRUMENTS[instrument.text] = inst
 
 func _on_play():
+	if !gui:
+		var file =  File.new()
+		var dir = Directory.new()
+		file.open("res://song.gd", File.WRITE)
+		file.store_string(song_script_editor.text)
+		file.close()
+		var song: SongScript = load("res://song.gd").new()
+		song.entry()
+		if song.sequence.tracks.size() != instrument_container.get_child_count():
+			sequencer.INSTRUMENTS.clear()
+			for instrument in instrument_container.get_children():
+				instrument.queue_free()
+			for track in song.sequence.tracks:
+				var inst = GoDAW.get_instrument(track.instrument)
+				sequencer.INSTRUMENTS[track.instrument] = inst
+				instrument_container.add_child(inst)
+		sequencer.sequence(song.sequence)
 	sequencer.play()
 
 func _on_pause():
@@ -62,4 +80,4 @@ func project_changed(project: Project):
 	track_scroll.visible = gui
 	for name in names.get_children():
 		name.queue_free()
-	song_script_editor.text = BASE_SONG_SCRIPT
+	song_script_editor.text = BASE_SONG_SCRIPT % "Square"

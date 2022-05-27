@@ -10,7 +10,8 @@ var project_type: int
 var song_sequence: SongSequence
 var song_script: String
 
-func _init( name = "Untitled Song", type = PROJECT_TYPE.GUI ):
+func _init( name: String = "", type = PROJECT_TYPE.GUI ):
+	if name == "": name = "Untitled Song"
 	project_name = name
 	project_type = type
 
