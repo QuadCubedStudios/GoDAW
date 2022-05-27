@@ -16,7 +16,8 @@ func progress(title:String, text: String) -> ProgressBar:
 func hide_progress(): progress_dialog.hide()
 
 # FileDialog
-func get_file() -> String:
+func file(title: String, mode: int) -> void:
+	file_dialog.window_title = title
+	file_dialog.mode = mode
 	file_dialog.popup_centered()
 	file_dialog.current_dir = documents_dir
-	return yield(file_dialog, "file_selected")

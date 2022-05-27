@@ -40,7 +40,7 @@ func add_track(instrument: Button):
 	var inst := GoDAW.get_instrument(instrument.text)
 	$Sequencer.INSTRUMENTS[instrument.text] = inst
 
-func _on_play():
+func sequence():
 	if !gui:
 		var file =  File.new()
 		var dir = Directory.new()
@@ -58,6 +58,8 @@ func _on_play():
 				sequencer.INSTRUMENTS[track.instrument] = inst
 				instrument_container.add_child(inst)
 		sequencer.sequence(song.sequence)
+
+func _on_play():
 	sequencer.play()
 
 func _on_pause():

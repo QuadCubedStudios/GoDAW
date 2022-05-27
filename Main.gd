@@ -1,6 +1,7 @@
 extends Control
 
 onready var dialog_manager: Control = $DialogManager
+onready var song_editor: Node = $Application/Main/SongEditor
 onready var sequencer: Node = $Application/Main/SongEditor/Sequencer
 onready var instrument_panel: VBoxContainer = $Application/InstrumentsPanel
 
@@ -9,12 +10,16 @@ var project: Project
 signal project_changed(project)
 
 func _on_TopMenu_export_pressed():
-	var file_path = dialog_manager.get_file() 
+	dialog_manager.file("Save", FileDialog.MODE_SAVE_FILE)
+	var file_path = yield(dialog_manager.file_dialog, "file_selected") 
+	song_editor.sequence()
 	var recorder = AudioEffectRecord.new()
-	var progress = dialog_manager.progress("Exporting", "Exporting...")
-	
 	AudioServer.add_bus_effect(0, recorder, AudioServer.get_bus_effect_count(0))
+	
+	var progress = dialog_manager.progress("Exporting", "Exporting...")
+	progress.max_value = 100
 	sequencer.connect("on_note", progress, "set_value")
+	
 	recorder.set_recording_active(true)
 	sequencer.play()
 	yield(sequencer, "playback_finished")
