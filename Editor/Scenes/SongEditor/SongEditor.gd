@@ -54,6 +54,7 @@ func sequence():
 		sequencer.sequence(song.sequence)
 
 func _on_play():
+	sequence()
 	sequencer.play()
 
 func _on_pause():
