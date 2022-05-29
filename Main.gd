@@ -10,7 +10,7 @@ var project: Project
 signal project_changed(project)
 
 func _on_TopMenu_export_pressed():
-	dialog_manager.file("Save", FileDialog.MODE_SAVE_FILE)
+	dialog_manager.file("Export", FileDialog.MODE_SAVE_FILE, ["*.wav ; Wav Files"])
 	var file_path = yield(dialog_manager.file_dialog, "file_selected") 
 	song_editor.sequence()
 	var recorder = AudioEffectRecord.new()
@@ -29,6 +29,29 @@ func _on_TopMenu_export_pressed():
 	var recording = recorder.get_recording()
 	recording.save_to_wav(file_path)
 	dialog_manager.hide_progress()
+
+func _save(file_path):
+	project.song_script = song_editor.song_script_editor.text
+	ResourceSaver.save(file_path, project)
+
+func _load(file_path):
+	set_project(ResourceLoader.load(file_path))
+
+func _on_TopMenu_save_pressed():
+	if project.saved:
+		_save(project.resource_path)
+	else: _on_TopMenu_save_as_pressed()
+
+func _on_TopMenu_save_as_pressed():
+	dialog_manager.file("Save", FileDialog.MODE_SAVE_FILE, ["*.tres; Godot Text Resource FIle", "*res; Godot Resoruce File"])
+	project.saved = true
+	var file_path = yield(dialog_manager.file_dialog, "file_selected") 
+	_save(file_path)
+
+func _on_TopMenu_open_pressed():
+	dialog_manager.file("Open", FileDialog.MODE_OPEN_FILE, ["*.tres; Godot Text Resource FIle", "*res; Godot Resoruce File"])
+	var file_path = yield(dialog_manager.file_dialog, "file_selected") 
+	_load(file_path)
 
 func _ready():
 	# Editor Setup
@@ -52,3 +75,4 @@ func _ready():
 func set_project(new_project):
 	project = new_project
 	emit_signal("project_changed", project)
+

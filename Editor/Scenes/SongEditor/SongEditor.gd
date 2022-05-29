@@ -77,4 +77,7 @@ func project_changed(project: Project):
 	track_scroll.visible = gui
 	for name in names.get_children():
 		name.queue_free()
-	song_script_editor.text = BASE_SONG_SCRIPT % "Square"
+	if project.song_script:
+		song_script_editor.text = project.song_script
+	else:
+		song_script_editor.text = BASE_SONG_SCRIPT % "Square"
