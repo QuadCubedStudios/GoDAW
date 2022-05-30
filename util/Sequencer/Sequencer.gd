@@ -40,7 +40,7 @@ func sequence(sequence: SongSequence):
 				"args": [track.instrument, note]
 			})
 
-		song.length = current_time + track.notes[-1].duration
+		song.length = 0 if track.notes.empty() else current_time + track.notes[-1].duration
 
 	player.add_animation("song", song)
 
@@ -58,7 +58,7 @@ func play():
 		paused = false
 		player.play()
 		return
-	player.seek(0)
+	player.stop()
 	player.play("song")
 
 func stop():

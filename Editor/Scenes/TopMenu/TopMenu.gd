@@ -1,11 +1,19 @@
 extends HBoxContainer
 
+signal new_pressed()
+signal open_pressed()
+signal save_pressed()
+signal save_as_pressed()
 signal export_pressed()
+signal quit_pressed()
 
 onready var menus = {
-	"File": {
-		"node": $FileMenu,
-		"elements": { "New": "", "Open": "", "Save": "", "Save as...": "", "Export": "export_pressed" ,"Separator": "", "Quit": "" }
+	"Song": {
+		"node": $SongMenu,
+		"elements": { "New": "new_pressed", "Open": "open_pressed",
+			 "Save": "save_pressed", "Save as...": "",
+			 "Export": "export_pressed" ,"Separator": "",
+			 "Quit": "quit_pressed" }
 	},
 	"Edit": {
 		"node": $EditMenu,
@@ -28,6 +36,9 @@ func _ready():
 		init_menu(node, m.elements)
 		node.get_popup().connect("id_pressed", self, "on_item_pressed", [menu])
 
+func project_changed(project):
+	$ProjectName.text = project.project_name
+
 func on_item_pressed(id, menu):
 	var menu_dict = menus[menu]
 	var node = menu_dict.node
@@ -41,3 +52,6 @@ func init_menu(menu, items):
 			menu.get_popup().add_separator("")
 			continue
 		menu.get_popup().add_item(e)
+
+func _quit():
+	get_tree().quit()

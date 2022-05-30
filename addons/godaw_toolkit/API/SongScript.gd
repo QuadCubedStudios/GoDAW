@@ -16,6 +16,7 @@ func track(instrument: String, notes: Array):
 	self.sequence.add_track(track)
 
 func pattern(notes: Array, repeat: int = 1, start_delta: float = 0.0) -> Array:
+	if notes.empty(): return []
 	var expanded = []
 	for _i in repeat:
 		for el in notes:
