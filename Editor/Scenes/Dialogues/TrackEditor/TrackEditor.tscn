@@ -1,13 +1,36 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Editor/Scenes/Dialogues/TrackEditor/TrackEditor.gd" type="Script" id=1]
 
 [node name="TrackEditor" type="WindowDialog"]
 margin_right = 48.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 876, 480 )
 window_title = "Track Editor"
+script = ExtResource( 1 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="HBox" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Control" type="Control" parent="HBox"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="VBox" type="VBoxContainer" parent="HBox"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="HBox" type="HBoxContainer" parent="HBox/VBox"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="NoteNameScrol" type="ScrollContainer" parent="HBox/VBox/HBox"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="NotesScrol" type="ScrollContainer" parent="HBox/VBox/HBox"]
+margin_right = 40.0
+margin_bottom = 40.0
 
 [connection signal="popup_hide" from="." to="." method="_unpopup"]

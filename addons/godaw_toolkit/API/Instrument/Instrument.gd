@@ -5,6 +5,7 @@ class_name Instrument
 var bus_idx: int
 var instrument_name: String
 
+
 func _init(instrument_name: String):
 	self.instrument_name = instrument_name
 	

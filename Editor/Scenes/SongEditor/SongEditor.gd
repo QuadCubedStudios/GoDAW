@@ -2,12 +2,12 @@ extends VBoxContainer
 
 # Signals
 signal playback_finished()
-signal track_pressed (name)
+signal track_pressed (name, settings, editor)
 
 const BASE_SONG_SCRIPT = """extends SongScript
 
 func song():
-	track("%s", [
+	track("Square", [
 		# Place your notes here
 	])
 	pass"""
@@ -28,7 +28,7 @@ func add_track(instrument: Button):
 	var name = track_name.instance()
 	name.set_instrument(instrument.icon, instrument.text)
 	names.add_child(name)
-	name.connect("pressed", self, "emit_signal", ["track_pressed", instrument.text])
+	name.connect("pressed", self, "emit_signal", ["track_pressed", instrument.text, instrument.settings])
 	
 	# TODO: Hacky code
 	var inst := GoDAW.get_instrument(instrument.text)
@@ -80,4 +80,4 @@ func project_changed(project: Project):
 	if project.song_script:
 		song_script_editor.text = project.song_script
 	else:
-		song_script_editor.text = BASE_SONG_SCRIPT % "Square"
+		song_script_editor.text = BASE_SONG_SCRIPT
