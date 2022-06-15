@@ -2,7 +2,7 @@ extends VBoxContainer
 
 # Signals
 signal playback_finished()
-signal track_pressed (name, settings, editor)
+signal track_pressed (name)
 
 const BASE_SONG_SCRIPT = """extends SongScript
 
@@ -28,11 +28,12 @@ func add_track(instrument: Button):
 	var name = track_name.instance()
 	name.set_instrument(instrument.icon, instrument.text)
 	names.add_child(name)
-	name.connect("pressed", self, "emit_signal", ["track_pressed", instrument.text, instrument.settings])
-	
 	# TODO: Hacky code
 	var inst := GoDAW.get_instrument(instrument.text)
 	$Sequencer.INSTRUMENTS[instrument.text] = inst
+	
+	name.connect("pressed", self, "emit_signal", ["track_pressed", inst])
+	
 
 func sequence():
 	if !gui:

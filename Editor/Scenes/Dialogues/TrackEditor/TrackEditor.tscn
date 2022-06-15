@@ -3,34 +3,48 @@
 [ext_resource path="res://Editor/Scenes/Dialogues/TrackEditor/TrackEditor.gd" type="Script" id=1]
 
 [node name="TrackEditor" type="WindowDialog"]
+visible = true
 margin_right = 48.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 876, 480 )
 window_title = "Track Editor"
 script = ExtResource( 1 )
 
-[node name="HBox" type="HBoxContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="HSplit" type="HSplitContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 
-[node name="Control" type="Control" parent="HBox"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Settings" type="VBoxContainer" parent="HSplit"]
+margin_bottom = 480.0
 
-[node name="VBox" type="VBoxContainer" parent="HBox"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplit"]
+margin_left = 12.0
+margin_right = 876.0
+margin_bottom = 480.0
 
-[node name="HBox" type="HBoxContainer" parent="HBox/VBox"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="NameScroll" type="ScrollContainer" parent="HSplit/HBoxContainer"]
+margin_bottom = 480.0
+scroll_horizontal_enabled = false
 
-[node name="NoteNameScrol" type="ScrollContainer" parent="HBox/VBox/HBox"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="NoteName" type="VBoxContainer" parent="HSplit/HBoxContainer/NameScroll"]
+margin_bottom = 480.0
+size_flags_vertical = 3
 
-[node name="NotesScrol" type="ScrollContainer" parent="HBox/VBox/HBox"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Scroll" type="ScrollContainer" parent="HSplit/HBoxContainer"]
+margin_left = 4.0
+margin_right = 864.0
+margin_bottom = 480.0
+size_flags_horizontal = 3
+
+[node name="Notes" type="HBoxContainer" parent="HSplit/HBoxContainer/Scroll"]
+margin_right = 860.0
+margin_bottom = 480.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [connection signal="popup_hide" from="." to="." method="_unpopup"]
+[connection signal="scroll_ended" from="HSplit/HBoxContainer/NameScroll" to="." method="_on_NameScroll_scroll_ended"]
+[connection signal="scroll_started" from="HSplit/HBoxContainer/NameScroll" to="." method="_on_NameScroll_scroll_started"]
+[connection signal="resized" from="HSplit/HBoxContainer/NameScroll/NoteName" to="." method="_on_NoteName_resized"]
+[connection signal="scroll_ended" from="HSplit/HBoxContainer/Scroll" to="." method="_on_Scroll_scroll_ended"]
+[connection signal="scroll_started" from="HSplit/HBoxContainer/Scroll" to="." method="_on_Scroll_scroll_started"]

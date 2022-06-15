@@ -5,7 +5,6 @@ class_name Instrument
 var bus_idx: int
 var instrument_name: String
 
-
 func _init(instrument_name: String):
 	self.instrument_name = instrument_name
 	
@@ -26,3 +25,7 @@ func play_note(note: Note):
 
 func stop_note(note: Note):
 	pass
+
+func settings(): return []
+
+func notes(): return []
