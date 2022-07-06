@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Editor/Scenes/Dialogues/TrackEditor/TrackEditor.gd" type="Script" id=1]
+[ext_resource path="res://Editor/Scenes/Dialogues/TrackEditor/Grid.gd" type="Script" id=2]
 
 [node name="TrackEditor" type="WindowDialog"]
 visible = true
@@ -22,6 +23,9 @@ margin_left = 12.0
 margin_right = 876.0
 margin_bottom = 480.0
 
+[node name="Node2D" type="Node2D" parent="HSplit/HBoxContainer"]
+script = ExtResource( 2 )
+
 [node name="NameScroll" type="ScrollContainer" parent="HSplit/HBoxContainer"]
 margin_bottom = 480.0
 scroll_horizontal_enabled = false
@@ -29,6 +33,7 @@ scroll_horizontal_enabled = false
 [node name="NoteName" type="VBoxContainer" parent="HSplit/HBoxContainer/NameScroll"]
 margin_bottom = 480.0
 size_flags_vertical = 3
+custom_constants/separation = 0
 
 [node name="Scroll" type="ScrollContainer" parent="HSplit/HBoxContainer"]
 margin_left = 4.0
@@ -43,8 +48,4 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [connection signal="popup_hide" from="." to="." method="_unpopup"]
-[connection signal="scroll_ended" from="HSplit/HBoxContainer/NameScroll" to="." method="_on_NameScroll_scroll_ended"]
-[connection signal="scroll_started" from="HSplit/HBoxContainer/NameScroll" to="." method="_on_NameScroll_scroll_started"]
 [connection signal="resized" from="HSplit/HBoxContainer/NameScroll/NoteName" to="." method="_on_NoteName_resized"]
-[connection signal="scroll_ended" from="HSplit/HBoxContainer/Scroll" to="." method="_on_Scroll_scroll_ended"]
-[connection signal="scroll_started" from="HSplit/HBoxContainer/Scroll" to="." method="_on_Scroll_scroll_started"]

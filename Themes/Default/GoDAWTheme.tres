@@ -1,9 +1,25 @@
-[gd_resource type="Theme" load_steps=30 format=2]
+[gd_resource type="Theme" load_steps=31 format=2]
 
 [ext_resource path="res://Themes/Default/Font/Mononoki/Font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Themes/Default/ButtonIcons/close.png" type="Texture" id=2]
 [ext_resource path="res://Themes/Default/ButtonIcons/grabber.png" type="Texture" id=3]
 [ext_resource path="res://Themes/Default/Font/DejaVuSans/Font.tres" type="DynamicFont" id=4]
+
+[sub_resource type="StyleBoxFlat" id=30]
+content_margin_left = 6.0
+content_margin_right = 6.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color( 0.0666667, 0.0666667, 0.0784314, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.568627, 0.568627, 0.666667, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 6.0
@@ -290,7 +306,7 @@ Button/colors/icon_color_hover = Color( 1.15, 1.15, 1.15, 1 )
 Button/colors/icon_color_pressed = Color( 0.4416, 0.4416, 0.46, 1 )
 Button/constants/hseparation = 2
 Button/fonts/font = null
-Button/styles/disabled = null
+Button/styles/disabled = SubResource( 30 )
 Button/styles/focus = SubResource( 1 )
 Button/styles/hover = SubResource( 1 )
 Button/styles/normal = SubResource( 1 )
