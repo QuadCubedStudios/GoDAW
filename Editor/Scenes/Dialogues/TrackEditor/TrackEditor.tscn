@@ -4,7 +4,6 @@
 [ext_resource path="res://Editor/Scenes/Dialogues/TrackEditor/Grid.gd" type="Script" id=2]
 
 [node name="TrackEditor" type="WindowDialog"]
-visible = true
 margin_right = 48.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 876, 480 )
@@ -22,30 +21,39 @@ margin_bottom = 480.0
 margin_left = 12.0
 margin_right = 876.0
 margin_bottom = 480.0
+custom_constants/separation = 0
 
-[node name="Node2D" type="Node2D" parent="HSplit/HBoxContainer"]
-script = ExtResource( 2 )
-
-[node name="NameScroll" type="ScrollContainer" parent="HSplit/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplit/HBoxContainer"]
 margin_bottom = 480.0
+
+[node name="NameScroll" type="ScrollContainer" parent="HSplit/HBoxContainer/VBoxContainer"]
+margin_bottom = 470.0
+size_flags_vertical = 3
 scroll_horizontal_enabled = false
 
-[node name="NoteName" type="VBoxContainer" parent="HSplit/HBoxContainer/NameScroll"]
-margin_bottom = 480.0
+[node name="NoteName" type="VBoxContainer" parent="HSplit/HBoxContainer/VBoxContainer/NameScroll"]
+margin_bottom = 470.0
 size_flags_vertical = 3
 custom_constants/separation = 0
 
+[node name="Control" type="Control" parent="HSplit/HBoxContainer/VBoxContainer"]
+margin_top = 474.0
+margin_bottom = 480.0
+rect_min_size = Vector2( 0, 6 )
+
 [node name="Scroll" type="ScrollContainer" parent="HSplit/HBoxContainer"]
-margin_left = 4.0
 margin_right = 864.0
 margin_bottom = 480.0
 size_flags_horizontal = 3
 
 [node name="Notes" type="HBoxContainer" parent="HSplit/HBoxContainer/Scroll"]
-margin_right = 860.0
+margin_right = 864.0
 margin_bottom = 480.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="Grid" type="Node2D" parent="HSplit/HBoxContainer"]
+script = ExtResource( 2 )
+
 [connection signal="popup_hide" from="." to="." method="_unpopup"]
-[connection signal="resized" from="HSplit/HBoxContainer/NameScroll/NoteName" to="." method="_on_NoteName_resized"]
+[connection signal="resized" from="HSplit/HBoxContainer/VBoxContainer/NameScroll/NoteName" to="." method="_on_NoteName_resized"]
