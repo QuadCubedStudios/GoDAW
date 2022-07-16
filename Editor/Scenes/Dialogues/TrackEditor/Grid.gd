@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 const track_editor_script = preload("res://Editor/Scenes/Dialogues/TrackEditor/TrackEditor.gd")
 export var thickness = 2
@@ -6,13 +6,15 @@ export var color: Color
 export var border_color: Color
 
 export var track_editor_path: NodePath
+export var note_editor_container: NodePath
 
 func _draw():
 	var grid_size = get_parent().rect_size
+	var separation = get_node(note_editor_container).get_constant("separation")
 	var track_editor: track_editor_script = get_node(track_editor_path)
 	var size: int = track_editor.note_names.get_child(0).rect_size.y
 	var name_size = track_editor.name_scroll.rect_size.x
-	var xoffset = track_editor.scroll.scroll_horizontal % size - get_parent().get_constant("separation")
+	var xoffset = track_editor.scroll.scroll_horizontal % size - separation
 	var yoffset = track_editor.scroll.scroll_vertical % size
 		
 	# Grid in y direction

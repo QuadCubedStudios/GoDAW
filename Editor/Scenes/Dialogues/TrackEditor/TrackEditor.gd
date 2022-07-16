@@ -1,11 +1,11 @@
 extends WindowDialog
 
 onready var settings  = $HSplit/Settings
-onready var name_scroll = $HSplit/HBoxContainer/VBoxContainer/NameScroll
-onready var scroll = $HSplit/HBoxContainer/Scroll
-onready var note_names = $HSplit/HBoxContainer/VBoxContainer/NameScroll/NoteName
-onready var notes = $HSplit/HBoxContainer/Scroll/Notes
-onready var grid = $HSplit/HBoxContainer/Grid
+onready var name_scroll = $HSplit/NoteEditor/HBox/VBox/NameScroll
+onready var scroll = $HSplit/NoteEditor/HBox/Scroll
+onready var note_names = $HSplit/NoteEditor/HBox/VBox/NameScroll/NoteNames
+onready var notes = $HSplit/NoteEditor/HBox/Scroll/Notes
+onready var grid = $HSplit/NoteEditor/Grid
 
 var scrolling_on_editor = false
 
@@ -56,3 +56,6 @@ func h_scroll(_n): grid.update()
 
 func _on_NoteName_resized():
 	scroll.rect_size = name_scroll.rect_size
+
+
+func _on_TrackEditor_resized(): if grid: grid.update()
