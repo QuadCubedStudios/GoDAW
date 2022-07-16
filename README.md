@@ -13,14 +13,9 @@ While Godot was intended to be used as a game engine, it has a very flexible API
 In all honesty though, the GoDAW pun was too good to pass up, thanks to [@luiq54](https://github.com/luiq54) from the Pixelorama Discord server for the name!
 ![image](https://user-images.githubusercontent.com/11648300/119843934-a05bd480-bf25-11eb-8bd7-74b0d2100b85.png)
 
-Todo
+Roadmap
 --
-1. [X] [~~Polyphony~~](https://github.com/QuadCubedStudios/GoDAW/issues/35)
-2. [ ] [ADSR Envelop](https://github.com/QuadCubedStudios/GoDAW/issues/34)
-3. [ ] [Undo Redo](https://github.com/QuadCubedStudios/GoDAW/issues/42)
-4. [x] [~~Saving Projcet~~](https://github.com/QuadCubedStudios/GoDAW/issues/43)
-5. [ ] [Track Editor](https://github.com/QuadCubedStudios/GoDAW/issues/44)
-6. [ ] [More Instruments](https://github.com/QuadCubedStudios/GoDAW/issues/45)
+The Roadmap for GoDAW is tracked using github projects: https://github.com/QuadCubedStudios/GoDAW/projects/1
 
 Screenshots
 --
