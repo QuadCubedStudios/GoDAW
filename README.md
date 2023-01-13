@@ -1,5 +1,7 @@
 # GoDAW
 
+[![Join the chat at https://gitter.im/QuadCubedStudios/godaw](https://badges.gitter.im/QuadCubedStudios/godaw.svg)](https://gitter.im/QuadCubedStudios/godaw?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 What is GoDAW
 --
 GoDAW is a free and open source [DAW](https://en.wikipedia.org/wiki/Digital_audio_workstation) made using the [Godot](https://godotengine.org/) Game Engine.
