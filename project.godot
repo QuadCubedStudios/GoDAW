@@ -89,7 +89,9 @@ _global_script_class_icons={
 config/name="GoDAW"
 run/main_scene="res://Main.tscn"
 run/low_processor_mode=true
-config/icon="res://Icon.svg"
+boot_splash/image="res://Docs/Splash.png"
+boot_splash/bg_color=Color( 0.109804, 0.109804, 0.141176, 1 )
+config/icon="res://Docs/Icon.svg"
 
 [autoload]
 

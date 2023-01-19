@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Icon.svg-209197100d5fe6cba9c168636c60b76c.stex"
+path="res://.import/Splash.svg-6e8eafc1e92b621e197b31d294e18eb8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Icon.svg"
-dest_files=[ "res://.import/Icon.svg-209197100d5fe6cba9c168636c60b76c.stex" ]
+source_file="res://Docs/Splash.svg"
+dest_files=[ "res://.import/Splash.svg-6e8eafc1e92b621e197b31d294e18eb8.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true
