@@ -89,7 +89,7 @@ _global_script_class_icons={
 config/name="GoDAW"
 run/main_scene="res://Main.tscn"
 run/low_processor_mode=true
-config/icon="res://Icon.png"
+config/icon="res://Icon.svg"
 
 [autoload]
 
