@@ -2,6 +2,7 @@ extends VBoxContainer
 
 # Signals
 signal playback_finished()
+signal song_script_error(error)
 signal track_pressed (name)
 
 const BASE_SONG_SCRIPT = """extends SongScript
@@ -38,10 +39,20 @@ func sequence():
 	if !gui:
 		var file =  File.new()
 		var dir = Directory.new()
-		file.open("res://song.gd", File.WRITE)
+		file.open("user://song.gd", File.WRITE)
 		file.store_string(song_script_editor.text)
 		file.close()
-		var song: SongScript = load("res://song.gd").new()
+		
+		# Error check
+		var bin = OS.get_executable_path()
+		var err = []
+		print(OS.get_user_data_dir() + "/song.gd")
+		var _n = OS.execute(bin, ["-s", OS.get_user_data_dir() + "/song.gd", "--check-only", "--no-window"], true, err, true)
+		var error = (err[0] as String).substr(err[0].find("SCRIPT"))
+		if error:
+			emit_signal("song_script_error", error)
+			return
+		var song: SongScript = load("user://song.gd").new()
 		song.entry()
 		if song.sequence.tracks.size() != instrument_container.get_child_count():
 			sequencer.INSTRUMENTS.clear()

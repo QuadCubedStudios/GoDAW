@@ -118,6 +118,28 @@ filters = PoolStringArray( "*.wav ; Wav Files" )
 
 [node name="NewSong" parent="DialogManager" instance=ExtResource( 9 )]
 
+[node name="ErrorDialog" type="WindowDialog" parent="DialogManager"]
+visible = true
+margin_right = 480.0
+margin_bottom = 220.0
+window_title = "Error"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="DialogManager/ErrorDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ErrorMessage" type="Label" parent="DialogManager/ErrorDialog/ScrollContainer"]
+unique_name_in_owner = true
+margin_right = 480.0
+margin_bottom = 220.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+align = 1
+valign = 1
+autowrap = true
+
 [connection signal="project_changed" from="." to="TopMenu" method="project_changed"]
 [connection signal="project_changed" from="." to="Application/Main/SongEditor" method="project_changed"]
 [connection signal="export_pressed" from="TopMenu" to="." method="_on_TopMenu_export_pressed"]
@@ -131,6 +153,7 @@ filters = PoolStringArray( "*.wav ; Wav Files" )
 [connection signal="play" from="Application/Main/ControlPanel" to="Application/Main/SongEditor" method="_on_play"]
 [connection signal="stop" from="Application/Main/ControlPanel" to="Application/Main/SongEditor" method="_on_stop"]
 [connection signal="playback_finished" from="Application/Main/SongEditor" to="Application/Main/ControlPanel" method="_on_finished"]
+[connection signal="song_script_error" from="Application/Main/SongEditor" to="DialogManager" method="error"]
 [connection signal="track_pressed" from="Application/Main/SongEditor" to="DialogManager/TrackEditor" method="_popup"]
 [connection signal="confirmed" from="DialogManager/NewSong" to="DialogManager/NewSong" method="_confirmed"]
 [connection signal="new_project" from="DialogManager/NewSong" to="." method="set_project"]
