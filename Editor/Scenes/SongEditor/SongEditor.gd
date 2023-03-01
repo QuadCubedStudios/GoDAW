@@ -46,9 +46,17 @@ func sequence():
 		# Error check
 		var bin = OS.get_executable_path()
 		var err = []
-		print(OS.get_user_data_dir() + "/song.gd")
-		var _n = OS.execute(bin, ["-s", OS.get_user_data_dir() + "/song.gd", "--check-only", "--no-window"], true, err, true)
-		var error = (err[0] as String).substr(err[0].find("SCRIPT"))
+		print()
+		var script_location = OS.get_user_data_dir() + "/song.gd"
+		var _n = OS.execute(bin, ["-s", script_location, "--check-only", "--no-window"], true, err, true)
+		var error = (err[0] as String).substr(err[0].find("SCRIPT"))\
+			.replace(script_location, "SongScript")\
+			.replace(" (", "")\
+			.replace("GDScript::reload", "")
+		var prev = 0
+		for i in error.count("SongScript:"):
+			prev = error.find(")", error.find("SongScript"))
+			error[prev] = ""
 		if error:
 			emit_signal("song_script_error", error)
 			return
