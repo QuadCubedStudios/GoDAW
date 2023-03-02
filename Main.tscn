@@ -149,7 +149,7 @@ filters = PoolStringArray( "*.wav ; Wav Files" )
 
 [node name="ErrorDialog" type="WindowDialog" parent="DialogManager"]
 margin_right = 480.0
-margin_bottom = 220.0
+margin_bottom = 140.0
 window_title = "Error"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="DialogManager/ErrorDialog"]
@@ -161,7 +161,7 @@ size_flags_vertical = 3
 [node name="ErrorMessage" type="Label" parent="DialogManager/ErrorDialog/ScrollContainer"]
 unique_name_in_owner = true
 margin_right = 480.0
-margin_bottom = 220.0
+margin_bottom = 140.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 align = 1
@@ -183,6 +183,8 @@ autowrap = true
 [connection signal="playback_finished" from="Application/Main/SongEditor" to="Application/Main/ControlPanel" method="_on_finished"]
 [connection signal="song_script_error" from="Application/Main/SongEditor" to="Application/Main/ControlPanel" method="_on_finished"]
 [connection signal="song_script_error" from="Application/Main/SongEditor" to="DialogManager" method="error"]
+[connection signal="start_loading" from="Application/Main/SongEditor" to="DialogManager" method="start_loading"]
+[connection signal="stop_loading" from="Application/Main/SongEditor" to="DialogManager" method="stop_loading"]
 [connection signal="track_pressed" from="Application/Main/SongEditor" to="DialogManager/TrackEditor" method="_popup"]
 [connection signal="confirmed" from="DialogManager/NewSong" to="DialogManager/NewSong" method="_confirmed"]
 [connection signal="new_project" from="DialogManager/NewSong" to="." method="set_project"]

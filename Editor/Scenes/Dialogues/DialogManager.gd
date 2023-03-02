@@ -7,6 +7,7 @@ onready var progress_bar: ProgressBar = $ProgressDialog/VBoxContainer/ProgressBa
 onready var error_dialog: WindowDialog = $ErrorDialog
 onready var error_label: Label = $"%ErrorMessage"
 
+onready var loading_dialog: PopupDialog = $Loading
 onready var file_dialog: FileDialog = $FileDialog
 
 onready var documents_dir = OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)
@@ -30,3 +31,6 @@ func file(title: String, mode: int, filters: Array) -> void:
 func error(text: String):
 	error_label.text = text
 	error_dialog.popup_centered()
+
+func start_loading(): loading_dialog.popup_centered()
+func stop_loading(): loading_dialog.hide()

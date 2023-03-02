@@ -81,4 +81,3 @@ func _ready():
 func set_project(new_project):
 	project = new_project
 	emit_signal("project_changed", project)
-
