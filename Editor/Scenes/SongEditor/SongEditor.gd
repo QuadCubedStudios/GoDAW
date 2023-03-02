@@ -6,6 +6,7 @@ signal song_script_error(error)
 signal track_pressed (name)
 
 onready var BIN = OS.get_executable_path()
+const SONG_PATH = "user://song.gd"
 const BASE_SONG_SCRIPT = """extends SongScript
 
 
@@ -64,11 +65,10 @@ func check_error(script_location: String) -> String:
 func sequence() -> bool:
 	if !gui:
 		var file =  File.new()
-		file.open("user://song.gd", File.WRITE_READ)
+		file.open(SONG_PATH, File.WRITE_READ)
 		if in_file != song_script_editor.text:
 			file.store_string(song_script_editor.text)
-#			yield(get_tree(), "idle_frame")
-			in_file = file.get_as_text() # Idk why but the file isn't storing without this Wierd
+			file.flush()
 			var script_location = OS.get_user_data_dir() + "/song.gd"
 			error_text = check_error(script_location)
 			print(error_text)
@@ -109,10 +109,8 @@ func _on_stop():
 func _on_Sequencer_playback_finished():
 	emit_signal("playback_finished")
 
-
 func _on_TrackEditor_sequence_song(sequence):
 	sequencer.sequence(sequence)
-
 
 func project_changed(project: Project):
 	gui = true if project.project_type == Project.PROJECT_TYPE.GUI else false
