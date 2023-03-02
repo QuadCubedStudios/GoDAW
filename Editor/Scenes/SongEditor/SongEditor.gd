@@ -5,7 +5,9 @@ signal playback_finished()
 signal song_script_error(error)
 signal track_pressed (name)
 
+onready var BIN = OS.get_executable_path()
 const BASE_SONG_SCRIPT = """extends SongScript
+
 
 func song():
 	track("%s", [
@@ -15,12 +17,20 @@ func song():
 
 var gui: bool = true
 var track_name = preload("./TrackName.tscn")
+var in_error: bool = false
+var error_text = ""
+var in_file = ""
+var song_file: File
 
 onready var names = $TracksScroll/HBox/Names
 onready var song_script_editor = $SongScriptEditor
 onready var track_scroll = $TracksScroll
 onready var sequencer = $Sequencer
 onready var instrument_container = $InstrumentContainer
+
+func _ready():
+	song_file = File.new()
+	song_file.open("user://song.gd", File.WRITE_READ)
 
 # Takes a Button since it conveniently sends an icon and message
 # TODO: Not use button as param
@@ -35,33 +45,46 @@ func add_track(instrument: Button):
 	var inst := GoDAW.get_instrument(instrument.text)
 	$Sequencer.INSTRUMENTS[instrument.text] = inst
 
-func sequence():
+func check_error(script_location: String) -> String:
+	# Error check
+	var err = []
+	var _n = OS.execute(BIN, ["-s", script_location, "--check-only", "--no-window"], true, err, true)
+	var error = (err[0] as String).substr(err[0].find("SCRIPT"))\
+		.replace(script_location, "SongScript")\
+		.replace(" (", "")\
+		.replace("SCRIPT ERROR: ", "")\
+		.replace("GDScript::reload", "")
+	var prev = 0
+	for i in error.count("SongScript:"):
+		prev = error.find(")", error.find("SongScript"))
+		error[prev] = ""
+	return error
+
+# Return true if everything goes alright
+func sequence() -> bool:
 	if !gui:
 		var file =  File.new()
-		var dir = Directory.new()
-		file.open("user://song.gd", File.WRITE)
-		file.store_string(song_script_editor.text)
+		file.open("user://song.gd", File.WRITE_READ)
+		if in_file != song_script_editor.text:
+			file.store_string(song_script_editor.text)
+#			yield(get_tree(), "idle_frame")
+			in_file = file.get_as_text() # Idk why but the file isn't storing without this Wierd
+			var script_location = OS.get_user_data_dir() + "/song.gd"
+			error_text = check_error(script_location)
+			print(error_text)
+			in_error = error_text as bool
 		file.close()
 		
-		# Error check
-		var bin = OS.get_executable_path()
-		var err = []
-		print()
-		var script_location = OS.get_user_data_dir() + "/song.gd"
-		var _n = OS.execute(bin, ["-s", script_location, "--check-only", "--no-window"], true, err, true)
-		var error = (err[0] as String).substr(err[0].find("SCRIPT"))\
-			.replace(script_location, "SongScript")\
-			.replace(" (", "")\
-			.replace("GDScript::reload", "")
-		var prev = 0
-		for i in error.count("SongScript:"):
-			prev = error.find(")", error.find("SongScript"))
-			error[prev] = ""
-		if error:
-			emit_signal("song_script_error", error)
-			return
+		if in_error:
+			emit_signal("song_script_error", error_text)
+			return false
+		
 		var song: SongScript = load("user://song.gd").new()
-		song.entry()
+		if !song.has_method("song"):
+			emit_signal("song_script_error", "Script has no song method")
+			return false
+		song.sequence.tracks.clear()
+		song.song()
 		if song.sequence.tracks.size() != instrument_container.get_child_count():
 			sequencer.INSTRUMENTS.clear()
 			for instrument in instrument_container.get_children():
@@ -71,10 +94,11 @@ func sequence():
 				sequencer.INSTRUMENTS[track.instrument] = inst
 				instrument_container.add_child(inst)
 		sequencer.sequence(song.sequence)
+	return true
 
 func _on_play():
-	sequence()
-	sequencer.play()
+	if sequence():
+		sequencer.play()
 
 func _on_pause():
 	sequencer.pause()

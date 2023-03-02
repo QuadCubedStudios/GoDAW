@@ -44,7 +44,3 @@ func note(note_start_delta: float, duration: float, data) -> Note:
 # The function where notes go
 func song():
 	pass
-
-func entry():
-	sequence.tracks.clear()
-	song()

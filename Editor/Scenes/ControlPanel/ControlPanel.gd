@@ -29,7 +29,8 @@ func _on_StopButton_pressed():
 	buttons.Pause.disabled = true
 	buttons.Stop.disabled = true
 
-func _on_finished():
+func _on_finished(_n = ""):
+	yield(get_tree(), "idle_frame")
 	buttons.Play.disabled = false
 	buttons.Pause.disabled = true
 	buttons.Stop.disabled = true
