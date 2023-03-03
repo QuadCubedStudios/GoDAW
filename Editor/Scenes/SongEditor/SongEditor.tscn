@@ -61,6 +61,7 @@ margin_bottom = 706.0
 
 [node name="SongScriptEditor" parent="." instance=ExtResource( 1 )]
 visible = false
+margin_top = 14.0
 margin_right = 1280.0
 margin_bottom = 720.0
 

@@ -16,7 +16,7 @@ func _on_TopMenu_export_pressed():
 	var recorder = AudioEffectRecord.new()
 	AudioServer.add_bus_effect(0, recorder, AudioServer.get_bus_effect_count(0))
 	
-	var progress = dialog_manager.progress("Exporting", "Exporting...")
+	var progress = dialog_manager.progress("Exporting...")
 	progress.max_value = 100
 	sequencer.connect("on_note", progress, "set_value")
 	
@@ -60,8 +60,8 @@ func _ready():
 	var font = get_theme().get_default_font().font_data
 	instrument_panel.title.get_font("font", "Label").font_data = font
 	
-	#load instruments
-	var progress = dialog_manager.progress("Loading", "Loading...")
+	# Load instruments
+	var progress = dialog_manager.progress("Loading...")
 	var _n = GoDAW.connect("loading_progress_max_value_changed", progress, "set_max")
 	_n = GoDAW.connect("loading_progress_value_changed", progress, "set_value", [progress.value+1])
 	_n = GoDAW.connect("loading_instrument_changed", dialog_manager.progress_label, "set_text")
@@ -69,10 +69,15 @@ func _ready():
 	dialog_manager.hide_progress()
 	instrument_panel.reload_instruments()
 
-	#Project setup
+	# Clear song history.
+	var dir = Directory.new()
+	dir.open("user://")
+	if dir.file_exists("song.gd"):
+		dir.remove("song.gd")
+
+	# Project setup
 	set_project(Project.new())
 
 func set_project(new_project):
 	project = new_project
 	emit_signal("project_changed", project)
-

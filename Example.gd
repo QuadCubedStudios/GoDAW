@@ -1,6 +1,6 @@
 extends SongScript
 
-func entry():
+func song():
 	var d = 0.275
 	track("TripleOsc", [
 		pattern([

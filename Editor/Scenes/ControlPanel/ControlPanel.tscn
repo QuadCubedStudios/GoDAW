@@ -17,9 +17,6 @@ margin_bottom = -5.0
 custom_constants/separation = 10
 alignment = 1
 script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="PlayButton" type="TextureButton" parent="."]
 margin_left = 565.0
