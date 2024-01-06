@@ -6,9 +6,7 @@ What is GoDAW
 --
 GoDAW is a free and open source [DAW](https://en.wikipedia.org/wiki/Digital_audio_workstation) made using the [Godot](https://godotengine.org/) Game Engine.
 
-> Note: GoDAW is still in it's early alpha stage.
-
-Why?
+> Note: GoDAW is currently in hiatius. This project is still incomplete. The next step would be porting to Godot 4.
 --
 While Godot was intended to be used as a game engine, it has a very flexible API that allows for non-game applications, especially since the Godot Editor is itself built with Godot. Some examples include [Pixelorama](https://github.com/Orama-Interactive/Pixelorama) and [Material Maker](https://github.com/RodZill4/material-maker), which deal with images and texturing respectively. Godot also provides a decent audio API, and there was a distinct lack of Godot projects that use it for more than just playing sounds. Hence, GoDAW was born.
 
